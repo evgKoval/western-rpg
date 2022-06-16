@@ -24,5 +24,8 @@ namespace Codebase.Infrastructure.Factories
       
       return player;
     }
+
+    public GameObject CreateHUD() => 
+      _assetProvider.Instantiate(AssetPath.HUD);
   }
 }

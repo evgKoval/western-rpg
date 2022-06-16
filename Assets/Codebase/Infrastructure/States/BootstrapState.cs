@@ -2,6 +2,7 @@
 using Codebase.Infrastructure.Factories;
 using Codebase.Services;
 using Codebase.Services.Input;
+using UnityEngine;
 
 namespace Codebase.Infrastructure.States
 {
@@ -32,9 +33,18 @@ namespace Codebase.Infrastructure.States
 
     private void RegisterServices()
     {
-      _services.RegisterSingle<IInputService, StandaloneInputService>();
+      RegisterInputService();
       _services.RegisterSingle<IAssetProvider, AssetProvider>();
       _services.RegisterSingle<IGameFactory, GameFactory>();
+    }
+
+    private void RegisterInputService()
+    {
+#if UNITY_STANDALONE
+      _services.RegisterSingle<IInputService, StandaloneInputService>();
+#else
+      _services.RegisterSingle<IInputService, MobileInputService>();
+#endif
     }
 
     private void EnterLoadLevel() =>

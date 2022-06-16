@@ -38,8 +38,14 @@ namespace Codebase.Infrastructure.States
       _stateMachine.Enter<GameLoopState>();
     }
 
-    private void InitGameWorld() =>
+    private void InitGameWorld()
+    {
       InitPlayer();
+      InitHUD();
+    }
+
+    private void InitHUD() => 
+      _gameFactory.CreateHUD();
 
     private void InitPlayer()
     {
