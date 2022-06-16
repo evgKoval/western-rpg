@@ -1,4 +1,5 @@
 ﻿using Codebase.Infrastructure.AssetManagement;
+using UnityEngine;
 
 namespace Codebase.Infrastructure.Factories
 {
@@ -8,5 +9,8 @@ namespace Codebase.Infrastructure.Factories
 
     public GameFactory(IAssetProvider assetProvider) =>
       _assetProvider = assetProvider;
+
+    public GameObject CreatePlayer(Vector3 at) =>
+      _assetProvider.Instantiate(AssetPath.Player, at);
   }
 }

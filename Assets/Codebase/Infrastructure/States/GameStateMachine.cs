@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Codebase.Infrastructure.Factories;
 using Codebase.Logic;
 using Codebase.Services;
 
@@ -15,7 +16,7 @@ namespace Codebase.Infrastructure.States
       _states = new Dictionary<Type, IExitableState>
       {
         [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader, services),
-        [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, loadingCurtain),
+        [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, loadingCurtain, services.Single<IGameFactory>()),
         [typeof(GameLoopState)] = new GameLoopState(this),
       };
     }
