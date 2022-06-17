@@ -2,7 +2,6 @@
 using Codebase.Infrastructure.Factories;
 using Codebase.Services;
 using Codebase.Services.Input;
-using UnityEngine;
 
 namespace Codebase.Infrastructure.States
 {

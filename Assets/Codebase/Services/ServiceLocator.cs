@@ -8,7 +8,7 @@ namespace Codebase.Services
   public class ServiceLocator
   {
     public static ServiceLocator Container => _instance ??= new ServiceLocator();
-    
+
     private static ServiceLocator _instance;
 
     private readonly Dictionary<Type, IService> _services = new();
