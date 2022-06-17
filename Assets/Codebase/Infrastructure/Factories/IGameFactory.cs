@@ -7,5 +7,6 @@ namespace Codebase.Infrastructure.Factories
   {
     GameObject CreatePlayer(Vector3 at);
     GameObject CreateHUD();
+    GameObject CreatePlayerCamera();
   }
 }

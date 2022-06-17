@@ -41,16 +41,20 @@ namespace Codebase.Infrastructure.States
     private void InitGameWorld()
     {
       InitPlayer();
+      InitPlayerCamera();
       InitHUD();
     }
-
-    private void InitHUD() => 
-      _gameFactory.CreateHUD();
 
     private void InitPlayer()
     {
       Vector3 initialPosition = GameObject.FindWithTag(Initialposition).transform.position;
       _gameFactory.CreatePlayer(initialPosition);
     }
+
+    private void InitPlayerCamera() =>
+      _gameFactory.CreatePlayerCamera();
+
+    private void InitHUD() =>
+      _gameFactory.CreateHUD();
   }
 }
