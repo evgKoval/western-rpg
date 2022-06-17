@@ -28,6 +28,7 @@ namespace Codebase.Infrastructure.Factories
       _playerGameObject = _assetProvider.Instantiate(AssetPath.Player, at);
 
       _playerGameObject.GetComponent<Movement>().Construct(_inputService);
+      _playerGameObject.GetComponent<Aiming>().Construct(_inputService);
       BuildRig();
 
       return _playerGameObject;
@@ -50,7 +51,7 @@ namespace Codebase.Infrastructure.Factories
     private void BuildRig()
     {
       Transform aimLookAt = Camera.main.transform.Find(AimLookAt);
-      
+
       foreach (MultiAimConstraint multiAimConstraint in _playerGameObject.GetComponentsInChildren<MultiAimConstraint>())
         SetSourceObject(multiAimConstraint, aimLookAt);
 

@@ -391,7 +391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70b342d8ce5c2fd48b8fa3147d48d1d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weight: 1
+  m_Weight: 0
   m_Effectors: []
 --- !u!1 &2302022405394712941
 GameObject:
@@ -750,9 +750,10 @@ GameObject:
   - component: {fileID: 5535987779610587965}
   - component: {fileID: 6685167918278075402}
   - component: {fileID: 4550676803143653919}
+  - component: {fileID: 1042130180444598430}
   - component: {fileID: 3047570547577704821}
   - component: {fileID: -3001972257946066774}
-  - component: {fileID: 1042130180444598430}
+  - component: {fileID: 8498849956181086795}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -833,6 +834,28 @@ CapsuleCollider:
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!114 &1042130180444598430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5584606472433072421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fff0960ef4ea6e04eac66b4a7fd2189d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RigLayers:
+  - m_Rig: {fileID: 1457207253081114760}
+    m_Active: 1
+  - m_Rig: {fileID: 5734293396986610680}
+    m_Active: 1
+  - m_Rig: {fileID: 7557639342088717478}
+    m_Active: 1
+  - m_Rig: {fileID: 7700754650661311928}
+    m_Active: 1
+  m_Effectors: []
 --- !u!114 &3047570547577704821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -858,7 +881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _turningSpeed: 15
---- !u!114 &1042130180444598430
+--- !u!114 &8498849956181086795
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -867,19 +890,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5584606472433072421}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fff0960ef4ea6e04eac66b4a7fd2189d, type: 3}
+  m_Script: {fileID: 11500000, guid: 08b27787d75d4b01b7642c1b384d2f04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RigLayers:
-  - m_Rig: {fileID: 1457207253081114760}
-    m_Active: 1
-  - m_Rig: {fileID: 5734293396986610680}
-    m_Active: 1
-  - m_Rig: {fileID: 7557639342088717478}
-    m_Active: 1
-  - m_Rig: {fileID: 7700754650661311928}
-    m_Active: 1
-  m_Effectors: []
+  _aimingLayer: {fileID: 7557639342088717478}
+  _aimDuration: 0.3
 --- !u!1 &5584622810041936527
 GameObject:
   m_ObjectHideFlags: 0
