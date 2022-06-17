@@ -17,6 +17,9 @@ namespace Codebase.Services.Input
       }
     }
 
+    public override bool IsAimButton() =>
+      UnityEngine.Input.GetButton(AimButton);
+
     private static Vector2 UnityAxis() =>
       new Vector2(UnityEngine.Input.GetAxis(Horizontal), UnityEngine.Input.GetAxis(Vertical));
   }
