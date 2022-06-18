@@ -8,5 +8,8 @@ namespace Codebase.Services.Input
 
     public override bool IsAimButton() =>
       SimpleInput.GetButton(AimButton);
+
+    public override bool IsFiringButtonDown() =>
+      SimpleInput.GetButtonDown(FiringButton);
   }
 }

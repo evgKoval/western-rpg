@@ -9,6 +9,8 @@ namespace Codebase.Player
     [SerializeField] private Rig _aimingLayer;
     [SerializeField] private float _aimDuration;
 
+    public bool IsReady => Mathf.Approximately(_aimingLayer.weight, 1f);
+
     private IInputService _inputService;
 
     public void Construct(IInputService inputService) =>

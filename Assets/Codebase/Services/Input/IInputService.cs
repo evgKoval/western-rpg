@@ -6,5 +6,6 @@ namespace Codebase.Services.Input
   {
     Vector2 Axis { get; }
     bool IsAimButton();
+    bool IsFiringButtonDown();
   }
 }

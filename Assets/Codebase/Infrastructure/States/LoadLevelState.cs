@@ -25,6 +25,8 @@ namespace Codebase.Infrastructure.States
     {
       _loadingCurtain.Show();
 
+      _gameFactory.WarmUp();
+
       _sceneLoader.Load(sceneName, OnLoaded);
     }
 
@@ -43,6 +45,7 @@ namespace Codebase.Infrastructure.States
       InitPlayer();
       InitPlayerCamera();
       InitHUD();
+      InitWeapon();
     }
 
     private void InitPlayer()
@@ -56,5 +59,8 @@ namespace Codebase.Infrastructure.States
 
     private void InitHUD() =>
       _gameFactory.CreateHUD();
+
+    private void InitWeapon() => 
+      _gameFactory.CreateWeapon();
   }
 }
