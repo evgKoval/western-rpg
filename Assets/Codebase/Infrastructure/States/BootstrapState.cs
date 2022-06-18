@@ -2,6 +2,7 @@
 using Codebase.Infrastructure.Factories;
 using Codebase.Services;
 using Codebase.Services.Input;
+using Codebase.Services.StaticData;
 
 namespace Codebase.Infrastructure.States
 {
@@ -33,6 +34,7 @@ namespace Codebase.Infrastructure.States
     private void RegisterServices()
     {
       RegisterInputService();
+      _services.RegisterSingle<IStaticDataService, StaticDataService>();
       _services.RegisterSingle<IAssetProvider, AssetProvider>();
       _services.RegisterSingle<IGameFactory, GameFactory>();
     }
