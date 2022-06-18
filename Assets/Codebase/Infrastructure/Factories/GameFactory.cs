@@ -1,9 +1,11 @@
 ﻿using Cinemachine;
 using Codebase.Infrastructure.AssetManagement;
+using Codebase.Logic;
 using Codebase.Player;
 using Codebase.Services.Input;
 using Codebase.Services.StaticData;
 using Codebase.StaticData;
+using Codebase.UI;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 
@@ -45,8 +47,14 @@ namespace Codebase.Infrastructure.Factories
       return _playerGameObject;
     }
 
-    public GameObject CreateHUD() =>
-      _assetProvider.Instantiate(AssetPath.HUD);
+    public GameObject CreateHUD()
+    {
+      GameObject hud = _assetProvider.Instantiate(AssetPath.HUD);
+
+      hud.GetComponent<HUDBinding>().Construct(_playerGameObject.GetComponent<IHealth>());
+
+      return hud;
+    }
 
     public GameObject CreatePlayerCamera()
     {
