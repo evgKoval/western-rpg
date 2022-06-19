@@ -46,6 +46,7 @@ namespace Codebase.Infrastructure.States
       InitPlayerCamera();
       InitHUD();
       InitWeapon();
+      InitEnemies();
     }
 
     private void InitPlayer()
@@ -60,7 +61,10 @@ namespace Codebase.Infrastructure.States
     private void InitHUD() =>
       _gameFactory.CreateHUD();
 
-    private void InitWeapon() => 
+    private void InitWeapon() =>
       _gameFactory.CreateWeapon();
+
+    private void InitEnemies() =>
+      _gameFactory.CreateEnemy();
   }
 }

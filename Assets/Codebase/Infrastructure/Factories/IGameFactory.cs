@@ -10,5 +10,6 @@ namespace Codebase.Infrastructure.Factories
     GameObject CreateHUD();
     GameObject CreatePlayerCamera();
     GameObject CreateWeapon();
+    GameObject CreateEnemy();
   }
 }

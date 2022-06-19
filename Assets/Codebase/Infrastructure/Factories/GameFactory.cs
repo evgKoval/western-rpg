@@ -1,4 +1,5 @@
 ﻿using Cinemachine;
+using Codebase.Enemy;
 using Codebase.Infrastructure.AssetManagement;
 using Codebase.Logic;
 using Codebase.Player;
@@ -76,6 +77,15 @@ namespace Codebase.Infrastructure.Factories
       AttachWeaponToPlayer(weapon.transform);
 
       return weapon.gameObject;
+    }
+
+    public GameObject CreateEnemy()
+    {
+      GameObject enemy = _assetProvider.Instantiate(AssetPath.Enemy, new Vector3(0, 2.2f, 11f));
+
+      enemy.GetComponent<MoveToPlayer>().Construct(_playerGameObject.transform);
+
+      return enemy;
     }
 
     private void BuildRig()
