@@ -3,5 +3,6 @@
   public enum WeaponId
   {
     Shotgun,
+    Axe,
   }
 }

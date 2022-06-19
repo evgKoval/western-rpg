@@ -68,15 +68,17 @@ namespace Codebase.Infrastructure.Factories
       return playerCamera;
     }
 
-    public GameObject CreateWeapon()
+    public GameObject CreateWeapon(WeaponId weaponId, Transform whom)
     {
-      WeaponStaticData weaponData = _staticDataService.GetWeapon(WeaponId.Shotgun);
-      Weapon weapon = Object.Instantiate(weaponData.Prefab, _playerGameObject.transform.Find(WeaponPivot));
+      WeaponStaticData weaponData = _staticDataService.GetWeapon(weaponId);
+      GameObject weapon = Object.Instantiate(weaponData.Prefab, whom.Find(WeaponPivot));
 
-      _playerGameObject.GetComponent<Firing>().EquipWeapon(weapon);
-      AttachWeaponToPlayer(weapon.transform);
+      if (whom.TryGetComponent(out Firing firing))
+        firing.EquipWeapon(weapon.GetComponent<Weapon>());
 
-      return weapon.gameObject;
+      AttachWeapon(weapon.transform, whom);
+
+      return weapon;
     }
 
     public GameObject CreateEnemy()
@@ -98,14 +100,14 @@ namespace Codebase.Infrastructure.Factories
       _playerGameObject.GetComponentInChildren<RigBuilder>().Build();
     }
 
-    private void AttachWeaponToPlayer(Transform weapon)
+    private static void AttachWeapon(Transform weapon, Transform whom)
     {
-      TwoBoneIKConstraint[] twoBoneIKConstraints = _playerGameObject.GetComponentsInChildren<TwoBoneIKConstraint>();
+      TwoBoneIKConstraint[] twoBoneIKConstraints = whom.GetComponentsInChildren<TwoBoneIKConstraint>();
 
       twoBoneIKConstraints[0].data.target = weapon.Find(RightHandGrip);
       twoBoneIKConstraints[1].data.target = weapon.Find(LeftHandGrip);
 
-      _playerGameObject.GetComponentInChildren<RigBuilder>().Build();
+      whom.GetComponentInChildren<RigBuilder>().Build();
     }
 
     private static void SetSourceObject(MultiAimConstraint component, Transform aimLookAt)
