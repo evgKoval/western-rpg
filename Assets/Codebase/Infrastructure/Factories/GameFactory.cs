@@ -87,6 +87,7 @@ namespace Codebase.Infrastructure.Factories
 
       enemy.GetComponent<MoveToPlayer>().Construct(_playerGameObject.transform);
       enemy.GetComponent<MeleeAttack>().Construct(_playerGameObject.transform);
+      enemy.GetComponent<HUDBinding>().Construct(enemy.GetComponent<IHealth>());
 
       return enemy;
     }
