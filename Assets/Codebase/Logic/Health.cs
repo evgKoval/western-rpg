@@ -1,8 +1,7 @@
 ﻿using System;
-using Codebase.Logic;
 using UnityEngine;
 
-namespace Codebase.Player
+namespace Codebase.Logic
 {
   [RequireComponent(typeof(Animator))]
   public class Health : MonoBehaviour, IHealth

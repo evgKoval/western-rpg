@@ -1012,7 +1012,8 @@ GameObject:
   - component: {fileID: 2394898127220796519}
   - component: {fileID: 464021337797881366}
   - component: {fileID: 9208599148623323857}
-  m_Layer: 0
+  - component: {fileID: 4811497424584519527}
+  m_Layer: 9
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1159,7 +1160,7 @@ MonoBehaviour:
   _attackCooldown: 2
   _attackPointOffset: 1
   _attackRadius: 0.5
-  _damage: 1
+  _damage: 15
   _positionWeaponByY: 0.9
 --- !u!114 &464021337797881366
 MonoBehaviour:
@@ -1187,6 +1188,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _aggroZone: {fileID: 5784586309619791016}
+--- !u!114 &4811497424584519527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8694855099473585587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7cbca2ddece4ba4a2dff7c3f38d0403, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _max: 20
 --- !u!1 &8694907926270120483
 GameObject:
   m_ObjectHideFlags: 0
