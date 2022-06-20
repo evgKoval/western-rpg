@@ -1,5 +1,6 @@
 ﻿using Codebase.Infrastructure.Factories;
 using Codebase.Logic;
+using Codebase.StaticData;
 using UnityEngine;
 
 namespace Codebase.Infrastructure.States
@@ -45,14 +46,14 @@ namespace Codebase.Infrastructure.States
       InitPlayer();
       InitPlayerCamera();
       InitHUD();
-      InitWeapon();
       InitEnemies();
     }
 
     private void InitPlayer()
     {
       Vector3 initialPosition = GameObject.FindWithTag(Initialposition).transform.position;
-      _gameFactory.CreatePlayer(initialPosition);
+      GameObject player = _gameFactory.CreatePlayer(initialPosition);
+      _gameFactory.CreateWeapon(WeaponId.Shotgun, player.transform);
     }
 
     private void InitPlayerCamera() =>
@@ -61,10 +62,10 @@ namespace Codebase.Infrastructure.States
     private void InitHUD() =>
       _gameFactory.CreateHUD();
 
-    private void InitWeapon() =>
-      _gameFactory.CreateWeapon();
-
-    private void InitEnemies() =>
-      _gameFactory.CreateEnemy();
+    private void InitEnemies()
+    {
+      GameObject enemy = _gameFactory.CreateEnemy();
+      _gameFactory.CreateWeapon(WeaponId.Axe, enemy.transform);
+    }
   }
 }
