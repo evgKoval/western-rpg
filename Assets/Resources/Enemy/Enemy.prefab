@@ -893,6 +893,7 @@ GameObject:
   - component: {fileID: 2165393589282043170}
   - component: {fileID: 2478654328480489543}
   - component: {fileID: 8843408922972909347}
+  - component: {fileID: 2394898127220796519}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -999,7 +1000,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8694855099473585587}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2073392b5b1e463a811fedaebb6b663d, type: 3}
   m_Name: 
@@ -1023,6 +1024,23 @@ MonoBehaviour:
   - m_Rig: {fileID: 5540786727382938970}
     m_Active: 1
   m_Effectors: []
+--- !u!114 &2394898127220796519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8694855099473585587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76e422680c5d462abdf7a631383da185, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackCooldown: 2
+  _attackPointOffset: 1
+  _attackRadius: 0.5
+  _damage: 1
+  _positionWeaponByY: 0.9
 --- !u!1 &8694907926270120483
 GameObject:
   m_ObjectHideFlags: 0

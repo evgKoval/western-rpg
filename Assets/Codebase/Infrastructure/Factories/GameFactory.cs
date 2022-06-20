@@ -86,6 +86,7 @@ namespace Codebase.Infrastructure.Factories
       GameObject enemy = _assetProvider.Instantiate(AssetPath.Enemy, new Vector3(0, 2.2f, 11f));
 
       enemy.GetComponent<MoveToPlayer>().Construct(_playerGameObject.transform);
+      enemy.GetComponent<MeleeAttack>().Construct(_playerGameObject.transform);
 
       return enemy;
     }
