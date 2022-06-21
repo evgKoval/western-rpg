@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Codebase.Logic;
+using UnityEngine;
 using UnityEngine.Animations.Rigging;
 
 namespace Codebase.Player
