@@ -1,8 +1,8 @@
-﻿using Codebase.Logic;
+﻿using Codebase.Player;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 
-namespace Codebase.Player
+namespace Codebase.Logic
 {
   [RequireComponent(typeof(Health), typeof(Animator))]
   public class Death : MonoBehaviour
@@ -44,14 +44,11 @@ namespace Codebase.Player
 
     private void TurnOffAbilities()
     {
-      if (TryGetComponent(out Aiming aiming))
-        aiming.enabled = false;
-
-      if (TryGetComponent(out Firing firing))
-        firing.enabled = false;
-
-      if (TryGetComponent(out Rotating rotating))
-        rotating.enabled = false;
+      foreach (Component component in GetComponents(typeof(IDeathable)))
+      {
+        MonoBehaviour ability = (MonoBehaviour)component;
+        ability.enabled = false;
+      }
     }
 
     private void MakeBodyDontLookAtCamera() =>

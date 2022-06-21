@@ -1,10 +1,11 @@
-﻿using Codebase.Services.Input;
+﻿using Codebase.Logic;
+using Codebase.Services.Input;
 using UnityEngine;
 
 namespace Codebase.Player
 {
   [RequireComponent(typeof(Animator))]
-  public class Movement : MonoBehaviour
+  public class Movement : MonoBehaviour, IDeathable
   {
     private readonly int _velocityXHash = Animator.StringToHash("VelocityX");
     private readonly int _velocityZHash = Animator.StringToHash("VelocityZ");

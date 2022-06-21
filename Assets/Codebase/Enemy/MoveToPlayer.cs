@@ -1,10 +1,11 @@
-﻿using UnityEngine;
+﻿using Codebase.Logic;
+using UnityEngine;
 using UnityEngine.AI;
 
 namespace Codebase.Enemy
 {
   [RequireComponent(typeof(NavMeshAgent), typeof(Animator))]
-  public class MoveToPlayer : MonoBehaviour
+  public class MoveToPlayer : MonoBehaviour, IDeathable
   {
     private const string Velocity = "Velocity";
 
