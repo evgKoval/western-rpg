@@ -2,6 +2,8 @@
 using Codebase.Infrastructure.Factories;
 using Codebase.Services;
 using Codebase.Services.Input;
+using Codebase.Services.Progress;
+using Codebase.Services.Saving;
 using Codebase.Services.StaticData;
 
 namespace Codebase.Infrastructure.States
@@ -9,7 +11,6 @@ namespace Codebase.Infrastructure.States
   public class BootstrapState : IState
   {
     private const string InitialScene = "Initial";
-    private const string GameScene = "Game";
 
     private readonly IGameStateMachine _stateMachine;
     private readonly SceneLoader _sceneLoader;
@@ -35,6 +36,8 @@ namespace Codebase.Infrastructure.States
     {
       RegisterInputService();
       _services.RegisterSingle<IStaticDataService, StaticDataService>();
+      _services.RegisterSingle<IProgressService, ProgressService>();
+      _services.RegisterSingle<ISavingService, SavingService>();
       _services.RegisterSingle<IAssetProvider, AssetProvider>();
       _services.RegisterSingle<IGameFactory, GameFactory>();
     }
@@ -49,6 +52,6 @@ namespace Codebase.Infrastructure.States
     }
 
     private void EnterLoadLevel() =>
-      _stateMachine.Enter<LoadLevelState, string>(GameScene);
+      _stateMachine.Enter<LoadProgressState>();
   }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Codebase.Infrastructure.Factories;
 using Codebase.Logic;
 using Codebase.Services;
+using Codebase.Services.Saving;
 
 namespace Codebase.Infrastructure.States
 {
@@ -16,7 +17,18 @@ namespace Codebase.Infrastructure.States
       _states = new Dictionary<Type, IExitableState>
       {
         [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader, services),
-        [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, loadingCurtain, services.Single<IGameFactory>()),
+        [typeof(LoadProgressState)] = new LoadProgressState(
+          this,
+          services.Single<IProgressService>(),
+          services.Single<ISavingService>()
+        ),
+        [typeof(LoadLevelState)] = new LoadLevelState(
+          this,
+          sceneLoader,
+          loadingCurtain,
+          services.Single<IGameFactory>(),
+          services.Single<IProgressService>()
+        ),
         [typeof(GameLoopState)] = new GameLoopState(this),
       };
     }

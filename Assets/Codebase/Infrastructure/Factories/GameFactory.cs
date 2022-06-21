@@ -1,9 +1,11 @@
-﻿using Cinemachine;
+﻿using System.Collections.Generic;
+using Cinemachine;
 using Codebase.Enemy;
 using Codebase.Infrastructure.AssetManagement;
 using Codebase.Logic;
 using Codebase.Player;
 using Codebase.Services.Input;
+using Codebase.Services.Progress;
 using Codebase.Services.StaticData;
 using Codebase.StaticData;
 using Codebase.UI;
@@ -26,6 +28,9 @@ namespace Codebase.Infrastructure.Factories
 
     private GameObject _playerGameObject;
 
+    public List<ISaveable> ProgressSaveables { get; } = new();
+    public List<ILoadable> ProgressLoadables { get; } = new();
+
     public GameFactory(IAssetProvider assetProvider, IInputService inputService, IStaticDataService staticDataService)
     {
       _assetProvider = assetProvider;
@@ -36,9 +41,15 @@ namespace Codebase.Infrastructure.Factories
     public void WarmUp() =>
       _staticDataService.Load();
 
+    public void CleanUp()
+    {
+      ProgressLoadables.Clear();
+      ProgressSaveables.Clear();
+    }
+
     public GameObject CreatePlayer(Vector3 at)
     {
-      _playerGameObject = _assetProvider.Instantiate(AssetPath.Player, at);
+      _playerGameObject = InstantiateRegistered(AssetPath.Player, at);
 
       _playerGameObject.GetComponent<Movement>().Construct(_inputService);
       _playerGameObject.GetComponent<Aiming>().Construct(_inputService);
@@ -50,7 +61,7 @@ namespace Codebase.Infrastructure.Factories
 
     public GameObject CreateHUD()
     {
-      GameObject hud = _assetProvider.Instantiate(AssetPath.HUD);
+      GameObject hud = InstantiateRegistered(AssetPath.HUD);
 
       hud.GetComponent<HUDBinding>().Construct(_playerGameObject.GetComponent<IHealth>());
 
@@ -59,7 +70,7 @@ namespace Codebase.Infrastructure.Factories
 
     public GameObject CreatePlayerCamera()
     {
-      GameObject playerCamera = _assetProvider.Instantiate(AssetPath.PlayerCamera);
+      GameObject playerCamera = InstantiateRegistered(AssetPath.PlayerCamera);
 
       CinemachineFreeLook cinemachineComponent = playerCamera.GetComponent<CinemachineFreeLook>();
       cinemachineComponent.Follow = _playerGameObject.transform;
@@ -83,13 +94,43 @@ namespace Codebase.Infrastructure.Factories
 
     public GameObject CreateEnemy()
     {
-      GameObject enemy = _assetProvider.Instantiate(AssetPath.Enemy, new Vector3(0, 2.2f, 11f));
+      GameObject enemy = InstantiateRegistered(AssetPath.Enemy, new Vector3(0, 2.2f, 11f));
 
       enemy.GetComponent<MoveToPlayer>().Construct(_playerGameObject.transform);
       enemy.GetComponent<MeleeAttack>().Construct(_playerGameObject.transform);
       enemy.GetComponent<HUDBinding>().Construct(enemy.GetComponent<IHealth>());
 
       return enemy;
+    }
+
+    private GameObject InstantiateRegistered(string prefabPath)
+    {
+      GameObject gameObject = _assetProvider.Instantiate(prefabPath);
+      RegisterProgressWatchers(gameObject);
+
+      return gameObject;
+    }
+
+    private GameObject InstantiateRegistered(string prefabPath, Vector3 at)
+    {
+      GameObject gameObject = _assetProvider.Instantiate(prefabPath, at);
+      RegisterProgressWatchers(gameObject);
+
+      return gameObject;
+    }
+
+    private void RegisterProgressWatchers(GameObject gameObject)
+    {
+      foreach (ILoadable progressReader in gameObject.GetComponentsInChildren<ILoadable>())
+        Register(progressReader);
+    }
+
+    private void Register(ILoadable progressLoadable)
+    {
+      if (progressLoadable is ISaveable progressSaveable)
+        ProgressSaveables.Add(progressSaveable);
+
+      ProgressLoadables.Add(progressLoadable);
     }
 
     private void BuildRig()
