@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Codebase.Enemy
 {
   [RequireComponent(typeof(MeleeAttack))]
-  public class CheckAttackZone : MonoBehaviour
+  public class CheckAttackZone : MonoBehaviour, IDeathable
   {
     [SerializeField] private TriggerObserver _attackZone;
 
@@ -21,7 +21,7 @@ namespace Codebase.Enemy
       _attack.enabled = false;
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
       _attackZone.Enter -= StartAttack;
       _attackZone.Exit -= CancelAttack;

@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Codebase.Enemy
 {
   [RequireComponent(typeof(MoveToPlayer))]
-  public class CheckAggroZone : MonoBehaviour
+  public class CheckAggroZone : MonoBehaviour, IDeathable
   {
     [SerializeField] private TriggerObserver _aggroZone;
 
@@ -21,7 +21,7 @@ namespace Codebase.Enemy
       _movement.enabled = false;
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
       _aggroZone.Enter -= StartMoving;
       _aggroZone.Exit -= CancelMoving;

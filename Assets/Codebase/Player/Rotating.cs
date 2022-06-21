@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using Codebase.Logic;
+using UnityEngine;
 
 namespace Codebase.Player
 {
-  public class Rotating : MonoBehaviour
+  public class Rotating : MonoBehaviour, IDeathable
   {
     [SerializeField] private float _turningSpeed;
 

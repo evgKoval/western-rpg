@@ -1,10 +1,11 @@
-﻿using Codebase.Services.Input;
+﻿using Codebase.Logic;
+using Codebase.Services.Input;
 using UnityEngine;
 
 namespace Codebase.Player
 {
   [RequireComponent(typeof(Aiming))]
-  public class Firing : MonoBehaviour
+  public class Firing : MonoBehaviour, IDeathable
   {
     private IInputService _inputService;
     private Weapon _weapon;

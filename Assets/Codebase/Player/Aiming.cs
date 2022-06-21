@@ -1,10 +1,11 @@
-﻿using Codebase.Services.Input;
+﻿using Codebase.Logic;
+using Codebase.Services.Input;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 
 namespace Codebase.Player
 {
-  public class Aiming : MonoBehaviour
+  public class Aiming : MonoBehaviour, IDeathable
   {
     [SerializeField] private Rig _aimingLayer;
     [SerializeField] private float _aimDuration;

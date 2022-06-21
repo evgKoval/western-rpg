@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Codebase.Enemy
 {
   [RequireComponent(typeof(Animator))]
-  public class MeleeAttack : MonoBehaviour
+  public class MeleeAttack : MonoBehaviour, IDeathable
   {
     private const string Attack = "Attack";
     private const string Player = "Player";
