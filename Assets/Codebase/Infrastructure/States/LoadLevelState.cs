@@ -1,5 +1,7 @@
 ﻿using Codebase.Infrastructure.Factories;
 using Codebase.Logic;
+using Codebase.Services;
+using Codebase.Services.Progress;
 using Codebase.StaticData;
 using UnityEngine;
 
@@ -13,19 +15,28 @@ namespace Codebase.Infrastructure.States
     private readonly SceneLoader _sceneLoader;
     private readonly LoadingCurtain _loadingCurtain;
     private readonly IGameFactory _gameFactory;
+    private readonly IProgressService _progressService;
 
-    public LoadLevelState(IGameStateMachine gameStateMachine, SceneLoader sceneLoader, LoadingCurtain loadingCurtain, IGameFactory gameFactory)
+    public LoadLevelState(
+      IGameStateMachine gameStateMachine,
+      SceneLoader sceneLoader,
+      LoadingCurtain loadingCurtain,
+      IGameFactory gameFactory,
+      IProgressService progressService
+    )
     {
       _stateMachine = gameStateMachine;
       _sceneLoader = sceneLoader;
       _loadingCurtain = loadingCurtain;
       _gameFactory = gameFactory;
+      _progressService = progressService;
     }
 
     public void Enter(string sceneName)
     {
       _loadingCurtain.Show();
 
+      _gameFactory.CleanUp();
       _gameFactory.WarmUp();
 
       _sceneLoader.Load(sceneName, OnLoaded);
@@ -37,6 +48,7 @@ namespace Codebase.Infrastructure.States
     private void OnLoaded()
     {
       InitGameWorld();
+      InformProgressLoadables();
 
       _stateMachine.Enter<GameLoopState>();
     }
@@ -66,6 +78,12 @@ namespace Codebase.Infrastructure.States
     {
       GameObject enemy = _gameFactory.CreateEnemy();
       _gameFactory.CreateWeapon(WeaponId.Axe, enemy.transform);
+    }
+
+    private void InformProgressLoadables()
+    {
+      foreach (ILoadable progressLoadable in _gameFactory.ProgressLoadables)
+        progressLoadable.LoadProgress(_progressService.Progress);
     }
   }
 }
