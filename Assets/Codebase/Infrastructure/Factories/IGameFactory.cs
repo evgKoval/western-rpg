@@ -16,6 +16,7 @@ namespace Codebase.Infrastructure.Factories
     GameObject CreateHUD();
     GameObject CreatePlayerCamera();
     GameObject CreateWeapon(WeaponId weaponId, Transform whom);
-    GameObject CreateEnemy();
+    void CreateSpawner(string id, Vector3 position);
+    GameObject CreateEnemy(Vector3 position);
   }
 }

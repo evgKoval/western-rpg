@@ -1,4 +1,4 @@
-﻿using Codebase.Player;
+﻿using System;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 
@@ -13,6 +13,8 @@ namespace Codebase.Logic
     private Health _health;
     private Animator _animator;
     private bool _isDead;
+
+    public event Action Happened;
 
     private void Awake()
     {
@@ -40,6 +42,7 @@ namespace Codebase.Logic
       MakeBodyDontLookAtCamera();
 
       _animator.SetTrigger(DeathState);
+      Happened?.Invoke();
     }
 
     private void TurnOffAbilities()

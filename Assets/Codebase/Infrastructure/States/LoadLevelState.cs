@@ -2,27 +2,29 @@
 using Codebase.Logic;
 using Codebase.Services;
 using Codebase.Services.Progress;
+using Codebase.Services.StaticData;
 using Codebase.StaticData;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Codebase.Infrastructure.States
 {
   public class LoadLevelState : IPayloadedState<string>
   {
-    private const string Initialposition = "InitialPosition";
-
     private readonly IGameStateMachine _stateMachine;
     private readonly SceneLoader _sceneLoader;
     private readonly LoadingCurtain _loadingCurtain;
     private readonly IGameFactory _gameFactory;
     private readonly IProgressService _progressService;
+    private readonly IStaticDataService _staticDataService;
 
     public LoadLevelState(
       IGameStateMachine gameStateMachine,
       SceneLoader sceneLoader,
       LoadingCurtain loadingCurtain,
       IGameFactory gameFactory,
-      IProgressService progressService
+      IProgressService progressService,
+      IStaticDataService staticDataService
     )
     {
       _stateMachine = gameStateMachine;
@@ -30,6 +32,7 @@ namespace Codebase.Infrastructure.States
       _loadingCurtain = loadingCurtain;
       _gameFactory = gameFactory;
       _progressService = progressService;
+      _staticDataService = staticDataService;
     }
 
     public void Enter(string sceneName)
@@ -55,16 +58,20 @@ namespace Codebase.Infrastructure.States
 
     private void InitGameWorld()
     {
-      InitPlayer();
+      LevelStaticData levelData = GetLevelData();
+
+      InitPlayer(levelData);
       InitPlayerCamera();
       InitHUD();
-      InitEnemies();
+      InitSpawners(levelData);
     }
 
-    private void InitPlayer()
+    private LevelStaticData GetLevelData() =>
+      _staticDataService.GetLevel(SceneManager.GetActiveScene().name);
+
+    private void InitPlayer(LevelStaticData levelData)
     {
-      Vector3 initialPosition = GameObject.FindWithTag(Initialposition).transform.position;
-      GameObject player = _gameFactory.CreatePlayer(initialPosition);
+      GameObject player = _gameFactory.CreatePlayer(at: levelData.InitialPosition);
       _gameFactory.CreateWeapon(WeaponId.Shotgun, player.transform);
     }
 
@@ -74,10 +81,10 @@ namespace Codebase.Infrastructure.States
     private void InitHUD() =>
       _gameFactory.CreateHUD();
 
-    private void InitEnemies()
+    private void InitSpawners(LevelStaticData levelData)
     {
-      GameObject enemy = _gameFactory.CreateEnemy();
-      _gameFactory.CreateWeapon(WeaponId.Axe, enemy.transform);
+      foreach (EnemySpawnerStaticData spawnerData in levelData.EnemySpawners)
+        _gameFactory.CreateSpawner(spawnerData.Id, spawnerData.Position);
     }
 
     private void InformProgressLoadables()

@@ -6,5 +6,6 @@ namespace Codebase.Services.StaticData
   {
     void Load();
     WeaponStaticData GetWeapon(WeaponId id);
+    LevelStaticData GetLevel(string sceneName);
   }
 }
