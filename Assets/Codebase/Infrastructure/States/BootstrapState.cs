@@ -5,6 +5,7 @@ using Codebase.Services.Input;
 using Codebase.Services.Progress;
 using Codebase.Services.Saving;
 using Codebase.Services.StaticData;
+using Codebase.Services.Window;
 
 namespace Codebase.Infrastructure.States
 {
@@ -40,6 +41,8 @@ namespace Codebase.Infrastructure.States
       _services.RegisterSingle<ISavingService, SavingService>();
       _services.RegisterSingle<IAssetProvider, AssetProvider>();
       _services.RegisterSingle<IGameFactory, GameFactory>();
+      _services.RegisterSingle<IUIFactory, UIFactory>();
+      _services.RegisterSingle<IWindowService, WindowService>();
     }
 
     private void RegisterInputService()

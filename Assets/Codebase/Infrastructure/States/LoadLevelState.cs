@@ -17,6 +17,7 @@ namespace Codebase.Infrastructure.States
     private readonly IGameFactory _gameFactory;
     private readonly IProgressService _progressService;
     private readonly IStaticDataService _staticDataService;
+    private readonly IUIFactory _uiFactory;
 
     public LoadLevelState(
       IGameStateMachine gameStateMachine,
@@ -24,7 +25,8 @@ namespace Codebase.Infrastructure.States
       LoadingCurtain loadingCurtain,
       IGameFactory gameFactory,
       IProgressService progressService,
-      IStaticDataService staticDataService
+      IStaticDataService staticDataService,
+      IUIFactory uiFactory
     )
     {
       _stateMachine = gameStateMachine;
@@ -33,6 +35,7 @@ namespace Codebase.Infrastructure.States
       _gameFactory = gameFactory;
       _progressService = progressService;
       _staticDataService = staticDataService;
+      _uiFactory = uiFactory;
     }
 
     public void Enter(string sceneName)
@@ -50,11 +53,15 @@ namespace Codebase.Infrastructure.States
 
     private void OnLoaded()
     {
+      InitRootCanvas();
       InitGameWorld();
       InformProgressLoadables();
 
       _stateMachine.Enter<GameLoopState>();
     }
+
+    private void InitRootCanvas() =>
+      _uiFactory.CreateRootCanvas();
 
     private void InitGameWorld()
     {
