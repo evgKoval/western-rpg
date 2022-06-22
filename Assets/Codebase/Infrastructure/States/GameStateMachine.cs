@@ -4,6 +4,7 @@ using Codebase.Infrastructure.Factories;
 using Codebase.Logic;
 using Codebase.Services;
 using Codebase.Services.Saving;
+using Codebase.Services.StaticData;
 
 namespace Codebase.Infrastructure.States
 {
@@ -27,7 +28,8 @@ namespace Codebase.Infrastructure.States
           sceneLoader,
           loadingCurtain,
           services.Single<IGameFactory>(),
-          services.Single<IProgressService>()
+          services.Single<IProgressService>(),
+          services.Single<IStaticDataService>()
         ),
         [typeof(GameLoopState)] = new GameLoopState(this),
       };

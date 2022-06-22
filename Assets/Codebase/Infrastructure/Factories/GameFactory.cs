@@ -92,9 +92,15 @@ namespace Codebase.Infrastructure.Factories
       return weapon;
     }
 
-    public GameObject CreateEnemy()
+    public void CreateSpawner(string id, Vector3 position)
     {
-      GameObject enemy = InstantiateRegistered(AssetPath.Enemy, new Vector3(0, 2.2f, 11f));
+      EnemySpawner spawner = InstantiateRegistered(AssetPath.Spawner, position).GetComponent<EnemySpawner>();
+      spawner.Construct(this, id);
+    }
+
+    public GameObject CreateEnemy(Vector3 position)
+    {
+      GameObject enemy = InstantiateRegistered(AssetPath.Enemy, position);
 
       enemy.GetComponent<MoveToPlayer>().Construct(_playerGameObject.transform);
       enemy.GetComponent<MeleeAttack>().Construct(_playerGameObject.transform);
