@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Game
   m_EditorClassIdentifier: 
   LevelName: Game
+  InitialPosition: {x: 0, y: 2, z: 0}
   EnemySpawners:
   - Id: Game_2b904277-240d-4875-bfd5-8367e9b4e514
     Position: {x: -11.318362, y: 2.1195574, z: 19.22502}
@@ -22,4 +23,3 @@ MonoBehaviour:
     Position: {x: 9.054166, y: 0.90288925, z: 12.88435}
   - Id: Game_7ea63912-72a6-4ecf-8f62-c63817c769b4
     Position: {x: 3.6431265, y: 2.031968, z: 19.343273}
-  InitialPosition: {x: 0, y: 2, z: 0}

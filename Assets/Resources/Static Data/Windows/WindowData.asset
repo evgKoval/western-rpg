@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74c58ddc7ab646b3b7da6e1a3af2f075, type: 3}
   m_Name: WindowData
   m_EditorClassIdentifier: 
-  Configs: []
+  Configs:
+  - WindowId: 0
+    Template: {fileID: 5651288442471225767, guid: 6344a3ef8e821554186cc36dd1695a44,
+      type: 3}

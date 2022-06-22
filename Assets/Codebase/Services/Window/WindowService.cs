@@ -12,6 +12,12 @@ namespace Codebase.Services.Window
 
     public void Open(WindowId id)
     {
+      switch (id)
+      {
+        case WindowId.Pause:
+          _uiFactory.CreatePauseWindow();
+          break;
+      }
     }
   }
 }

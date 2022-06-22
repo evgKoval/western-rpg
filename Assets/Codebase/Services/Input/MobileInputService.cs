@@ -11,5 +11,8 @@ namespace Codebase.Services.Input
 
     public override bool IsFiringButtonDown() =>
       SimpleInput.GetButtonDown(FiringButton);
+
+    public override bool IsPauseButtonDown() =>
+      SimpleInput.GetButtonDown(EscapeButton);
   }
 }

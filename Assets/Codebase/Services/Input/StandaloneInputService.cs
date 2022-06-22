@@ -23,6 +23,9 @@ namespace Codebase.Services.Input
     public override bool IsFiringButtonDown() =>
       UnityEngine.Input.GetButtonDown(FiringButton);
 
+    public override bool IsPauseButtonDown() =>
+      UnityEngine.Input.GetButtonDown(EscapeButton);
+
     private static Vector2 UnityAxis() =>
       new Vector2(UnityEngine.Input.GetAxis(Horizontal), UnityEngine.Input.GetAxis(Vertical));
   }
