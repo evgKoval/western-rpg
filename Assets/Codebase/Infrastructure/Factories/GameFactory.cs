@@ -47,6 +47,7 @@ namespace Codebase.Infrastructure.Factories
     {
       ProgressLoadables.Clear();
       ProgressSaveables.Clear();
+      Pauseables.Clear();
     }
 
     public GameObject CreatePlayer(Vector3 at)

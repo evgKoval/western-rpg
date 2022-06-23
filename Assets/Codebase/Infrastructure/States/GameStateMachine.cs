@@ -32,7 +32,7 @@ namespace Codebase.Infrastructure.States
           services.Single<IStaticDataService>(),
           services.Single<IUIFactory>()
         ),
-        [typeof(GameLoopState)] = new GameLoopState(this),
+        [typeof(GameLoopState)] = new GameLoopState(services),
       };
     }
 

@@ -1,6 +1,8 @@
 ﻿using Codebase.Infrastructure.AssetManagement;
+using Codebase.Infrastructure.States;
 using Codebase.Services.Input;
 using Codebase.Services.Pause;
+using Codebase.Services.Saving;
 using Codebase.Services.StaticData;
 using Codebase.StaticData;
 using Codebase.UI;
@@ -15,6 +17,8 @@ namespace Codebase.Infrastructure.Factories
     private readonly IStaticDataService _staticData;
     private readonly IInputService _inputService;
     private readonly IPauseService _pauseService;
+    private readonly ISavingService _savingService;
+    private readonly IGameStateMachine _stateMachine;
 
     private Transform _rootCanvas;
 
@@ -22,13 +26,17 @@ namespace Codebase.Infrastructure.Factories
       IAssetProvider assetProvider,
       IStaticDataService staticData,
       IInputService inputService,
-      IPauseService pauseService
+      IPauseService pauseService,
+      ISavingService savingService,
+      IGameStateMachine stateMachine
     )
     {
       _assetProvider = assetProvider;
       _staticData = staticData;
       _inputService = inputService;
       _pauseService = pauseService;
+      _savingService = savingService;
+      _stateMachine = stateMachine;
     }
 
     public void CreateRootCanvas()
@@ -42,7 +50,7 @@ namespace Codebase.Infrastructure.Factories
     {
       WindowConfig config = _staticData.GetWindow(WindowId.Pause);
       PauseWindow window = Object.Instantiate(config.Template, _rootCanvas) as PauseWindow;
-      window.Construct(_pauseService);
+      window.Construct(_pauseService, _savingService, _stateMachine);
     }
   }
 }
