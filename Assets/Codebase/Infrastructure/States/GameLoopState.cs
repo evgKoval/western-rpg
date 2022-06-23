@@ -1,14 +1,16 @@
-﻿namespace Codebase.Infrastructure.States
+﻿using Codebase.Services;
+
+namespace Codebase.Infrastructure.States
 {
   public class GameLoopState : IState
   {
-    public GameLoopState(GameStateMachine stateMachine)
-    {
-    }
+    private readonly ServiceLocator _services;
 
-    public void Exit()
-    {
-    }
+    public GameLoopState(ServiceLocator services) =>
+      _services = services;
+
+    public void Exit() =>
+      _services.DisposeAll();
 
     public void Enter()
     {

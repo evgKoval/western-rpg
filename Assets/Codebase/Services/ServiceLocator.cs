@@ -13,6 +13,9 @@ namespace Codebase.Services
 
     private readonly Dictionary<Type, IService> _services = new();
 
+    public void RegisterSingle<TService>(TService service) where TService : IService =>
+      _services.Add(typeof(TService), service);
+
     public void RegisterSingle<TService, TImplementation>()
       where TService : IService
       where TImplementation : class, IService =>

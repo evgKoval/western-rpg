@@ -29,9 +29,10 @@ namespace Codebase.Infrastructure.States
           loadingCurtain,
           services.Single<IGameFactory>(),
           services.Single<IProgressService>(),
-          services.Single<IStaticDataService>()
+          services.Single<IStaticDataService>(),
+          services.Single<IUIFactory>()
         ),
-        [typeof(GameLoopState)] = new GameLoopState(this),
+        [typeof(GameLoopState)] = new GameLoopState(services),
       };
     }
 

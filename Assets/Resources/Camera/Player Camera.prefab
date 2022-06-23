@@ -196,7 +196,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.0088496, y: 1}
+    m_SensorSize: {x: 1.9324961, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -274,7 +274,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.0088496, y: 1}
+    m_SensorSize: {x: 1.9324961, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -294,6 +294,7 @@ GameObject:
   - component: {fileID: 1773267076769104562}
   - component: {fileID: 1773267076769104565}
   - component: {fileID: 6393695441544817457}
+  - component: {fileID: 1337408046022150066}
   m_Layer: 0
   m_Name: Player Camera
   m_TagString: Untagged
@@ -349,7 +350,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.0088496, y: 1}
+    m_SensorSize: {x: 1.9324961, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -438,6 +439,18 @@ MonoBehaviour:
   m_Offset: {x: 0.6, y: -0.15, z: 0.8}
   m_ApplyAfter: 1
   m_PreserveComposition: 0
+--- !u!114 &1337408046022150066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773267076769104564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ad7c20937244e7b90bab653d1ec5506, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1773267076902436925
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,7 +647,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.0088496, y: 1}
+    m_SensorSize: {x: 1.9324961, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

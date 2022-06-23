@@ -1,11 +1,12 @@
 ﻿using System.Linq;
 using Codebase.Logic;
+using Codebase.Services.Pause;
 using UnityEngine;
 
 namespace Codebase.Enemy
 {
   [RequireComponent(typeof(Animator))]
-  public class MeleeAttack : MonoBehaviour, IDeathable
+  public class MeleeAttack : MonoBehaviour, IDeathable, IPauseable
   {
     private const string Attack = "Attack";
     private const string Player = "Player";
@@ -24,6 +25,8 @@ namespace Codebase.Enemy
     private float _cooldownTimeLeft;
     private bool _isAttacking;
 
+    public bool IsPaused { get; private set; }
+
     public void Construct(Transform player) =>
       _player = player;
 
@@ -35,6 +38,9 @@ namespace Codebase.Enemy
 
     private void Update()
     {
+      if (IsPaused)
+        return;
+
       UpdateCooldown();
 
       if (CanAttack())
@@ -87,5 +93,19 @@ namespace Codebase.Enemy
 
     private bool CooldownIsUp() =>
       _cooldownTimeLeft <= 0f;
+
+    public void Pause()
+    {
+      IsPaused = true;
+
+      _animator.enabled = false;
+    }
+
+    public void Resume()
+    {
+      IsPaused = false;
+
+      _animator.enabled = true;
+    }
   }
 }

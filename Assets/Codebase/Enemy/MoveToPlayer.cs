@@ -1,11 +1,12 @@
 ﻿using Codebase.Logic;
+using Codebase.Services.Pause;
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace Codebase.Enemy
 {
   [RequireComponent(typeof(NavMeshAgent), typeof(Animator))]
-  public class MoveToPlayer : MonoBehaviour, IDeathable
+  public class MoveToPlayer : MonoBehaviour, IDeathable, IPauseable
   {
     private const string Velocity = "Velocity";
 
@@ -14,6 +15,8 @@ namespace Codebase.Enemy
     private NavMeshAgent _agent;
     private Transform _player;
     private Animator _animator;
+
+    public bool IsPaused { get; private set; }
 
     public void Construct(Transform player) =>
       _player = player;
@@ -26,6 +29,9 @@ namespace Codebase.Enemy
 
     private void Update()
     {
+      if (IsPaused)
+        return;
+
       if (_player && IsNotCloseToPlayer())
         _agent.destination = _player.position;
 
@@ -36,6 +42,22 @@ namespace Codebase.Enemy
     {
       float distance = Vector3.Distance(transform.position, _player.position);
       return _minimalDistance <= distance;
+    }
+
+    public void Pause()
+    {
+      IsPaused = true;
+
+      _animator.enabled = false;
+
+      _agent.ResetPath();
+    }
+
+    public void Resume()
+    {
+      IsPaused = false;
+
+      _animator.enabled = true;
     }
   }
 }

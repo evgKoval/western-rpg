@@ -1,6 +1,7 @@
 ﻿using Codebase.Data;
 using Codebase.Logic;
 using Codebase.Services.Input;
+using Codebase.Services.Pause;
 using Codebase.Services.Progress;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,7 +9,7 @@ using UnityEngine.SceneManagement;
 namespace Codebase.Player
 {
   [RequireComponent(typeof(Animator))]
-  public class Movement : MonoBehaviour, IDeathable, ISaveable
+  public class Movement : MonoBehaviour, IDeathable, ISaveable, IPauseable
   {
     private readonly int _velocityXHash = Animator.StringToHash("VelocityX");
     private readonly int _velocityZHash = Animator.StringToHash("VelocityZ");
@@ -16,14 +17,21 @@ namespace Codebase.Player
     private Animator _animator;
     private IInputService _inputService;
 
+    public bool IsPaused { get; private set; }
+
     public void Construct(IInputService inputService) =>
       _inputService = inputService;
 
     private void Awake() =>
       _animator = GetComponent<Animator>();
 
-    private void Update() =>
+    private void Update()
+    {
+      if (IsPaused)
+        return;
+
       Move();
+    }
 
     public void SaveProgress(PlayerProgress progress)
     {
@@ -50,6 +58,20 @@ namespace Codebase.Player
     private static string CurrentLevel()
     {
       return SceneManager.GetActiveScene().name;
+    }
+
+    public void Pause()
+    {
+      IsPaused = true;
+
+      _animator.enabled = false;
+    }
+
+    public void Resume()
+    {
+      IsPaused = false;
+
+      _animator.enabled = true;
     }
   }
 }

@@ -7,5 +7,6 @@
     public const string PlayerCamera = "Camera/Player Camera";
     public const string Enemy = "Enemy/Enemy";
     public const string Spawner = "Enemy/Enemy Spawner";
+    public const string RootCanvas = "UI/Root Canvas";
   }
 }
