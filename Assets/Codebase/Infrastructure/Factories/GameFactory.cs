@@ -5,6 +5,7 @@ using Codebase.Infrastructure.AssetManagement;
 using Codebase.Logic;
 using Codebase.Player;
 using Codebase.Services.Input;
+using Codebase.Services.Pause;
 using Codebase.Services.Progress;
 using Codebase.Services.StaticData;
 using Codebase.StaticData;
@@ -30,6 +31,7 @@ namespace Codebase.Infrastructure.Factories
 
     public List<ISaveable> ProgressSaveables { get; } = new();
     public List<ILoadable> ProgressLoadables { get; } = new();
+    public List<IPauseable> Pauseables { get; } = new();
 
     public GameFactory(IAssetProvider assetProvider, IInputService inputService, IStaticDataService staticDataService)
     {
@@ -113,6 +115,7 @@ namespace Codebase.Infrastructure.Factories
     {
       GameObject gameObject = _assetProvider.Instantiate(prefabPath);
       RegisterProgressWatchers(gameObject);
+      RegisterPauseables(gameObject);
 
       return gameObject;
     }
@@ -121,6 +124,7 @@ namespace Codebase.Infrastructure.Factories
     {
       GameObject gameObject = _assetProvider.Instantiate(prefabPath, at);
       RegisterProgressWatchers(gameObject);
+      RegisterPauseables(gameObject);
 
       return gameObject;
     }
@@ -137,6 +141,12 @@ namespace Codebase.Infrastructure.Factories
         ProgressSaveables.Add(progressSaveable);
 
       ProgressLoadables.Add(progressLoadable);
+    }
+
+    private void RegisterPauseables(GameObject gameObject)
+    {
+      foreach (IPauseable pauseable in gameObject.GetComponentsInChildren<IPauseable>())
+        Pauseables.Add(pauseable);
     }
 
     private void BuildRig()

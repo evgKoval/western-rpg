@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Codebase.Services.Pause;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Codebase.UI.Windows
@@ -10,6 +11,14 @@ namespace Codebase.UI.Windows
     [SerializeField] private Button _loadButton;
     [SerializeField] private Button _exitButton;
 
+    private IPauseService _pauseService;
+
+    public void Construct(IPauseService pauseService) =>
+      _pauseService = pauseService;
+
+    protected override void Initialize() => 
+      _pauseService.Pause();
+
     protected override void SubscribeUpdates() =>
       _resumeButton.onClick.AddListener(ClosePauseWindow);
 
@@ -19,7 +28,10 @@ namespace Codebase.UI.Windows
       _resumeButton.onClick.RemoveListener(ClosePauseWindow);
     }
 
-    private void ClosePauseWindow() =>
+    private void ClosePauseWindow()
+    {
       Destroy(gameObject);
+      _pauseService.Resume();
+    }
   }
 }

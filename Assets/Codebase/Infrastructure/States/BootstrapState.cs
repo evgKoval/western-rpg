@@ -2,6 +2,7 @@
 using Codebase.Infrastructure.Factories;
 using Codebase.Services;
 using Codebase.Services.Input;
+using Codebase.Services.Pause;
 using Codebase.Services.Progress;
 using Codebase.Services.Saving;
 using Codebase.Services.StaticData;
@@ -41,6 +42,7 @@ namespace Codebase.Infrastructure.States
       _services.RegisterSingle<ISavingService, SavingService>();
       _services.RegisterSingle<IAssetProvider, AssetProvider>();
       _services.RegisterSingle<IGameFactory, GameFactory>();
+      _services.RegisterSingle<IPauseService, PauseService>();
       _services.RegisterSingle<IUIFactory, UIFactory>();
       _services.RegisterSingle<IWindowService, WindowService>();
     }
