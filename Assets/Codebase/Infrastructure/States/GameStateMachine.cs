@@ -27,7 +27,9 @@ namespace Codebase.Infrastructure.States
           sceneLoader,
           loadingCurtain,
           services.Single<IProgressService>(),
-          services.Single<ISavingService>()
+          services.Single<ISavingService>(),
+          services.Single<IStaticDataService>(),
+          services.Single<IGameFactory>()
         ),
         [typeof(LoadLevelState)] = new LoadLevelState(
           this,
