@@ -32,14 +32,16 @@ namespace Codebase.UI.Windows
       _resumeButton.onClick.AddListener(ClosePauseWindow);
       _saveButton.onClick.AddListener(SaveProgress);
       _loadButton.onClick.AddListener(LoadProgress);
+      _exitButton.onClick.AddListener(Exit);
     }
 
     protected override void Cleanup()
     {
       base.Cleanup();
       _resumeButton.onClick.RemoveListener(ClosePauseWindow);
-      _resumeButton.onClick.RemoveListener(SaveProgress);
-      _resumeButton.onClick.RemoveListener(LoadProgress);
+      _saveButton.onClick.RemoveListener(SaveProgress);
+      _loadButton.onClick.RemoveListener(LoadProgress);
+      _exitButton.onClick.RemoveListener(Exit);
     }
 
     private void ClosePauseWindow()
@@ -55,6 +57,9 @@ namespace Codebase.UI.Windows
     }
 
     private void LoadProgress() =>
-      _stateMachine.Enter<BootstrapState>();
+      _stateMachine.Enter<LoadProgressState>();
+
+    private void Exit() =>
+      _stateMachine.Enter<MainMenuState>();
   }
 }

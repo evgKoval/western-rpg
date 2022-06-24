@@ -8,5 +8,6 @@
     public const string Enemy = "Enemy/Enemy";
     public const string Spawner = "Enemy/Enemy Spawner";
     public const string RootCanvas = "UI/Root Canvas";
+    public const string MainMenu = "UI/Main Menu";
   }
 }

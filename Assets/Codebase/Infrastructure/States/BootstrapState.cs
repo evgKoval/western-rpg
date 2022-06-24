@@ -46,6 +46,7 @@ namespace Codebase.Infrastructure.States
       _services.RegisterSingle<IPauseService, PauseService>();
       _services.RegisterSingle<IUIFactory, UIFactory>();
       _services.RegisterSingle<IWindowService, WindowService>();
+      _services.RegisterSingle<IMenuFactory, MenuFactory>();
     }
 
     private void RegisterInputService()
@@ -58,6 +59,6 @@ namespace Codebase.Infrastructure.States
     }
 
     private void EnterLoadLevel() =>
-      _stateMachine.Enter<LoadProgressState>();
+      _stateMachine.Enter<MainMenuState>();
   }
 }
