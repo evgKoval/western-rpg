@@ -18,8 +18,14 @@ namespace Codebase.Infrastructure.States
       _states = new Dictionary<Type, IExitableState>
       {
         [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader, services),
+        [typeof(MainMenuState)] = new MainMenuState(
+          sceneLoader,
+          services.Single<IMenuFactory>()
+        ),
         [typeof(LoadProgressState)] = new LoadProgressState(
           this,
+          sceneLoader,
+          loadingCurtain,
           services.Single<IProgressService>(),
           services.Single<ISavingService>()
         ),

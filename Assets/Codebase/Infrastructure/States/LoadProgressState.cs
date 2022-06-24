@@ -1,4 +1,5 @@
 ﻿using Codebase.Data;
+using Codebase.Logic;
 using Codebase.Services;
 using Codebase.Services.Saving;
 
@@ -6,28 +7,42 @@ namespace Codebase.Infrastructure.States
 {
   public class LoadProgressState : IState
   {
+    private const string InitialScene = "Initial";
     private const string GameScene = "Game";
 
-    private readonly GameStateMachine _gameStateMachine;
+    private readonly GameStateMachine _stateMachine;
+    private readonly SceneLoader _sceneLoader;
+    private readonly LoadingCurtain _loadingCurtain;
     private readonly IProgressService _progressService;
     private readonly ISavingService _savingProgress;
 
     public LoadProgressState(
-      GameStateMachine gameStateMachine,
+      GameStateMachine stateMachine,
+      SceneLoader sceneLoader,
+      LoadingCurtain loadingCurtain,
       IProgressService progressService,
       ISavingService savingProgress
     )
     {
-      _gameStateMachine = gameStateMachine;
+      _stateMachine = stateMachine;
+      _sceneLoader = sceneLoader;
+      _loadingCurtain = loadingCurtain;
       _progressService = progressService;
       _savingProgress = savingProgress;
     }
 
     public void Enter()
     {
+      _loadingCurtain.Show();
+
+      _sceneLoader.Load(InitialScene, OnLoaded);
+    }
+
+    private void OnLoaded()
+    {
       InitProgress();
 
-      _gameStateMachine.Enter<LoadLevelState, string>(_progressService.Progress.LevelData.PositionOnLevel.Level);
+      _stateMachine.Enter<LoadLevelState, string>(_progressService.Progress.LevelData.PositionOnLevel.Level);
     }
 
     public void Exit()

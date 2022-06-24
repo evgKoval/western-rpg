@@ -40,8 +40,6 @@ namespace Codebase.Infrastructure.States
 
     public void Enter(string sceneName)
     {
-      _loadingCurtain.Show();
-
       _gameFactory.CleanUp();
       _gameFactory.WarmUp();
 
