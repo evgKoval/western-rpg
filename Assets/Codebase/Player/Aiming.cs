@@ -14,6 +14,7 @@ namespace Codebase.Player
     private IInputService _inputService;
 
     public bool IsReady => Mathf.Approximately(_aimingLayer.weight, 1f);
+    public float ReadyPercentage => _aimingLayer.weight;
     public bool IsPaused { get; private set; }
 
 

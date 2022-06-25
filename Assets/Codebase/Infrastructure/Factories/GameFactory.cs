@@ -87,6 +87,7 @@ namespace Codebase.Infrastructure.Factories
       CinemachineFreeLook cinemachineComponent = playerCamera.GetComponent<CinemachineFreeLook>();
       cinemachineComponent.Follow = _playerGameObject.transform;
       cinemachineComponent.LookAt = _playerGameObject.transform.Find(CameraLookAt);
+      playerCamera.GetComponent<CameraRotating>().Construct(_playerGameObject.GetComponent<Aiming>());
 
       return playerCamera;
     }
