@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using Codebase.Services;
-using Codebase.Services.Pause;
-using Codebase.Services.Progress;
+﻿using Codebase.Services;
 using Codebase.StaticData;
 using UnityEngine;
 
@@ -9,9 +6,6 @@ namespace Codebase.Infrastructure.Factories
 {
   public interface IGameFactory : IService
   {
-    List<ISaveable> ProgressSaveables { get; }
-    List<ILoadable> ProgressLoadables { get; }
-    List<IPauseable> Pauseables { get; }
     void WarmUp();
     void CleanUp();
     GameObject CreatePlayer(Vector3 at);

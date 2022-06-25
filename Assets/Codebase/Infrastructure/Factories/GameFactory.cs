@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Cinemachine;
+﻿using Cinemachine;
 using Codebase.Enemy;
 using Codebase.Infrastructure.AssetManagement;
 using Codebase.Logic;
@@ -7,6 +6,7 @@ using Codebase.Player;
 using Codebase.Services.Input;
 using Codebase.Services.Pause;
 using Codebase.Services.Progress;
+using Codebase.Services.Saving;
 using Codebase.Services.StaticData;
 using Codebase.StaticData;
 using Codebase.UI;
@@ -26,18 +26,27 @@ namespace Codebase.Infrastructure.Factories
     private readonly IAssetProvider _assetProvider;
     private readonly IInputService _inputService;
     private readonly IStaticDataService _staticDataService;
+    private readonly IUIFactory _uiFactory;
+    private readonly IPauseService _pauseService;
+    private readonly ISavingService _savingService;
 
     private GameObject _playerGameObject;
 
-    public List<ISaveable> ProgressSaveables { get; } = new();
-    public List<ILoadable> ProgressLoadables { get; } = new();
-    public List<IPauseable> Pauseables { get; } = new();
-
-    public GameFactory(IAssetProvider assetProvider, IInputService inputService, IStaticDataService staticDataService)
+    public GameFactory(
+      IAssetProvider assetProvider,
+      IInputService inputService,
+      IStaticDataService staticDataService,
+      IUIFactory uiFactory,
+      IPauseService pauseService,
+      ISavingService savingService
+    )
     {
       _assetProvider = assetProvider;
       _inputService = inputService;
       _staticDataService = staticDataService;
+      _uiFactory = uiFactory;
+      _pauseService = pauseService;
+      _savingService = savingService;
     }
 
     public void WarmUp() =>
@@ -45,9 +54,8 @@ namespace Codebase.Infrastructure.Factories
 
     public void CleanUp()
     {
-      ProgressLoadables.Clear();
-      ProgressSaveables.Clear();
-      Pauseables.Clear();
+      _savingService.Clear();
+      _pauseService.Clear();
     }
 
     public GameObject CreatePlayer(Vector3 at)
@@ -57,6 +65,7 @@ namespace Codebase.Infrastructure.Factories
       _playerGameObject.GetComponent<Movement>().Construct(_inputService);
       _playerGameObject.GetComponent<Aiming>().Construct(_inputService);
       _playerGameObject.GetComponent<Firing>().Construct(_inputService);
+      _playerGameObject.GetComponent<CheckingDeath>().Construct(_uiFactory);
       BuildRig();
 
       return _playerGameObject;
@@ -133,21 +142,13 @@ namespace Codebase.Infrastructure.Factories
     private void RegisterProgressWatchers(GameObject gameObject)
     {
       foreach (ILoadable progressReader in gameObject.GetComponentsInChildren<ILoadable>())
-        Register(progressReader);
-    }
-
-    private void Register(ILoadable progressLoadable)
-    {
-      if (progressLoadable is ISaveable progressSaveable)
-        ProgressSaveables.Add(progressSaveable);
-
-      ProgressLoadables.Add(progressLoadable);
+        _savingService.Register(progressReader);
     }
 
     private void RegisterPauseables(GameObject gameObject)
     {
       foreach (IPauseable pauseable in gameObject.GetComponentsInChildren<IPauseable>())
-        Pauseables.Add(pauseable);
+        _pauseService.Register(pauseable);
     }
 
     private void BuildRig()

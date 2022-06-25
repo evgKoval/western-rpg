@@ -3,5 +3,6 @@
   public enum WindowId
   {
     Pause,
+    Death,
   }
 }

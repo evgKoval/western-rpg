@@ -1,23 +1,26 @@
-﻿using Codebase.Infrastructure.Factories;
+﻿using System.Collections.Generic;
 
 namespace Codebase.Services.Pause
 {
   public class PauseService : IPauseService
   {
-    private readonly IGameFactory _gameFactory;
+    private List<IPauseable> _pauseables = new();
 
-    public PauseService(IGameFactory gameFactory) => 
-      _gameFactory = gameFactory;
+    public void Register(IPauseable pauseable) =>
+      _pauseables.Add(pauseable);
+
+    public void Clear() =>
+      _pauseables.Clear();
 
     public void Pause()
     {
-      foreach (IPauseable pauseable in _gameFactory.Pauseables)
+      foreach (IPauseable pauseable in _pauseables)
         pauseable.Pause();
     }
 
     public void Resume()
     {
-      foreach (IPauseable pauseable in _gameFactory.Pauseables)
+      foreach (IPauseable pauseable in _pauseables)
         pauseable.Resume();
     }
   }

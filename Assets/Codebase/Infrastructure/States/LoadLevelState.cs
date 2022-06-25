@@ -2,6 +2,7 @@
 using Codebase.Logic;
 using Codebase.Services;
 using Codebase.Services.Progress;
+using Codebase.Services.Saving;
 using Codebase.Services.StaticData;
 using Codebase.StaticData;
 using UnityEngine;
@@ -18,6 +19,7 @@ namespace Codebase.Infrastructure.States
     private readonly IProgressService _progressService;
     private readonly IStaticDataService _staticDataService;
     private readonly IUIFactory _uiFactory;
+    private readonly ISavingService _savingService;
 
     public LoadLevelState(
       IGameStateMachine gameStateMachine,
@@ -26,7 +28,8 @@ namespace Codebase.Infrastructure.States
       IGameFactory gameFactory,
       IProgressService progressService,
       IStaticDataService staticDataService,
-      IUIFactory uiFactory
+      IUIFactory uiFactory,
+      ISavingService savingService
     )
     {
       _stateMachine = gameStateMachine;
@@ -36,9 +39,10 @@ namespace Codebase.Infrastructure.States
       _progressService = progressService;
       _staticDataService = staticDataService;
       _uiFactory = uiFactory;
+      _savingService = savingService;
     }
 
-    public void Enter(string sceneName) => 
+    public void Enter(string sceneName) =>
       _sceneLoader.Load(sceneName, OnLoaded);
 
     public void Exit() =>
@@ -89,8 +93,8 @@ namespace Codebase.Infrastructure.States
 
     private void InformProgressLoadables()
     {
-      foreach (ILoadable progressLoadable in _gameFactory.ProgressLoadables)
-        progressLoadable.LoadProgress(_progressService.Progress);
+      foreach (ILoadable loadable in _savingService.Loadables)
+        loadable.LoadProgress(_progressService.Progress);
     }
   }
 }

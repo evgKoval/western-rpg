@@ -52,5 +52,12 @@ namespace Codebase.Infrastructure.Factories
       PauseWindow window = Object.Instantiate(config.Template, _rootCanvas) as PauseWindow;
       window.Construct(_pauseService, _savingService, _stateMachine);
     }
+
+    public void CreateDeathWindow()
+    {
+      WindowConfig config = _staticData.GetWindow(WindowId.Death);
+      DeathWindow window = Object.Instantiate(config.Template, _rootCanvas) as DeathWindow;
+      window.Construct(_stateMachine, _pauseService);
+    }
   }
 }
