@@ -3,15 +3,15 @@ using UnityEngine;
 
 namespace Codebase.Enemy
 {
-  [RequireComponent(typeof(Health), typeof(MoveToPlayer))]
+  [RequireComponent(typeof(IHealth), typeof(MoveToPlayer))]
   public class GettingAggroAfterTakingDamage : MonoBehaviour, IDeathable
   {
-    private Health _health;
+    private IHealth _health;
     private MoveToPlayer _movement;
 
     private void Awake()
     {
-      _health = GetComponent<Health>();
+      _health = GetComponent<IHealth>();
       _movement = GetComponent<MoveToPlayer>();
     }
 

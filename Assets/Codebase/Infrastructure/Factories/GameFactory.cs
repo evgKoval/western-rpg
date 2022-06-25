@@ -98,7 +98,7 @@ namespace Codebase.Infrastructure.Factories
     public void CreateSpawner(string id, Vector3 position)
     {
       EnemySpawner spawner = InstantiateRegistered(AssetPath.Spawner, position).GetComponent<EnemySpawner>();
-      spawner.Construct(this, id);
+      spawner.Construct(this, _staticDataService, id);
     }
 
     public GameObject CreateEnemy(Vector3 position)

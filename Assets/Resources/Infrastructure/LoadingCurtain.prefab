@@ -194,7 +194,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!114 &5064539257180018666
 MonoBehaviour:
@@ -233,6 +233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _curtain: {fileID: 5529377332462993187}
   _fadeInSpeed: 0.02
+  _delayInSeconds: 2
 --- !u!1 &5064539257263600155
 GameObject:
   m_ObjectHideFlags: 0

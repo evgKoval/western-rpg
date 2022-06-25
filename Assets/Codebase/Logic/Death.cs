@@ -28,13 +28,7 @@ namespace Codebase.Logic
     private void OnDestroy() =>
       _health.Changed -= HealthOnChanged;
 
-    private void HealthOnChanged()
-    {
-      if (!_isDead && _health.Current <= 0)
-        Die();
-    }
-
-    private void Die()
+    public void Die()
     {
       _isDead = true;
 
@@ -43,6 +37,12 @@ namespace Codebase.Logic
 
       _animator.SetTrigger(DeathState);
       Happened?.Invoke();
+    }
+
+    private void HealthOnChanged()
+    {
+      if (!_isDead && _health.Current <= 0)
+        Die();
     }
 
     private void TurnOffAbilities()

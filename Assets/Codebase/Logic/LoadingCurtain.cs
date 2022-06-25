@@ -7,6 +7,7 @@ namespace Codebase.Logic
   {
     [SerializeField] private CanvasGroup _curtain;
     [SerializeField] private float _fadeInSpeed;
+    [SerializeField] private float _delayInSeconds;
 
     private void Awake() =>
       DontDestroyOnLoad(this);
@@ -22,6 +23,8 @@ namespace Codebase.Logic
 
     private IEnumerator DoFadeIn()
     {
+      yield return new WaitForSeconds(_delayInSeconds);
+
       while (_curtain.alpha > 0)
       {
         _curtain.alpha -= _fadeInSpeed;
