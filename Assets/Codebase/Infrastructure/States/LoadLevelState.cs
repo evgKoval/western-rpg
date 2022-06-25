@@ -38,13 +38,8 @@ namespace Codebase.Infrastructure.States
       _uiFactory = uiFactory;
     }
 
-    public void Enter(string sceneName)
-    {
-      _gameFactory.CleanUp();
-      _gameFactory.WarmUp();
-
+    public void Enter(string sceneName) => 
       _sceneLoader.Load(sceneName, OnLoaded);
-    }
 
     public void Exit() =>
       _loadingCurtain.Hide();

@@ -7,6 +7,8 @@ namespace Codebase.Services.StaticData
 {
   public class StaticDataService : IStaticDataService
   {
+    private const string PlayerDataPath = "Static Data/Player";
+    private const string EnemyDataPath = "Static Data/Enemy";
     private const string WeaponsDataPath = "Static Data/Weapons";
     private const string LevelsDataPath = "Static Data/Levels";
     private const string WindowsDataPath = "Static Data/Windows/WindowData";
@@ -15,9 +17,13 @@ namespace Codebase.Services.StaticData
     private Dictionary<string, LevelStaticData> _levels;
     private Dictionary<WindowId, WindowConfig> _windowConfigs;
 
+    public PlayerStaticData Player { get; private set; }
+    public EnemyStaticData Enemy { get; private set; }
 
     public void Load()
     {
+      LoadPlayer();
+      LoadEnemy();
       LoadWeapons();
       LoadLevels();
       LoadWindows();
@@ -37,6 +43,14 @@ namespace Codebase.Services.StaticData
       _windowConfigs.TryGetValue(id, out WindowConfig windowConfig)
         ? windowConfig
         : throw new KeyNotFoundException();
+
+    private void LoadPlayer() =>
+      Player = Resources
+        .Load<PlayerStaticData>(PlayerDataPath);
+
+    private void LoadEnemy() =>
+      Enemy = Resources
+        .Load<EnemyStaticData>(EnemyDataPath);
 
     private void LoadWeapons() =>
       _weapons = Resources

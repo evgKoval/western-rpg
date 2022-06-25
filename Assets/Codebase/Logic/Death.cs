@@ -4,13 +4,13 @@ using UnityEngine.Animations.Rigging;
 
 namespace Codebase.Logic
 {
-  [RequireComponent(typeof(Health), typeof(Animator))]
+  [RequireComponent(typeof(IHealth), typeof(Animator))]
   public class Death : MonoBehaviour
   {
     private const string RigBodyLayer = "Rig_Layer_Body_Aim";
     private const string DeathState = "Die";
 
-    private Health _health;
+    private IHealth _health;
     private Animator _animator;
     private bool _isDead;
 
@@ -18,7 +18,7 @@ namespace Codebase.Logic
 
     private void Awake()
     {
-      _health = GetComponent<Health>();
+      _health = GetComponent<IHealth>();
       _animator = GetComponent<Animator>();
     }
 
@@ -28,13 +28,7 @@ namespace Codebase.Logic
     private void OnDestroy() =>
       _health.Changed -= HealthOnChanged;
 
-    private void HealthOnChanged()
-    {
-      if (!_isDead && _health.Current <= 0)
-        Die();
-    }
-
-    private void Die()
+    public void Die()
     {
       _isDead = true;
 
@@ -43,6 +37,12 @@ namespace Codebase.Logic
 
       _animator.SetTrigger(DeathState);
       Happened?.Invoke();
+    }
+
+    private void HealthOnChanged()
+    {
+      if (!_isDead && _health.Current <= 0)
+        Die();
     }
 
     private void TurnOffAbilities()

@@ -6,12 +6,14 @@ namespace Codebase.Data
   public class PlayerProgress
   {
     public LevelData LevelData;
-    public EnemyData EnemyData;
+    public EnemyDataDictionary EnemyData;
+    public PlayerState PlayerState;
 
     public PlayerProgress(string initialScene)
     {
       LevelData = new LevelData(initialScene);
-      EnemyData = new EnemyData();
+      EnemyData = new EnemyDataDictionary();
+      PlayerState = new PlayerState();
     }
   }
 }
