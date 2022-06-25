@@ -41,10 +41,10 @@ namespace Codebase.Infrastructure.States
       _services.RegisterSingle<IStaticDataService, StaticDataService>();
       _services.RegisterSingle<IProgressService, ProgressService>();
       _services.RegisterSingle<IAssetProvider, AssetProvider>();
-      _services.RegisterSingle<IGameFactory, GameFactory>();
       _services.RegisterSingle<ISavingService, SavingService>();
       _services.RegisterSingle<IPauseService, PauseService>();
       _services.RegisterSingle<IUIFactory, UIFactory>();
+      _services.RegisterSingle<IGameFactory, GameFactory>();
       _services.RegisterSingle<IWindowService, WindowService>();
       _services.RegisterSingle<IMenuFactory, MenuFactory>();
     }
