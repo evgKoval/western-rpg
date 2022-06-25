@@ -10,6 +10,7 @@ namespace Codebase.Enemy
     private const string Hit = "Hit";
 
     private Animator _animator;
+    private ParticleSystem _bloodFX;
 
     public event Action Changed;
 
@@ -23,10 +24,13 @@ namespace Codebase.Enemy
       Changed?.Invoke();
     }
 
-    private void Awake() =>
+    private void Awake()
+    {
       _animator = GetComponent<Animator>();
+      _bloodFX = GetComponentInChildren<ParticleSystem>();
+    }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, Vector3 hitPoint)
     {
       if (Current <= 0)
         return;
@@ -35,6 +39,14 @@ namespace Codebase.Enemy
       Changed?.Invoke();
 
       _animator.SetTrigger(Hit);
+
+      BleedOut(hitPoint);
+    }
+
+    private void BleedOut(Vector3 hitPoint)
+    {
+      _bloodFX.transform.position = hitPoint;
+      _bloodFX.Play();
     }
   }
 }
