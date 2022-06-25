@@ -52,7 +52,7 @@ namespace Codebase.Enemy
       if (Hit(out Collider hit))
       {
         Debug.DrawRay(AttackPoint(), _attackRadius * Vector3.forward, Color.red, 1);
-        hit.GetComponent<IHealth>().TakeDamage(_damage);
+        hit.GetComponent<IHealth>().TakeDamage(_damage, AttackPoint());
       }
     }
 

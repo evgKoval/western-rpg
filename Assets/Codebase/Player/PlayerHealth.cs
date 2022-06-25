@@ -12,6 +12,7 @@ namespace Codebase.Player
 
     private Animator _animator;
     private PlayerState _state;
+    private ParticleSystem _bloodFX;
 
     public event Action Changed;
 
@@ -29,10 +30,13 @@ namespace Codebase.Player
 
     public int Max => _state.MaxHealth;
 
-    private void Awake() =>
+    private void Awake()
+    {
       _animator = GetComponent<Animator>();
+      _bloodFX = GetComponentInChildren<ParticleSystem>();
+    }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, Vector3 hitPoint)
     {
       if (Current <= 0)
         return;
@@ -41,6 +45,8 @@ namespace Codebase.Player
       Changed?.Invoke();
 
       _animator.SetTrigger(Hit);
+
+      BleedOut(hitPoint);
     }
 
     public void LoadProgress(PlayerProgress progress)
@@ -53,6 +59,12 @@ namespace Codebase.Player
     {
       progress.PlayerState.CurrentHealth = Current;
       progress.PlayerState.MaxHealth = Max;
+    }
+
+    private void BleedOut(Vector3 hitPoint)
+    {
+      _bloodFX.transform.position = hitPoint;
+      _bloodFX.Play();
     }
   }
 }

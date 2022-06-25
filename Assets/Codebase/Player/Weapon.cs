@@ -25,7 +25,7 @@ namespace Codebase.Player
       _gunSmokeFX.Play();
 
       if (TryHit(out RaycastHit raycastHit))
-        raycastHit.collider.GetComponent<IHealth>().TakeDamage(20);
+        raycastHit.collider.GetComponent<IHealth>().TakeDamage(20, raycastHit.point);
     }
 
     private bool TryHit(out RaycastHit raycastHit)
