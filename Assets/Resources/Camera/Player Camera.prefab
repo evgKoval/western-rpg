@@ -196,7 +196,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9324961, y: 1}
+    m_SensorSize: {x: 1.9355346, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -274,7 +274,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9324961, y: 1}
+    m_SensorSize: {x: 1.9355346, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -350,7 +350,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9324961, y: 1}
+    m_SensorSize: {x: 1.9355346, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -451,6 +451,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad7c20937244e7b90bab653d1ec5506, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _aimingFOV: 30
+  _aimingXAxisSpeed: 100
+  _aimingYAxisSpeed: 0.5
 --- !u!1 &1773267076902436925
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,7 +650,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9324961, y: 1}
+    m_SensorSize: {x: 1.9355346, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
