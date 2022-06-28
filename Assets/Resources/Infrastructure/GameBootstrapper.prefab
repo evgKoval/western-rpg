@@ -46,3 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _curtainPrefab: {fileID: 4266486824684931843, guid: b249dc9b36d747e4180291c352ea5fcf,
     type: 3}
+  _mainAudioSource: {fileID: 8834098368747799610, guid: 175e47bc1ffd9e04183c772fcb0296db,
+    type: 3}
+  _mainCamera: {fileID: -8099522248288363215, guid: 1c9a435e1ef735d419752744334293b4,
+    type: 3}

@@ -1,4 +1,5 @@
 ﻿using Codebase.Infrastructure.Factories;
+using Codebase.Services.Audio;
 
 namespace Codebase.Infrastructure.States
 {
@@ -8,15 +9,21 @@ namespace Codebase.Infrastructure.States
 
     private readonly SceneLoader _sceneLoader;
     private readonly IMenuFactory _menuFactory;
+    private readonly IAudioService _audioService;
 
-    public MainMenuState(SceneLoader sceneLoader, IMenuFactory menuFactory)
+    public MainMenuState(SceneLoader sceneLoader, IMenuFactory menuFactory, IAudioService audioService)
     {
       _sceneLoader = sceneLoader;
       _menuFactory = menuFactory;
+      _audioService = audioService;
     }
 
-    public void Enter() =>
+    public void Enter()
+    {
+      _audioService.LoadAllSounds();
+
       _sceneLoader.Load(MainMenuScene, OnLoaded);
+    }
 
     public void Exit()
     {
@@ -27,6 +34,7 @@ namespace Codebase.Infrastructure.States
 
     private void InitMenu()
     {
+      _menuFactory.CreateMainAudioSource();
       _menuFactory.CreateRootCanvas();
       _menuFactory.CreateMainMenu();
     }

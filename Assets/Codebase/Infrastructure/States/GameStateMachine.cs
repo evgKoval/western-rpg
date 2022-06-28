@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Codebase.Infrastructure.Factories;
 using Codebase.Logic;
 using Codebase.Services;
+using Codebase.Services.Audio;
 using Codebase.Services.Saving;
 using Codebase.Services.StaticData;
 
@@ -20,7 +21,8 @@ namespace Codebase.Infrastructure.States
         [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader, services),
         [typeof(MainMenuState)] = new MainMenuState(
           sceneLoader,
-          services.Single<IMenuFactory>()
+          services.Single<IMenuFactory>(),
+          services.Single<IAudioService>()
         ),
         [typeof(LoadProgressState)] = new LoadProgressState(
           this,

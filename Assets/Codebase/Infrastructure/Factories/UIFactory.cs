@@ -1,5 +1,6 @@
 ﻿using Codebase.Infrastructure.AssetManagement;
 using Codebase.Infrastructure.States;
+using Codebase.Services.Audio;
 using Codebase.Services.Input;
 using Codebase.Services.Pause;
 using Codebase.Services.Saving;
@@ -19,6 +20,7 @@ namespace Codebase.Infrastructure.Factories
     private readonly IPauseService _pauseService;
     private readonly ISavingService _savingService;
     private readonly IGameStateMachine _stateMachine;
+    private readonly IAudioService _audioService;
 
     private Transform _rootCanvas;
 
@@ -28,7 +30,8 @@ namespace Codebase.Infrastructure.Factories
       IInputService inputService,
       IPauseService pauseService,
       ISavingService savingService,
-      IGameStateMachine stateMachine
+      IGameStateMachine stateMachine,
+      IAudioService audioService
     )
     {
       _assetProvider = assetProvider;
@@ -37,6 +40,7 @@ namespace Codebase.Infrastructure.Factories
       _pauseService = pauseService;
       _savingService = savingService;
       _stateMachine = stateMachine;
+      _audioService = audioService;
     }
 
     public void CreateRootCanvas()
@@ -50,14 +54,14 @@ namespace Codebase.Infrastructure.Factories
     {
       WindowConfig config = _staticData.GetWindow(WindowId.Pause);
       PauseWindow window = Object.Instantiate(config.Template, _rootCanvas) as PauseWindow;
-      window.Construct(_pauseService, _savingService, _stateMachine);
+      window.Construct(_pauseService, _savingService, _stateMachine, _audioService);
     }
 
     public void CreateDeathWindow()
     {
       WindowConfig config = _staticData.GetWindow(WindowId.Death);
       DeathWindow window = Object.Instantiate(config.Template, _rootCanvas) as DeathWindow;
-      window.Construct(_stateMachine, _pauseService);
+      window.Construct(_stateMachine, _pauseService, _audioService);
     }
   }
 }

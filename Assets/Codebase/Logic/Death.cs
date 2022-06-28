@@ -4,15 +4,18 @@ using UnityEngine.Animations.Rigging;
 
 namespace Codebase.Logic
 {
-  [RequireComponent(typeof(IHealth), typeof(Animator))]
+  [RequireComponent(typeof(IHealth), typeof(Animator), typeof(AudioSource))]
   public class Death : MonoBehaviour
   {
     private const string RigBodyLayer = "Rig_Layer_Body_Aim";
     private const string DeathState = "Die";
 
+    [SerializeField] private AudioClip _deathSound;
+
     private IHealth _health;
     private Animator _animator;
     private bool _isDead;
+    private AudioSource _audioSource;
 
     public event Action Happened;
 
@@ -20,6 +23,7 @@ namespace Codebase.Logic
     {
       _health = GetComponent<IHealth>();
       _animator = GetComponent<Animator>();
+      _audioSource = GetComponent<AudioSource>();
     }
 
     private void Start() =>
@@ -34,6 +38,9 @@ namespace Codebase.Logic
 
       TurnOffAbilities();
       MakeBodyDontLookAtCamera();
+
+      _audioSource.clip = _deathSound;
+      _audioSource.Play();
 
       _animator.SetTrigger(DeathState);
       Happened?.Invoke();

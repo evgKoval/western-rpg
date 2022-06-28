@@ -1,6 +1,7 @@
 ﻿using Codebase.Infrastructure.AssetManagement;
 using Codebase.Infrastructure.Factories;
 using Codebase.Services;
+using Codebase.Services.Audio;
 using Codebase.Services.Input;
 using Codebase.Services.Pause;
 using Codebase.Services.Progress;
@@ -43,6 +44,7 @@ namespace Codebase.Infrastructure.States
       _services.RegisterSingle<IAssetProvider, AssetProvider>();
       _services.RegisterSingle<ISavingService, SavingService>();
       _services.RegisterSingle<IPauseService, PauseService>();
+      _services.RegisterSingle<IAudioService, AudioService>();
       _services.RegisterSingle<IUIFactory, UIFactory>();
       _services.RegisterSingle<IGameFactory, GameFactory>();
       _services.RegisterSingle<IWindowService, WindowService>();
