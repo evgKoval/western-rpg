@@ -1,4 +1,5 @@
-﻿using Codebase.Infrastructure.States;
+﻿using Codebase.Infrastructure.Factories;
+using Codebase.Infrastructure.States;
 using Codebase.Services.Audio;
 using Codebase.Services.Pause;
 using Codebase.Services.Saving;
@@ -14,19 +15,28 @@ namespace Codebase.UI.Windows
     [SerializeField] private Button _resumeButton;
     [SerializeField] private Button _saveButton;
     [SerializeField] private Button _loadButton;
+    [SerializeField] private Button _settingsButton;
     [SerializeField] private Button _exitButton;
 
     private IPauseService _pauseService;
     private ISavingService _savingService;
     private IGameStateMachine _stateMachine;
     private IAudioService _audioService;
+    private IUIFactory _uiFactory;
 
-    public void Construct(IPauseService pauseService, ISavingService savingService, IGameStateMachine stateMachine, IAudioService audioService)
+    public void Construct(
+      IPauseService pauseService,
+      ISavingService savingService,
+      IGameStateMachine stateMachine,
+      IAudioService audioService,
+      IUIFactory uiFactory
+    )
     {
       _pauseService = pauseService;
       _savingService = savingService;
       _stateMachine = stateMachine;
       _audioService = audioService;
+      _uiFactory = uiFactory;
     }
 
     protected override void Initialize() =>
@@ -37,6 +47,7 @@ namespace Codebase.UI.Windows
       _resumeButton.onClick.AddListener(ClosePauseWindow);
       _saveButton.onClick.AddListener(SaveProgress);
       _loadButton.onClick.AddListener(LoadProgress);
+      _settingsButton.onClick.AddListener(OpenSettingsWindow);
       _exitButton.onClick.AddListener(Exit);
     }
 
@@ -46,6 +57,7 @@ namespace Codebase.UI.Windows
       _resumeButton.onClick.RemoveListener(ClosePauseWindow);
       _saveButton.onClick.RemoveListener(SaveProgress);
       _loadButton.onClick.RemoveListener(LoadProgress);
+      _settingsButton.onClick.RemoveListener(OpenSettingsWindow);
       _exitButton.onClick.RemoveListener(Exit);
     }
 
@@ -67,6 +79,12 @@ namespace Codebase.UI.Windows
     {
       _audioService.PlaySound(ButtonClick);
       _stateMachine.Enter<LoadProgressState>();
+    }
+
+    private void OpenSettingsWindow()
+    {
+      _audioService.PlaySound(ButtonClick);
+      _uiFactory.CreateSettingsWindow();
     }
 
     private void Exit()
