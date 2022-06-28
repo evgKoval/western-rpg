@@ -1,6 +1,7 @@
 ﻿using Codebase.Infrastructure.Factories;
 using Codebase.Logic;
 using Codebase.Services;
+using Codebase.Services.Audio;
 using Codebase.Services.Progress;
 using Codebase.Services.Saving;
 using Codebase.Services.StaticData;
@@ -12,6 +13,8 @@ namespace Codebase.Infrastructure.States
 {
   public class LoadLevelState : IPayloadedState<string>
   {
+    private const string Game = "Game";
+
     private readonly IGameStateMachine _stateMachine;
     private readonly SceneLoader _sceneLoader;
     private readonly LoadingCurtain _loadingCurtain;
@@ -20,6 +23,7 @@ namespace Codebase.Infrastructure.States
     private readonly IStaticDataService _staticDataService;
     private readonly IUIFactory _uiFactory;
     private readonly ISavingService _savingService;
+    private readonly IAudioService _audioService;
 
     public LoadLevelState(
       IGameStateMachine gameStateMachine,
@@ -29,7 +33,8 @@ namespace Codebase.Infrastructure.States
       IProgressService progressService,
       IStaticDataService staticDataService,
       IUIFactory uiFactory,
-      ISavingService savingService
+      ISavingService savingService,
+      IAudioService audioService
     )
     {
       _stateMachine = gameStateMachine;
@@ -40,6 +45,7 @@ namespace Codebase.Infrastructure.States
       _staticDataService = staticDataService;
       _uiFactory = uiFactory;
       _savingService = savingService;
+      _audioService = audioService;
     }
 
     public void Enter(string sceneName) =>
@@ -50,12 +56,16 @@ namespace Codebase.Infrastructure.States
 
     private void OnLoaded()
     {
+      PlayGameMusic();
       InitRootCanvas();
       InitGameWorld();
       InformProgressLoadables();
 
       _stateMachine.Enter<GameLoopState>();
     }
+
+    private void PlayGameMusic() =>
+      _audioService.PlayMusic(Game);
 
     private void InitRootCanvas() =>
       _uiFactory.CreateRootCanvas();

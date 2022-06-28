@@ -6,6 +6,7 @@ namespace Codebase.Infrastructure.States
   public class MainMenuState : IState
   {
     private const string MainMenuScene = "Main Menu";
+    private const string Menu = "Menu";
 
     private readonly SceneLoader _sceneLoader;
     private readonly IMenuFactory _menuFactory;
@@ -21,6 +22,7 @@ namespace Codebase.Infrastructure.States
     public void Enter()
     {
       _audioService.LoadAllSounds();
+      _audioService.LoadAllMusic();
 
       _sceneLoader.Load(MainMenuScene, OnLoaded);
     }
@@ -29,8 +31,11 @@ namespace Codebase.Infrastructure.States
     {
     }
 
-    private void OnLoaded() =>
+    private void OnLoaded()
+    {
       InitMenu();
+      PlayMenuMusic();
+    }
 
     private void InitMenu()
     {
@@ -38,5 +43,8 @@ namespace Codebase.Infrastructure.States
       _menuFactory.CreateRootCanvas();
       _menuFactory.CreateMainMenu();
     }
+
+    private void PlayMenuMusic() =>
+      _audioService.PlayMusic(Menu);
   }
 }

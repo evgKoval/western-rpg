@@ -6,6 +6,8 @@ namespace Codebase.Services.Audio
   {
     void Register(MainAudioSource mainAudioSource);
     void LoadAllSounds();
+    void LoadAllMusic();
     void PlaySound(string clipName);
+    void PlayMusic(string musicName);
   }
 }

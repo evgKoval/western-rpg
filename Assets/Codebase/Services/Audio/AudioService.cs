@@ -8,9 +8,11 @@ namespace Codebase.Services.Audio
   public class AudioService : IAudioService
   {
     private const string SoundsPath = "Audio/Sounds";
+    private const string MusicPath = "Audio/Music";
 
     private MainAudioSource _mainAudioSource;
     private Dictionary<string, AudioClip> _sounds;
+    private Dictionary<string, AudioClip> _music;
 
     public void Register(MainAudioSource mainAudioSource) =>
       _mainAudioSource = mainAudioSource;
@@ -19,6 +21,11 @@ namespace Codebase.Services.Audio
       _sounds = Resources
         .LoadAll<AudioClip>(SoundsPath)
         .ToDictionary(clip => clip.name, clip => clip);
+    
+    public void LoadAllMusic() =>
+      _music = Resources
+        .LoadAll<AudioClip>(MusicPath)
+        .ToDictionary(clip => clip.name, clip => clip);
 
     public void PlaySound(string clipName)
     {
@@ -26,6 +33,15 @@ namespace Codebase.Services.Audio
       {
         _mainAudioSource.Sounds.clip = clip;
         _mainAudioSource.Sounds.Play();
+      }
+    }
+
+    public void PlayMusic(string musicName)
+    {
+      if (_music.TryGetValue(musicName, out AudioClip music))
+      {
+        _mainAudioSource.Music.clip = music;
+        _mainAudioSource.Music.Play();
       }
     }
   }
