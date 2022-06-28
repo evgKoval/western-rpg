@@ -41,7 +41,8 @@ namespace Codebase.Infrastructure.States
           services.Single<IProgressService>(),
           services.Single<IStaticDataService>(),
           services.Single<IUIFactory>(),
-          services.Single<ISavingService>()
+          services.Single<ISavingService>(),
+          services.Single<IAudioService>()
         ),
         [typeof(GameLoopState)] = new GameLoopState(services),
       };
