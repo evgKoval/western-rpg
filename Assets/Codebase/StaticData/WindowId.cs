@@ -4,5 +4,6 @@
   {
     Pause,
     Death,
+    Settings,
   }
 }

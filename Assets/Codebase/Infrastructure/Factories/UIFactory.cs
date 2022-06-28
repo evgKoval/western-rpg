@@ -54,7 +54,7 @@ namespace Codebase.Infrastructure.Factories
     {
       WindowConfig config = _staticData.GetWindow(WindowId.Pause);
       PauseWindow window = Object.Instantiate(config.Template, _rootCanvas) as PauseWindow;
-      window.Construct(_pauseService, _savingService, _stateMachine, _audioService);
+      window.Construct(_pauseService, _savingService, _stateMachine, _audioService, this);
     }
 
     public void CreateDeathWindow()
@@ -62,6 +62,13 @@ namespace Codebase.Infrastructure.Factories
       WindowConfig config = _staticData.GetWindow(WindowId.Death);
       DeathWindow window = Object.Instantiate(config.Template, _rootCanvas) as DeathWindow;
       window.Construct(_stateMachine, _pauseService, _audioService);
+    }
+
+    public void CreateSettingsWindow()
+    {
+      WindowConfig config = _staticData.GetWindow(WindowId.Settings);
+      SettingsWindow window = Object.Instantiate(config.Template, _rootCanvas) as SettingsWindow;
+      window.Construct(_audioService);
     }
   }
 }

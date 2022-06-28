@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
+using UnityEngine.Audio;
 
 namespace Codebase.Logic
 {
   public class MainAudioSource : MonoBehaviour
   {
+    [SerializeField] private AudioMixer _audioMixer;
     [SerializeField] private AudioSource _sounds;
     [SerializeField] private AudioSource _music;
 
+    public AudioMixer Mixer => _audioMixer;
     public AudioSource Sounds => _sounds;
     public AudioSource Music => _music;
 

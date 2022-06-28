@@ -9,5 +9,7 @@ namespace Codebase.Services.Audio
     void LoadAllMusic();
     void PlaySound(string clipName);
     void PlayMusic(string musicName);
+    void ChangeGroupVolume(string groupName, float volume);
+    float GetGroupVolumeValue(string groupName);
   }
 }
