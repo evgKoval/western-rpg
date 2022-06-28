@@ -1,4 +1,5 @@
 ﻿using Codebase.Infrastructure.States;
+using Codebase.Services.Audio;
 using Codebase.Services.Pause;
 using Codebase.Services.Saving;
 using UnityEngine;
@@ -8,6 +9,8 @@ namespace Codebase.UI.Windows
 {
   public class PauseWindow : WindowTemplate
   {
+    private const string ButtonClick = "Button Click";
+
     [SerializeField] private Button _resumeButton;
     [SerializeField] private Button _saveButton;
     [SerializeField] private Button _loadButton;
@@ -16,12 +19,14 @@ namespace Codebase.UI.Windows
     private IPauseService _pauseService;
     private ISavingService _savingService;
     private IGameStateMachine _stateMachine;
+    private IAudioService _audioService;
 
-    public void Construct(IPauseService pauseService, ISavingService savingService, IGameStateMachine stateMachine)
+    public void Construct(IPauseService pauseService, ISavingService savingService, IGameStateMachine stateMachine, IAudioService audioService)
     {
       _pauseService = pauseService;
       _savingService = savingService;
       _stateMachine = stateMachine;
+      _audioService = audioService;
     }
 
     protected override void Initialize() =>
@@ -46,20 +51,28 @@ namespace Codebase.UI.Windows
 
     private void ClosePauseWindow()
     {
+      _audioService.PlaySound(ButtonClick);
       Destroy(gameObject);
       _pauseService.Resume();
     }
 
     private void SaveProgress()
     {
+      _audioService.PlaySound(ButtonClick);
       _savingService.SaveProgress();
       ClosePauseWindow();
     }
 
-    private void LoadProgress() =>
+    private void LoadProgress()
+    {
+      _audioService.PlaySound(ButtonClick);
       _stateMachine.Enter<LoadProgressState>();
+    }
 
-    private void Exit() =>
+    private void Exit()
+    {
+      _audioService.PlaySound(ButtonClick);
       _stateMachine.Enter<MainMenuState>();
+    }
   }
 }

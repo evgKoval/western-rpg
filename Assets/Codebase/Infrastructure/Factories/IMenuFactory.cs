@@ -6,5 +6,6 @@ namespace Codebase.Infrastructure.Factories
   {
     void CreateRootCanvas();
     void CreateMainMenu();
+    void CreateMainAudioSource();
   }
 }

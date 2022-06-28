@@ -1,4 +1,5 @@
 ﻿using Codebase.Infrastructure.States;
+using Codebase.Services.Audio;
 using Codebase.Services.Pause;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,16 +8,20 @@ namespace Codebase.UI.Windows
 {
   public class DeathWindow : WindowTemplate
   {
+    private const string ButtonClick = "Button Click";
+
     [SerializeField] private Button _loadButton;
     [SerializeField] private Button _exitButton;
 
     private IGameStateMachine _stateMachine;
     private IPauseService _pauseService;
+    private IAudioService _audioService;
 
-    public void Construct(IGameStateMachine stateMachine, IPauseService pauseService)
+    public void Construct(IGameStateMachine stateMachine, IPauseService pauseService, IAudioService audioService)
     {
       _stateMachine = stateMachine;
       _pauseService = pauseService;
+      _audioService = audioService;
     }
 
     protected override void Initialize() =>
@@ -35,10 +40,16 @@ namespace Codebase.UI.Windows
       _exitButton.onClick.RemoveListener(Exit);
     }
 
-    private void LoadProgress() =>
+    private void LoadProgress()
+    {
+      _audioService.PlaySound(ButtonClick);
       _stateMachine.Enter<LoadProgressState>();
+    }
 
-    private void Exit() =>
+    private void Exit()
+    {
+      _audioService.PlaySound(ButtonClick);
       _stateMachine.Enter<MainMenuState>();
+    }
   }
 }

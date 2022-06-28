@@ -3,15 +3,20 @@ using UnityEngine;
 
 namespace Codebase.Enemy
 {
-  [RequireComponent(typeof(MoveToPlayer))]
+  [RequireComponent(typeof(MoveToPlayer), typeof(AudioSource))]
   public class CheckAggroZone : MonoBehaviour, IDeathable
   {
     [SerializeField] private TriggerObserver _aggroZone;
+    [SerializeField] private AudioClip _aggroSound;
 
     private MoveToPlayer _movement;
+    private AudioSource _audioSource;
 
-    private void Awake() =>
+    private void Awake()
+    {
       _movement = GetComponent<MoveToPlayer>();
+      _audioSource = GetComponent<AudioSource>();
+    }
 
     private void Start()
     {
@@ -27,8 +32,13 @@ namespace Codebase.Enemy
       _aggroZone.Exit -= CancelMoving;
     }
 
-    private void StartMoving(Collider obj) =>
+    private void StartMoving(Collider obj)
+    {
+      _audioSource.clip = _aggroSound;
+      _audioSource.Play();
+
       _movement.enabled = true;
+    }
 
     private void CancelMoving(Collider obj) =>
       _movement.enabled = false;

@@ -6,13 +6,17 @@ using UnityEngine;
 
 namespace Codebase.Player
 {
+  [RequireComponent(typeof(Animator), typeof(AudioSource))]
   public class PlayerHealth : MonoBehaviour, IHealth, ISaveable
   {
     private const string Hit = "Hit";
 
+    [SerializeField] private AudioClip _bleedOutSound;
+
     private Animator _animator;
     private PlayerState _state;
     private ParticleSystem _bloodFX;
+    private AudioSource _audioSource;
 
     public event Action Changed;
 
@@ -34,6 +38,7 @@ namespace Codebase.Player
     {
       _animator = GetComponent<Animator>();
       _bloodFX = GetComponentInChildren<ParticleSystem>();
+      _audioSource = GetComponent<AudioSource>();
     }
 
     public void TakeDamage(int damage, Vector3 hitPoint)
@@ -41,12 +46,11 @@ namespace Codebase.Player
       if (Current <= 0)
         return;
 
+      _animator.SetTrigger(Hit);
+      BleedOut(hitPoint);
+
       Current -= damage;
       Changed?.Invoke();
-
-      _animator.SetTrigger(Hit);
-
-      BleedOut(hitPoint);
     }
 
     public void LoadProgress(PlayerProgress progress)
@@ -65,6 +69,9 @@ namespace Codebase.Player
     {
       _bloodFX.transform.position = hitPoint;
       _bloodFX.Play();
+
+      _audioSource.clip = _bleedOutSound;
+      _audioSource.Play();
     }
   }
 }

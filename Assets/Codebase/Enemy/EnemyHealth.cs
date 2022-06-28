@@ -4,13 +4,16 @@ using UnityEngine;
 
 namespace Codebase.Enemy
 {
-  [RequireComponent(typeof(Animator))]
+  [RequireComponent(typeof(Animator), typeof(AudioSource))]
   public class EnemyHealth : MonoBehaviour, IHealth
   {
     private const string Hit = "Hit";
 
+    [SerializeField] private AudioClip _bleedOutSound;
+
     private Animator _animator;
     private ParticleSystem _bloodFX;
+    private AudioSource _audioSource;
 
     public event Action Changed;
 
@@ -28,6 +31,7 @@ namespace Codebase.Enemy
     {
       _animator = GetComponent<Animator>();
       _bloodFX = GetComponentInChildren<ParticleSystem>();
+      _audioSource = GetComponent<AudioSource>();
     }
 
     public void TakeDamage(int damage, Vector3 hitPoint)
@@ -35,18 +39,20 @@ namespace Codebase.Enemy
       if (Current <= 0)
         return;
 
+      _animator.SetTrigger(Hit);
+      BleedOut(hitPoint);
+
       Current -= damage;
       Changed?.Invoke();
-
-      _animator.SetTrigger(Hit);
-
-      BleedOut(hitPoint);
     }
 
     private void BleedOut(Vector3 hitPoint)
     {
       _bloodFX.transform.position = hitPoint;
       _bloodFX.Play();
+
+      _audioSource.clip = _bleedOutSound;
+      _audioSource.Play();
     }
   }
 }

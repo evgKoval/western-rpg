@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Codebase.Enemy
 {
-  [RequireComponent(typeof(Animator))]
+  [RequireComponent(typeof(Animator), typeof(AudioSource))]
   public class MeleeAttack : MonoBehaviour, IDeathable, IPauseable
   {
     private const string Attack = "Attack";
@@ -16,6 +16,7 @@ namespace Codebase.Enemy
     [SerializeField] [Range(0, 10)] private float _attackRadius;
     [SerializeField] [Range(1, 100)] private int _damage;
     [SerializeField] private float _positionWeaponByY;
+    [SerializeField] private AudioClip _swingSound;
 
     private readonly Collider[] _hits = new Collider[1];
 
@@ -24,14 +25,18 @@ namespace Codebase.Enemy
     private int _playerLayerMask;
     private float _cooldownTimeLeft;
     private bool _isAttacking;
+    private AudioSource _audioSource;
 
     public bool IsPaused { get; private set; }
 
     public void Construct(Transform player) =>
       _player = player;
 
-    private void Awake() =>
+    private void Awake()
+    {
       _animator = GetComponent<Animator>();
+      _audioSource = GetComponent<AudioSource>();
+    }
 
     private void Start() =>
       _playerLayerMask = 1 << LayerMask.NameToLayer(Player);
@@ -49,6 +54,9 @@ namespace Codebase.Enemy
 
     private void OnAttackStarted()
     {
+      _audioSource.clip = _swingSound;
+      _audioSource.Play();
+
       if (Hit(out Collider hit))
       {
         Debug.DrawRay(AttackPoint(), _attackRadius * Vector3.forward, Color.red, 1);

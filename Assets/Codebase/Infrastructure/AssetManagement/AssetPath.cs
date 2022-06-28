@@ -9,5 +9,6 @@
     public const string Spawner = "Enemy/Enemy Spawner";
     public const string RootCanvas = "UI/Root Canvas";
     public const string MainMenu = "UI/Main Menu";
+    public const string MainAudioSource = "Audio/Main Audio Source";
   }
 }
