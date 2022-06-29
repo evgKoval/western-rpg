@@ -11,6 +11,7 @@ namespace Codebase.Services.Input
     protected const string EscapeButton = "Cancel";
 
     public abstract Vector2 Axis { get; }
+    public abstract Vector2 MouseAxis { get; }
     public abstract bool IsAimButton();
     public abstract bool IsFiringButtonDown();
     public abstract bool IsPauseButtonDown();

@@ -4,6 +4,9 @@ namespace Codebase.Services.Input
 {
   class StandaloneInputService : InputService
   {
+    private const string MouseX = "Mouse X";
+    private const string MouseY = "Mouse Y";
+
     public override Vector2 Axis
     {
       get
@@ -16,6 +19,11 @@ namespace Codebase.Services.Input
         return axis;
       }
     }
+
+    public override Vector2 MouseAxis => new(
+      SimpleInput.GetAxis(MouseX),
+      SimpleInput.GetAxis(MouseY)
+    );
 
     public override bool IsAimButton() =>
       UnityEngine.Input.GetButton(AimButton);
