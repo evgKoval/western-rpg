@@ -76,6 +76,7 @@ namespace Codebase.Infrastructure.Factories
       GameObject hud = InstantiateRegistered(AssetPath.HUD);
 
       hud.GetComponent<HUDBinding>().Construct(_playerGameObject.GetComponent<IHealth>());
+      hud.GetComponentInChildren<PauseWindowOpener>().Construct(_uiFactory);
 
       return hud;
     }
@@ -87,7 +88,7 @@ namespace Codebase.Infrastructure.Factories
       CinemachineFreeLook cinemachineComponent = playerCamera.GetComponent<CinemachineFreeLook>();
       cinemachineComponent.Follow = _playerGameObject.transform;
       cinemachineComponent.LookAt = _playerGameObject.transform.Find(CameraLookAt);
-      playerCamera.GetComponent<CameraRotating>().Construct(_playerGameObject.GetComponent<Aiming>());
+      playerCamera.GetComponent<CameraRotating>().Construct(_playerGameObject.GetComponent<Aiming>(), _inputService);
 
       return playerCamera;
     }
