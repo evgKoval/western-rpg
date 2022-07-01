@@ -586,6 +586,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4802313776785768089, guid: da0554ea3d13a674c9ca3af5041e3f2a,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5046430538972213557, guid: da0554ea3d13a674c9ca3af5041e3f2a,
         type: 3}
       propertyPath: m_Name
@@ -595,6 +600,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: Died
+      objectReference: {fileID: 0}
+    - target: {fileID: 7188487560613678660, guid: da0554ea3d13a674c9ca3af5041e3f2a,
+        type: 3}
+      propertyPath: m_isRichText
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7188487560613678660, guid: da0554ea3d13a674c9ca3af5041e3f2a,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8854791329514473506, guid: da0554ea3d13a674c9ca3af5041e3f2a,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da0554ea3d13a674c9ca3af5041e3f2a, type: 3}
