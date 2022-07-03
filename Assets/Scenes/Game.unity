@@ -137,6 +137,10 @@ PrefabInstance:
       value: SM_Env_Quarry_Wall_Straight_01 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1243143202934182, guid: 01721643a2f7e7c45a2daba9d93f9095, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1243143202934182, guid: 01721643a2f7e7c45a2daba9d93f9095, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -964,6 +968,10 @@ PrefabInstance:
       value: SM_Env_Quarry_Wall_Ramp_01
       objectReference: {fileID: 0}
     - target: {fileID: 1531114076765958, guid: 1b024dd9278e4284ca79ee18e03d0e3b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1531114076765958, guid: 1b024dd9278e4284ca79ee18e03d0e3b, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -1410,6 +1418,10 @@ PrefabInstance:
       value: SM_Env_RockTall_01 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1978449873598534, guid: f6fb50e760598c84b80b58178f21cd13, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1978449873598534, guid: f6fb50e760598c84b80b58178f21cd13, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -1477,6 +1489,10 @@ PrefabInstance:
       value: SM_Env_RockTall_02 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1143142594320454, guid: 57db1575d7ae8174693d14731f604c0e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143142594320454, guid: 57db1575d7ae8174693d14731f604c0e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -1542,6 +1558,10 @@ PrefabInstance:
     - target: {fileID: 1053838694725084, guid: e7ff95b984b501c4c86d970c737b2621, type: 3}
       propertyPath: m_Name
       value: SM_Env_Mound_Large_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053838694725084, guid: e7ff95b984b501c4c86d970c737b2621, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1053838694725084, guid: e7ff95b984b501c4c86d970c737b2621, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1623,6 +1643,10 @@ PrefabInstance:
       value: SM_Env_Mound_Large_01 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1532832977280670, guid: 36e707806c44b75419d0b4121232db61, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1532832977280670, guid: 36e707806c44b75419d0b4121232db61, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -1696,6 +1720,10 @@ PrefabInstance:
     - target: {fileID: 1508417119092054, guid: b7a3bf101d1963f4f9cc2cf96a26c9db, type: 3}
       propertyPath: m_Name
       value: SM_Env_Tree_Desert_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508417119092054, guid: b7a3bf101d1963f4f9cc2cf96a26c9db, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1508417119092054, guid: b7a3bf101d1963f4f9cc2cf96a26c9db, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2867,6 +2895,10 @@ PrefabInstance:
       value: SM_Env_Quarry_Wall_Mine_Entrance_01
       objectReference: {fileID: 0}
     - target: {fileID: 1106944718934250, guid: 4a1810fd2b5bc6c4ea46857eb78272c5, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1106944718934250, guid: 4a1810fd2b5bc6c4ea46857eb78272c5, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -2932,6 +2964,10 @@ PrefabInstance:
     - target: {fileID: 1508417119092054, guid: b7a3bf101d1963f4f9cc2cf96a26c9db, type: 3}
       propertyPath: m_Name
       value: SM_Env_Tree_Desert_01 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508417119092054, guid: b7a3bf101d1963f4f9cc2cf96a26c9db, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1508417119092054, guid: b7a3bf101d1963f4f9cc2cf96a26c9db, type: 3}
       propertyPath: m_IsActive
@@ -3011,6 +3047,10 @@ PrefabInstance:
       value: SM_Prop_TotemPole_01
       objectReference: {fileID: 0}
     - target: {fileID: 1273543711330380, guid: f0ec768316b28c241a358b2d69c94c03, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1273543711330380, guid: f0ec768316b28c241a358b2d69c94c03, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -3076,6 +3116,10 @@ PrefabInstance:
     - target: {fileID: 1431216352171606, guid: 0dabedfe925eeea45b0201fe7018d696, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Wagon_Destroyed_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1431216352171606, guid: 0dabedfe925eeea45b0201fe7018d696, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1431216352171606, guid: 0dabedfe925eeea45b0201fe7018d696, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3780,6 +3824,10 @@ PrefabInstance:
       value: SM_Env_RockTall_03 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1251544261993126, guid: 9feab419dc1ebe8439a3e79a63c9b46e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251544261993126, guid: 9feab419dc1ebe8439a3e79a63c9b46e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -3845,6 +3893,10 @@ PrefabInstance:
     - target: {fileID: 1143142594320454, guid: 57db1575d7ae8174693d14731f604c0e, type: 3}
       propertyPath: m_Name
       value: SM_Env_RockTall_02 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143142594320454, guid: 57db1575d7ae8174693d14731f604c0e, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1143142594320454, guid: 57db1575d7ae8174693d14731f604c0e, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3920,6 +3972,10 @@ PrefabInstance:
     - target: {fileID: 1759444208176484, guid: 08597bd00295fd846827c31b194cf867, type: 3}
       propertyPath: m_Name
       value: SM_Env_Mound_Hill_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1759444208176484, guid: 08597bd00295fd846827c31b194cf867, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1759444208176484, guid: 08597bd00295fd846827c31b194cf867, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -6145,6 +6201,10 @@ PrefabInstance:
       value: SM_Env_Cactus_Large_03
       objectReference: {fileID: 0}
     - target: {fileID: 1310779521058254, guid: 5472627700b046a49ba4bcfa7c3113c8, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310779521058254, guid: 5472627700b046a49ba4bcfa7c3113c8, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -6232,6 +6292,10 @@ PrefabInstance:
       value: SM_Env_Tree_Desert_02 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 1678196060135312, guid: 486c4171b7f88ce46b8f085736eec23f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678196060135312, guid: 486c4171b7f88ce46b8f085736eec23f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -6305,6 +6369,10 @@ PrefabInstance:
       value: SM_Env_Cactus_Large_01
       objectReference: {fileID: 0}
     - target: {fileID: 1399173898403038, guid: 5062c27c7d396614c96b4d09d814f40d, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1399173898403038, guid: 5062c27c7d396614c96b4d09d814f40d, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -6376,6 +6444,10 @@ PrefabInstance:
     - target: {fileID: 1411393140427520, guid: a3e1703ed60693740812810c153d2ceb, type: 3}
       propertyPath: m_Name
       value: SM_Env_Cactus_01 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411393140427520, guid: a3e1703ed60693740812810c153d2ceb, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1411393140427520, guid: a3e1703ed60693740812810c153d2ceb, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -6475,6 +6547,10 @@ PrefabInstance:
       value: SM_Env_Shrub_03
       objectReference: {fileID: 0}
     - target: {fileID: 1182919975157360, guid: 6ca33031738ba9e41a23758717d1e56e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1182919975157360, guid: 6ca33031738ba9e41a23758717d1e56e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -6546,6 +6622,10 @@ PrefabInstance:
     - target: {fileID: 1564392166669298, guid: 982496eb2aa50524ab3046b64659ca36, type: 3}
       propertyPath: m_Name
       value: SM_Env_Mine_Tunnel_Blocker_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1564392166669298, guid: 982496eb2aa50524ab3046b64659ca36, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1564392166669298, guid: 982496eb2aa50524ab3046b64659ca36, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -6703,6 +6783,10 @@ PrefabInstance:
       value: SM_Env_Quarry_Wall_Curved_01 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 1526795006516422, guid: 8ca1cded15b163f498ab61068a9889c6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1526795006516422, guid: 8ca1cded15b163f498ab61068a9889c6, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -6770,6 +6854,10 @@ PrefabInstance:
       value: SM_Env_Quarry_Wall_Curved_01
       objectReference: {fileID: 0}
     - target: {fileID: 1526795006516422, guid: 8ca1cded15b163f498ab61068a9889c6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1526795006516422, guid: 8ca1cded15b163f498ab61068a9889c6, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -6835,6 +6923,10 @@ PrefabInstance:
     - target: {fileID: 1918041091517086, guid: d0cec343765de0445ace37eb2a2f5ed3, type: 3}
       propertyPath: m_Name
       value: SM_Bld_Teepee_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1918041091517086, guid: d0cec343765de0445ace37eb2a2f5ed3, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1918041091517086, guid: d0cec343765de0445ace37eb2a2f5ed3, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -6922,6 +7014,10 @@ PrefabInstance:
       value: SM_Env_Quarry_Wall_Curved_02 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1568257270882862, guid: efb87cf1549d7d542bf3d3f882bd4cd2, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1568257270882862, guid: efb87cf1549d7d542bf3d3f882bd4cd2, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -6993,6 +7089,10 @@ PrefabInstance:
     - target: {fileID: 1251544261993126, guid: 9feab419dc1ebe8439a3e79a63c9b46e, type: 3}
       propertyPath: m_Name
       value: SM_Env_RockTall_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251544261993126, guid: 9feab419dc1ebe8439a3e79a63c9b46e, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1251544261993126, guid: 9feab419dc1ebe8439a3e79a63c9b46e, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7068,6 +7168,10 @@ PrefabInstance:
       value: SM_Env_Quarry_Wall_Curved_02
       objectReference: {fileID: 0}
     - target: {fileID: 1568257270882862, guid: efb87cf1549d7d542bf3d3f882bd4cd2, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1568257270882862, guid: efb87cf1549d7d542bf3d3f882bd4cd2, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -7133,6 +7237,10 @@ PrefabInstance:
     - target: {fileID: 1568257270882862, guid: efb87cf1549d7d542bf3d3f882bd4cd2, type: 3}
       propertyPath: m_Name
       value: SM_Env_Quarry_Wall_Curved_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1568257270882862, guid: efb87cf1549d7d542bf3d3f882bd4cd2, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1568257270882862, guid: efb87cf1549d7d542bf3d3f882bd4cd2, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7230,12 +7338,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 1667119643}
     m_Modifications:
     - target: {fileID: 1241470237976746, guid: b30695f0a1d5c54459fa1a74213ea5e8, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241470237976746, guid: b30695f0a1d5c54459fa1a74213ea5e8, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1278673300005286, guid: b30695f0a1d5c54459fa1a74213ea5e8, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Campfire_Small_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278673300005286, guid: b30695f0a1d5c54459fa1a74213ea5e8, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1278673300005286, guid: b30695f0a1d5c54459fa1a74213ea5e8, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7311,6 +7427,10 @@ PrefabInstance:
       value: SM_Env_Cactus_01 (3)
       objectReference: {fileID: 0}
     - target: {fileID: 1411393140427520, guid: a3e1703ed60693740812810c153d2ceb, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411393140427520, guid: a3e1703ed60693740812810c153d2ceb, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -7382,6 +7502,10 @@ PrefabInstance:
     - target: {fileID: 1526795006516422, guid: 8ca1cded15b163f498ab61068a9889c6, type: 3}
       propertyPath: m_Name
       value: SM_Env_Quarry_Wall_Curved_01 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1526795006516422, guid: 8ca1cded15b163f498ab61068a9889c6, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1526795006516422, guid: 8ca1cded15b163f498ab61068a9889c6, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7537,6 +7661,10 @@ PrefabInstance:
       value: SM_Env_RockFlat_02
       objectReference: {fileID: 0}
     - target: {fileID: 1163015792594720, guid: e3765b319a26a4e4d89dab3df5bbb566, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1163015792594720, guid: e3765b319a26a4e4d89dab3df5bbb566, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -7608,6 +7736,10 @@ PrefabInstance:
     - target: {fileID: 1568257270882862, guid: efb87cf1549d7d542bf3d3f882bd4cd2, type: 3}
       propertyPath: m_Name
       value: SM_Env_Quarry_Wall_Curved_02 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1568257270882862, guid: efb87cf1549d7d542bf3d3f882bd4cd2, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1568257270882862, guid: efb87cf1549d7d542bf3d3f882bd4cd2, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -8589,6 +8721,10 @@ PrefabInstance:
       value: SM_Env_Quarry_Wall_Curved_02 (3)
       objectReference: {fileID: 0}
     - target: {fileID: 1568257270882862, guid: efb87cf1549d7d542bf3d3f882bd4cd2, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1568257270882862, guid: efb87cf1549d7d542bf3d3f882bd4cd2, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -8660,6 +8796,10 @@ PrefabInstance:
     - target: {fileID: 1526795006516422, guid: 8ca1cded15b163f498ab61068a9889c6, type: 3}
       propertyPath: m_Name
       value: SM_Env_Quarry_Wall_Curved_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1526795006516422, guid: 8ca1cded15b163f498ab61068a9889c6, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1526795006516422, guid: 8ca1cded15b163f498ab61068a9889c6, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -9865,6 +10005,10 @@ PrefabInstance:
       value: SM_Prop_SkullPole_01 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1888722832077320, guid: 2e3cfebbd5d324e4eae5b923e7df1511, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1888722832077320, guid: 2e3cfebbd5d324e4eae5b923e7df1511, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -9930,6 +10074,10 @@ PrefabInstance:
     - target: {fileID: 1108273795509818, guid: 6ce7d101e859cd3409c5d0916d5ee777, type: 3}
       propertyPath: m_Name
       value: SM_Env_Cactus_Large_02 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1108273795509818, guid: 6ce7d101e859cd3409c5d0916d5ee777, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1108273795509818, guid: 6ce7d101e859cd3409c5d0916d5ee777, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10209,6 +10357,10 @@ PrefabInstance:
       value: SM_Env_RockTall_02 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 1143142594320454, guid: 57db1575d7ae8174693d14731f604c0e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143142594320454, guid: 57db1575d7ae8174693d14731f604c0e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 127
       objectReference: {fileID: 0}
@@ -10334,6 +10486,10 @@ PrefabInstance:
       value: SM_Env_Shrub_01 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1896082995777552, guid: 46175349ba374014a86463721899bdf2, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1896082995777552, guid: 46175349ba374014a86463721899bdf2, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -10405,6 +10561,10 @@ PrefabInstance:
     - target: {fileID: 1830297805920974, guid: ec0f20767497057498cbc4988c0f6de7, type: 3}
       propertyPath: m_Name
       value: SM_Env_Quarry_Wall_Round_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830297805920974, guid: ec0f20767497057498cbc4988c0f6de7, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1830297805920974, guid: ec0f20767497057498cbc4988c0f6de7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10627,6 +10787,10 @@ PrefabInstance:
       value: SM_Env_Grass_Shrub_01 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1264081760081024, guid: 5eacb0825d2135941976b2b401662c8a, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1264081760081024, guid: 5eacb0825d2135941976b2b401662c8a, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -10716,6 +10880,10 @@ PrefabInstance:
       value: SM_Env_Tree_Desert_02
       objectReference: {fileID: 0}
     - target: {fileID: 1678196060135312, guid: 486c4171b7f88ce46b8f085736eec23f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678196060135312, guid: 486c4171b7f88ce46b8f085736eec23f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -10795,6 +10963,10 @@ PrefabInstance:
       value: SM_Env_Grass_Shrub_01
       objectReference: {fileID: 0}
     - target: {fileID: 1264081760081024, guid: 5eacb0825d2135941976b2b401662c8a, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1264081760081024, guid: 5eacb0825d2135941976b2b401662c8a, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -10868,6 +11040,10 @@ PrefabInstance:
       value: SM_Env_Cactus_Large_06
       objectReference: {fileID: 0}
     - target: {fileID: 1111049777226348, guid: 50be67da65ab30f45b10768454899cdc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1111049777226348, guid: 50be67da65ab30f45b10768454899cdc, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -10939,6 +11115,10 @@ PrefabInstance:
     - target: {fileID: 1508417119092054, guid: b7a3bf101d1963f4f9cc2cf96a26c9db, type: 3}
       propertyPath: m_Name
       value: SM_Env_Tree_Desert_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508417119092054, guid: b7a3bf101d1963f4f9cc2cf96a26c9db, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1508417119092054, guid: b7a3bf101d1963f4f9cc2cf96a26c9db, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -11018,6 +11198,10 @@ PrefabInstance:
     - target: {fileID: 1264081760081024, guid: 5eacb0825d2135941976b2b401662c8a, type: 3}
       propertyPath: m_Name
       value: SM_Env_Grass_Shrub_01 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1264081760081024, guid: 5eacb0825d2135941976b2b401662c8a, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1264081760081024, guid: 5eacb0825d2135941976b2b401662c8a, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -13456,6 +13640,10 @@ PrefabInstance:
       value: SM_Env_Quarry_Wall_Curved_01 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1526795006516422, guid: 8ca1cded15b163f498ab61068a9889c6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1526795006516422, guid: 8ca1cded15b163f498ab61068a9889c6, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -13521,6 +13709,10 @@ PrefabInstance:
     - target: {fileID: 1678196060135312, guid: 486c4171b7f88ce46b8f085736eec23f, type: 3}
       propertyPath: m_Name
       value: SM_Env_Tree_Desert_02 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678196060135312, guid: 486c4171b7f88ce46b8f085736eec23f, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4769550404469258, guid: 486c4171b7f88ce46b8f085736eec23f, type: 3}
       propertyPath: m_RootOrder
@@ -13590,6 +13782,10 @@ PrefabInstance:
     - target: {fileID: 1411393140427520, guid: a3e1703ed60693740812810c153d2ceb, type: 3}
       propertyPath: m_Name
       value: SM_Env_Cactus_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411393140427520, guid: a3e1703ed60693740812810c153d2ceb, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1411393140427520, guid: a3e1703ed60693740812810c153d2ceb, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -13663,6 +13859,10 @@ PrefabInstance:
     - target: {fileID: 1568257270882862, guid: efb87cf1549d7d542bf3d3f882bd4cd2, type: 3}
       propertyPath: m_Name
       value: SM_Env_Quarry_Wall_Curved_02 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1568257270882862, guid: efb87cf1549d7d542bf3d3f882bd4cd2, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1568257270882862, guid: efb87cf1549d7d542bf3d3f882bd4cd2, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -13785,6 +13985,10 @@ PrefabInstance:
       value: SM_Env_RockTall_01
       objectReference: {fileID: 0}
     - target: {fileID: 1978449873598534, guid: f6fb50e760598c84b80b58178f21cd13, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1978449873598534, guid: f6fb50e760598c84b80b58178f21cd13, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -13850,6 +14054,10 @@ PrefabInstance:
     - target: {fileID: 1770798150173668, guid: eeaec581c9b4b0b4dbc37ec8232a81f0, type: 3}
       propertyPath: m_Name
       value: SM_Env_Shrub_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 1770798150173668, guid: eeaec581c9b4b0b4dbc37ec8232a81f0, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1770798150173668, guid: eeaec581c9b4b0b4dbc37ec8232a81f0, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -13929,6 +14137,10 @@ PrefabInstance:
     - target: {fileID: 1053838694725084, guid: e7ff95b984b501c4c86d970c737b2621, type: 3}
       propertyPath: m_Name
       value: SM_Env_Mound_Large_03 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053838694725084, guid: e7ff95b984b501c4c86d970c737b2621, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1053838694725084, guid: e7ff95b984b501c4c86d970c737b2621, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -15603,6 +15815,10 @@ PrefabInstance:
       value: SM_Env_Cactus_Large_02 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 1108273795509818, guid: 6ce7d101e859cd3409c5d0916d5ee777, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1108273795509818, guid: 6ce7d101e859cd3409c5d0916d5ee777, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -15684,6 +15900,10 @@ PrefabInstance:
       value: SM_Env_Quarry_Wall_Straight_02
       objectReference: {fileID: 0}
     - target: {fileID: 1216886358900100, guid: 4900f57c7a29d7d41bfad5e9e6f8edeb, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1216886358900100, guid: 4900f57c7a29d7d41bfad5e9e6f8edeb, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -15749,6 +15969,10 @@ PrefabInstance:
     - target: {fileID: 1108273795509818, guid: 6ce7d101e859cd3409c5d0916d5ee777, type: 3}
       propertyPath: m_Name
       value: SM_Env_Cactus_Large_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1108273795509818, guid: 6ce7d101e859cd3409c5d0916d5ee777, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1108273795509818, guid: 6ce7d101e859cd3409c5d0916d5ee777, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -15838,6 +16062,10 @@ PrefabInstance:
       value: SM_Env_Quarry_Wall_Straight_02
       objectReference: {fileID: 0}
     - target: {fileID: 1216886358900100, guid: 4900f57c7a29d7d41bfad5e9e6f8edeb, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1216886358900100, guid: 4900f57c7a29d7d41bfad5e9e6f8edeb, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -15903,6 +16131,10 @@ PrefabInstance:
     - target: {fileID: 1243143202934182, guid: 01721643a2f7e7c45a2daba9d93f9095, type: 3}
       propertyPath: m_Name
       value: SM_Env_Quarry_Wall_Straight_01 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1243143202934182, guid: 01721643a2f7e7c45a2daba9d93f9095, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1243143202934182, guid: 01721643a2f7e7c45a2daba9d93f9095, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -16669,6 +16901,10 @@ PrefabInstance:
     - target: {fileID: 1411393140427520, guid: a3e1703ed60693740812810c153d2ceb, type: 3}
       propertyPath: m_Name
       value: SM_Env_Cactus_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411393140427520, guid: a3e1703ed60693740812810c153d2ceb, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1411393140427520, guid: a3e1703ed60693740812810c153d2ceb, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -18823,6 +19059,10 @@ PrefabInstance:
       value: SM_Env_Cactus_02
       objectReference: {fileID: 0}
     - target: {fileID: 1441814490189564, guid: 7afcd92debc5e7741982b7225f83930d, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1441814490189564, guid: 7afcd92debc5e7741982b7225f83930d, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -18940,7 +19180,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1667119643}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Environment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19067,6 +19307,10 @@ PrefabInstance:
       value: SM_Env_Shrub_01
       objectReference: {fileID: 0}
     - target: {fileID: 1896082995777552, guid: 46175349ba374014a86463721899bdf2, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1896082995777552, guid: 46175349ba374014a86463721899bdf2, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -19187,6 +19431,10 @@ PrefabInstance:
       value: SM_Env_Mound_Flattop_02
       objectReference: {fileID: 0}
     - target: {fileID: 1133318570616202, guid: 2a6a09a65c94a3a469d9d7a232fe5abf, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1133318570616202, guid: 2a6a09a65c94a3a469d9d7a232fe5abf, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 119
       objectReference: {fileID: 0}
@@ -19253,6 +19501,10 @@ PrefabInstance:
     - target: {fileID: 1243143202934182, guid: 01721643a2f7e7c45a2daba9d93f9095, type: 3}
       propertyPath: m_Name
       value: SM_Env_Quarry_Wall_Straight_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1243143202934182, guid: 01721643a2f7e7c45a2daba9d93f9095, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1243143202934182, guid: 01721643a2f7e7c45a2daba9d93f9095, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -19839,6 +20091,10 @@ PrefabInstance:
       value: SM_Env_Mound_Large_01
       objectReference: {fileID: 0}
     - target: {fileID: 1532832977280670, guid: 36e707806c44b75419d0b4121232db61, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1532832977280670, guid: 36e707806c44b75419d0b4121232db61, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -19916,6 +20172,10 @@ PrefabInstance:
     - target: {fileID: 1830297805920974, guid: ec0f20767497057498cbc4988c0f6de7, type: 3}
       propertyPath: m_Name
       value: SM_Env_Quarry_Wall_Round_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830297805920974, guid: ec0f20767497057498cbc4988c0f6de7, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1830297805920974, guid: ec0f20767497057498cbc4988c0f6de7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -20151,6 +20411,10 @@ PrefabInstance:
       value: SM_Env_Quarry_Wall_End_01
       objectReference: {fileID: 0}
     - target: {fileID: 1952056245121146, guid: 4fe7a64d61b2183489c627603a63a406, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1952056245121146, guid: 4fe7a64d61b2183489c627603a63a406, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -20216,6 +20480,10 @@ PrefabInstance:
     - target: {fileID: 1143142594320454, guid: 57db1575d7ae8174693d14731f604c0e, type: 3}
       propertyPath: m_Name
       value: SM_Env_RockTall_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143142594320454, guid: 57db1575d7ae8174693d14731f604c0e, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1143142594320454, guid: 57db1575d7ae8174693d14731f604c0e, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -21555,6 +21823,10 @@ PrefabInstance:
       value: SM_Env_Mound_Large_03 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1053838694725084, guid: e7ff95b984b501c4c86d970c737b2621, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053838694725084, guid: e7ff95b984b501c4c86d970c737b2621, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -21651,6 +21923,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Tree_Desert_02 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1678196060135312, guid: 486c4171b7f88ce46b8f085736eec23f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4769550404469258, guid: 486c4171b7f88ce46b8f085736eec23f, type: 3}
       propertyPath: m_RootOrder
       value: 57
@@ -21719,6 +21995,10 @@ PrefabInstance:
     - target: {fileID: 1759444208176484, guid: 08597bd00295fd846827c31b194cf867, type: 3}
       propertyPath: m_Name
       value: SM_Env_Mound_Hill_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1759444208176484, guid: 08597bd00295fd846827c31b194cf867, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1759444208176484, guid: 08597bd00295fd846827c31b194cf867, type: 3}
       propertyPath: m_StaticEditorFlags
