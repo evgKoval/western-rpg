@@ -1,4 +1,5 @@
 ﻿using Codebase.Services;
+using UnityEngine;
 
 namespace Codebase.Infrastructure.States
 {
@@ -12,8 +13,13 @@ namespace Codebase.Infrastructure.States
     public void Exit() =>
       _services.DisposeAll();
 
-    public void Enter()
+    public void Enter() =>
+      HideDefaultCursor();
+
+    private static void HideDefaultCursor()
     {
+      Cursor.visible = false;
+      Cursor.lockState = CursorLockMode.Locked;
     }
   }
 }
