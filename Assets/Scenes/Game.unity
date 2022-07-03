@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4405022, g: 0.4889955, b: 0.5693793, a: 1}
+  m_IndirectSpecularColor: {r: 0.44300494, g: 0.49219579, b: 0.5719235, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -299,7 +299,7 @@ MonoBehaviour:
   useMultithreading: 1
   previousSelection: {fileID: 0}
   unloaded: 1
-  sceneChanging: 0
+  sceneChanging: 1
   waitForPrevious: 0
   previousVolume: {fileID: 0}
   optimizeForMixedLighting: 0
@@ -3251,7 +3251,7 @@ MonoBehaviour:
   useMultithreading: 1
   previousSelection: {fileID: 0}
   unloaded: 1
-  sceneChanging: 0
+  sceneChanging: 1
   waitForPrevious: 0
   previousVolume: {fileID: 0}
   optimizeForMixedLighting: 0
@@ -7772,7 +7772,7 @@ MonoBehaviour:
   useMultithreading: 1
   previousSelection: {fileID: 0}
   unloaded: 1
-  sceneChanging: 0
+  sceneChanging: 1
   waitForPrevious: 0
   previousVolume: {fileID: 0}
   optimizeForMixedLighting: 0
@@ -8824,7 +8824,7 @@ MonoBehaviour:
   useMultithreading: 1
   previousSelection: {fileID: 0}
   unloaded: 1
-  sceneChanging: 0
+  sceneChanging: 1
   waitForPrevious: 0
   previousVolume: {fileID: 0}
   optimizeForMixedLighting: 0
@@ -10210,7 +10210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1143142594320454, guid: 57db1575d7ae8174693d14731f604c0e, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 127
       objectReference: {fileID: 0}
     - target: {fileID: 4106056043018034, guid: 57db1575d7ae8174693d14731f604c0e, type: 3}
       propertyPath: m_RootOrder
@@ -10255,6 +10255,11 @@ PrefabInstance:
     - target: {fileID: 4106056043018034, guid: 57db1575d7ae8174693d14731f604c0e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23516682095263606, guid: 57db1575d7ae8174693d14731f604c0e,
+        type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57db1575d7ae8174693d14731f604c0e, type: 3}
@@ -16834,7 +16839,7 @@ MonoBehaviour:
   useMultithreading: 1
   previousSelection: {fileID: 0}
   unloaded: 1
-  sceneChanging: 0
+  sceneChanging: 1
   waitForPrevious: 0
   previousVolume: {fileID: 0}
   optimizeForMixedLighting: 0
@@ -19418,7 +19423,7 @@ MonoBehaviour:
   useMultithreading: 1
   previousSelection: {fileID: 0}
   unloaded: 1
-  sceneChanging: 0
+  sceneChanging: 1
   waitForPrevious: 0
   previousVolume: {fileID: 0}
   optimizeForMixedLighting: 0
@@ -20381,7 +20386,7 @@ MonoBehaviour:
   useMultithreading: 1
   previousSelection: {fileID: 0}
   unloaded: 1
-  sceneChanging: 0
+  sceneChanging: 1
   waitForPrevious: 0
   previousVolume: {fileID: 0}
   optimizeForMixedLighting: 0
