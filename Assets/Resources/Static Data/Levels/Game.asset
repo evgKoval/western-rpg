@@ -13,13 +13,15 @@ MonoBehaviour:
   m_Name: Game
   m_EditorClassIdentifier: 
   LevelName: Game
-  InitialPosition: {x: 0, y: 2, z: 0}
+  InitialPosition: {x: 1.14, y: 1.797, z: 2.893}
   EnemySpawners:
-  - Id: Game_2b904277-240d-4875-bfd5-8367e9b4e514
-    Position: {x: -11.318362, y: 2.1195574, z: 19.22502}
-  - Id: Game_97d021d4-cd38-40ce-b0ca-74e908edfa71
-    Position: {x: -12.60504, y: 1.7684598, z: 11.802109}
-  - Id: Game_c5d8bcbd-2efa-4653-aab1-3d5ac7263a72
-    Position: {x: 9.054166, y: 0.90288925, z: 12.88435}
-  - Id: Game_7ea63912-72a6-4ecf-8f62-c63817c769b4
-    Position: {x: 3.6431265, y: 2.031968, z: 19.343273}
+  - Id: Game_0c8176e5-84ac-45d0-9e58-8f576b3232a7
+    Position: {x: 5.2814484, y: 3.1227322, z: 52.17845}
+  - Id: Game_a9e82b4c-d5c2-4416-8b9f-2f9eb66e2dec
+    Position: {x: 4.186207, y: 4.155739, z: 30.178432}
+  - Id: Game_5ffb55b3-c819-48be-b4b6-ec084b35528a
+    Position: {x: -2.75, y: 2.2675705, z: 34.97}
+  - Id: Game_3b39b734-7971-44b6-b09d-354b3ee7a96a
+    Position: {x: -2.2965088, y: 2.0330467, z: 22.045593}
+  - Id: Game_ba8d1827-d167-492f-b577-c6053451cfea
+    Position: {x: 6.2031765, y: 1.8093796, z: 20.68306}
