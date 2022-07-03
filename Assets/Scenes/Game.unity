@@ -98,8 +98,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 6c0ca184e26ba0e4e9669d763317b26e,
-    type: 2}
+  m_LightingDataAsset: {fileID: 0}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 6f5d9124eda5c6b4cb2d022cfea3565c,
     type: 2}
 --- !u!196 &4
@@ -328,14 +327,19 @@ MonoBehaviour:
   forceSaveProbesOnShadingBorders: 1
   combinedVolumeComponent: {fileID: 207745848}
   allVolumes:
-  - {fileID: 1822741199}
+  - {fileID: 5857572}
+  - {fileID: 258430651}
   - {fileID: 765923620}
+  - {fileID: 833635284}
+  - {fileID: 1602997851}
+  - {fileID: 1822741199}
   - {fileID: 2057114254}
   - {fileID: 258430651}
+  - {fileID: 765923620}
+  - {fileID: 833635284}
   - {fileID: 1602997851}
-  - {fileID: 5857572}
-  - {fileID: 833635284}
-  - {fileID: 833635284}
+  - {fileID: 1822741199}
+  - {fileID: 2057114254}
   prefabStage: {fileID: 0}
   quickEditingComponent: {fileID: 1319095861}
   dataPath: F:/Game Studio/Frontier/WesternRPG/Assets
@@ -3275,16 +3279,18 @@ MonoBehaviour:
   forceSaveProbesOnShadingBorders: 1
   combinedVolumeComponent: {fileID: 207745848}
   allVolumes:
-  - {fileID: 1822741199}
-  - {fileID: 765923620}
-  - {fileID: 2057114254}
+  - {fileID: 5857572}
   - {fileID: 258430651}
-  - {fileID: 1602997851}
-  - {fileID: 5857572}
+  - {fileID: 765923620}
   - {fileID: 833635284}
   - {fileID: 1602997851}
-  - {fileID: 5857572}
+  - {fileID: 1822741199}
+  - {fileID: 2057114254}
+  - {fileID: 765923620}
   - {fileID: 833635284}
+  - {fileID: 1602997851}
+  - {fileID: 1822741199}
+  - {fileID: 2057114254}
   prefabStage: {fileID: 0}
   quickEditingComponent: {fileID: 1665636474}
   dataPath: F:/Game Studio/Frontier/WesternRPG/Assets
@@ -7794,18 +7800,17 @@ MonoBehaviour:
   forceSaveProbesOnShadingBorders: 1
   combinedVolumeComponent: {fileID: 207745848}
   allVolumes:
-  - {fileID: 1822741199}
+  - {fileID: 5857572}
+  - {fileID: 258430651}
   - {fileID: 765923620}
-  - {fileID: 2057114254}
-  - {fileID: 258430651}
-  - {fileID: 1602997851}
-  - {fileID: 5857572}
   - {fileID: 833635284}
-  - {fileID: 2057114254}
-  - {fileID: 258430651}
   - {fileID: 1602997851}
-  - {fileID: 5857572}
+  - {fileID: 1822741199}
+  - {fileID: 2057114254}
   - {fileID: 833635284}
+  - {fileID: 1602997851}
+  - {fileID: 1822741199}
+  - {fileID: 2057114254}
   prefabStage: {fileID: 0}
   quickEditingComponent: {fileID: 1084582956}
   dataPath: F:/Game Studio/Frontier/WesternRPG/Assets
@@ -8847,13 +8852,16 @@ MonoBehaviour:
   forceSaveProbesOnShadingBorders: 1
   combinedVolumeComponent: {fileID: 207745848}
   allVolumes:
-  - {fileID: 1822741199}
-  - {fileID: 765923620}
-  - {fileID: 2057114254}
-  - {fileID: 258430651}
-  - {fileID: 1602997851}
   - {fileID: 5857572}
+  - {fileID: 258430651}
+  - {fileID: 765923620}
   - {fileID: 833635284}
+  - {fileID: 1602997851}
+  - {fileID: 1822741199}
+  - {fileID: 2057114254}
+  - {fileID: 1602997851}
+  - {fileID: 1822741199}
+  - {fileID: 2057114254}
   prefabStage: {fileID: 0}
   quickEditingComponent: {fileID: 2059242830}
   dataPath: F:/Game Studio/Frontier/WesternRPG/Assets
@@ -10118,7 +10126,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -10151,7 +10159,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -16854,15 +16862,15 @@ MonoBehaviour:
   forceSaveProbesOnShadingBorders: 1
   combinedVolumeComponent: {fileID: 207745848}
   allVolumes:
-  - {fileID: 1822741199}
-  - {fileID: 765923620}
-  - {fileID: 2057114254}
+  - {fileID: 5857572}
   - {fileID: 258430651}
+  - {fileID: 765923620}
+  - {fileID: 833635284}
   - {fileID: 1602997851}
-  - {fileID: 5857572}
-  - {fileID: 833635284}
-  - {fileID: 5857572}
-  - {fileID: 833635284}
+  - {fileID: 1822741199}
+  - {fileID: 2057114254}
+  - {fileID: 1822741199}
+  - {fileID: 2057114254}
   prefabStage: {fileID: 0}
   quickEditingComponent: {fileID: 1830949110}
   dataPath: F:/Game Studio/Frontier/WesternRPG/Assets
@@ -19438,19 +19446,14 @@ MonoBehaviour:
   forceSaveProbesOnShadingBorders: 1
   combinedVolumeComponent: {fileID: 207745848}
   allVolumes:
+  - {fileID: 5857572}
+  - {fileID: 258430651}
+  - {fileID: 765923620}
+  - {fileID: 833635284}
+  - {fileID: 1602997851}
   - {fileID: 1822741199}
-  - {fileID: 765923620}
   - {fileID: 2057114254}
-  - {fileID: 258430651}
-  - {fileID: 1602997851}
-  - {fileID: 5857572}
-  - {fileID: 833635284}
-  - {fileID: 765923620}
   - {fileID: 2057114254}
-  - {fileID: 258430651}
-  - {fileID: 1602997851}
-  - {fileID: 5857572}
-  - {fileID: 833635284}
   prefabStage: {fileID: 0}
   quickEditingComponent: {fileID: 408946066}
   dataPath: F:/Game Studio/Frontier/WesternRPG/Assets
@@ -20406,17 +20409,13 @@ MonoBehaviour:
   forceSaveProbesOnShadingBorders: 1
   combinedVolumeComponent: {fileID: 207745848}
   allVolumes:
-  - {fileID: 1822741199}
+  - {fileID: 5857572}
+  - {fileID: 258430651}
   - {fileID: 765923620}
+  - {fileID: 833635284}
+  - {fileID: 1602997851}
+  - {fileID: 1822741199}
   - {fileID: 2057114254}
-  - {fileID: 258430651}
-  - {fileID: 1602997851}
-  - {fileID: 5857572}
-  - {fileID: 833635284}
-  - {fileID: 258430651}
-  - {fileID: 1602997851}
-  - {fileID: 5857572}
-  - {fileID: 833635284}
   prefabStage: {fileID: 0}
   quickEditingComponent: {fileID: 1744334473}
   dataPath: F:/Game Studio/Frontier/WesternRPG/Assets
