@@ -10,6 +10,7 @@ namespace Codebase.UI.Windows
 
     private void Awake()
     {
+      ShowDefaultCursor();
       _audioSource = GetComponent<AudioSource>();
 
       OnAwake();
@@ -24,8 +25,11 @@ namespace Codebase.UI.Windows
       _audioSource.Play();
     }
 
-    private void OnDestroy() =>
+    private void OnDestroy()
+    {
+      HideDefaultCursor();
       Cleanup();
+    }
 
     protected virtual void OnAwake()
     {
@@ -41,6 +45,18 @@ namespace Codebase.UI.Windows
 
     protected virtual void Cleanup()
     {
+    }
+
+    private static void ShowDefaultCursor()
+    {
+      Cursor.visible = true;
+      Cursor.lockState = CursorLockMode.None;
+    }
+
+    private static void HideDefaultCursor()
+    {
+      Cursor.visible = false;
+      Cursor.lockState = CursorLockMode.Locked;
     }
   }
 }

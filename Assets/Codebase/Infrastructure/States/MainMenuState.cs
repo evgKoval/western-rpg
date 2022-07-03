@@ -1,5 +1,6 @@
 ﻿using Codebase.Infrastructure.Factories;
 using Codebase.Services.Audio;
+using UnityEngine;
 
 namespace Codebase.Infrastructure.States
 {
@@ -33,8 +34,15 @@ namespace Codebase.Infrastructure.States
 
     private void OnLoaded()
     {
+      ShowDefaultCursor();
       InitMenu();
       PlayMenuMusic();
+    }
+
+    private static void ShowDefaultCursor()
+    {
+      Cursor.visible = true;
+      Cursor.lockState = CursorLockMode.None;
     }
 
     private void InitMenu()
