@@ -1,4 +1,5 @@
-﻿using Codebase.Infrastructure.Factories;
+﻿using Codebase.Services.Window;
+using Codebase.StaticData;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,10 +8,10 @@ namespace Codebase.UI
   public class PauseWindowOpener : MonoBehaviour
   {
     private Button _button;
-    private IUIFactory _uiFactory;
+    private IWindowService _windowService;
 
-    public void Construct(IUIFactory uiFactory) =>
-      _uiFactory = uiFactory;
+    public void Construct(IWindowService windowService) =>
+      _windowService = windowService;
 
     private void Awake() =>
       _button = GetComponent<Button>();
@@ -22,6 +23,6 @@ namespace Codebase.UI
       _button.onClick.RemoveListener(OpenPauseWindow);
 
     private void OpenPauseWindow() =>
-      _uiFactory.CreatePauseWindow();
+      _windowService.Open(WindowId.Pause);
   }
 }

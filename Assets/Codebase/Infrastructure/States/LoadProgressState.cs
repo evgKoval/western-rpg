@@ -20,6 +20,7 @@ namespace Codebase.Infrastructure.States
     private readonly ISavingService _savingProgress;
     private readonly IStaticDataService _staticDataService;
     private readonly IGameFactory _gameFactory;
+    private readonly IUIFactory _uiFactory;
 
     public LoadProgressState(
       GameStateMachine stateMachine,
@@ -28,7 +29,8 @@ namespace Codebase.Infrastructure.States
       IProgressService progressService,
       ISavingService savingProgress,
       IStaticDataService staticDataService,
-      IGameFactory gameFactory
+      IGameFactory gameFactory,
+      IUIFactory uiFactory
     )
     {
       _stateMachine = stateMachine;
@@ -38,6 +40,7 @@ namespace Codebase.Infrastructure.States
       _savingProgress = savingProgress;
       _staticDataService = staticDataService;
       _gameFactory = gameFactory;
+      _uiFactory = uiFactory;
     }
 
     public void Enter()
@@ -45,6 +48,7 @@ namespace Codebase.Infrastructure.States
       _loadingCurtain.Show();
 
       _gameFactory.CleanUp();
+      _uiFactory.CleanUp();
       _gameFactory.WarmUp();
 
       _sceneLoader.Load(InitialScene, OnLoaded);

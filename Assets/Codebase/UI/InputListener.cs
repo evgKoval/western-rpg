@@ -1,5 +1,6 @@
-﻿using Codebase.Infrastructure.Factories;
-using Codebase.Services.Input;
+﻿using Codebase.Services.Input;
+using Codebase.Services.Window;
+using Codebase.StaticData;
 using UnityEngine;
 
 namespace Codebase.UI
@@ -7,18 +8,18 @@ namespace Codebase.UI
   public class InputListener : MonoBehaviour
   {
     private IInputService _inputService;
-    private IUIFactory _uiFactory;
+    private IWindowService _windowService;
 
-    public void Construct(IUIFactory uiFactory, IInputService inputService)
+    public void Construct(IWindowService windowService, IInputService inputService)
     {
-      _uiFactory = uiFactory;
+      _windowService = windowService;
       _inputService = inputService;
     }
 
     private void Update()
     {
       if (_inputService.IsPauseButtonDown())
-        _uiFactory.CreatePauseWindow();
+        _windowService.Open(WindowId.Pause);
     }
   }
 }

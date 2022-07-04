@@ -57,7 +57,7 @@ namespace Codebase.Infrastructure.States
     private void OnLoaded()
     {
       PlayGameMusic();
-      InitRootCanvas();
+      InitWindows();
       InitGameWorld();
       InformProgressLoadables();
 
@@ -67,8 +67,13 @@ namespace Codebase.Infrastructure.States
     private void PlayGameMusic() =>
       _audioService.PlayMusic(Game);
 
-    private void InitRootCanvas() =>
+    private void InitWindows()
+    {
       _uiFactory.CreateRootCanvas();
+      _uiFactory.CreatePauseWindow();
+      _uiFactory.CreateSettingsWindow();
+      _uiFactory.CreateDeathWindow();
+    }
 
     private void InitGameWorld()
     {

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
-using Codebase.Infrastructure.Factories;
 using Codebase.Logic;
+using Codebase.Services.Window;
+using Codebase.StaticData;
 using UnityEngine;
 
 namespace Codebase.Player
@@ -8,11 +9,11 @@ namespace Codebase.Player
   [RequireComponent(typeof(Death))]
   public class CheckingDeath : MonoBehaviour
   {
-    private IUIFactory _uiFactory;
+    private IWindowService _windowService;
     private Death _death;
 
-    public void Construct(IUIFactory uiFactory) =>
-      _uiFactory = uiFactory;
+    public void Construct(IWindowService windowService) =>
+      _windowService = windowService;
 
     private void Awake() =>
       _death = GetComponent<Death>();
@@ -29,7 +30,7 @@ namespace Codebase.Player
     private IEnumerator ShowDeathWindow()
     {
       yield return new WaitForSeconds(3);
-      _uiFactory.CreateDeathWindow();
+      _windowService.Open(WindowId.Death);
     }
   }
 }

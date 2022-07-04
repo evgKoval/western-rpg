@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1760094143866452892
 RectTransform:
   m_ObjectHideFlags: 0
@@ -456,17 +456,17 @@ PrefabInstance:
     - target: {fileID: 7231228084848701236, guid: 6ea0f5d880d32854392f3f86280014b8,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7231228084848701236, guid: 6ea0f5d880d32854392f3f86280014b8,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7231228084848701236, guid: 6ea0f5d880d32854392f3f86280014b8,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7231228084848701236, guid: 6ea0f5d880d32854392f3f86280014b8,
         type: 3}
@@ -476,12 +476,12 @@ PrefabInstance:
     - target: {fileID: 8048682309962146738, guid: 6ea0f5d880d32854392f3f86280014b8,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8048682309962146738, guid: 6ea0f5d880d32854392f3f86280014b8,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8560787037663664990, guid: 6ea0f5d880d32854392f3f86280014b8,
         type: 3}
@@ -633,17 +633,17 @@ PrefabInstance:
     - target: {fileID: 7231228084848701236, guid: 6ea0f5d880d32854392f3f86280014b8,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7231228084848701236, guid: 6ea0f5d880d32854392f3f86280014b8,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7231228084848701236, guid: 6ea0f5d880d32854392f3f86280014b8,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7231228084848701236, guid: 6ea0f5d880d32854392f3f86280014b8,
         type: 3}
@@ -653,12 +653,12 @@ PrefabInstance:
     - target: {fileID: 8048682309962146738, guid: 6ea0f5d880d32854392f3f86280014b8,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8048682309962146738, guid: 6ea0f5d880d32854392f3f86280014b8,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8560787037663664990, guid: 6ea0f5d880d32854392f3f86280014b8,
         type: 3}
@@ -940,17 +940,17 @@ PrefabInstance:
     - target: {fileID: 7231228084848701236, guid: 6ea0f5d880d32854392f3f86280014b8,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7231228084848701236, guid: 6ea0f5d880d32854392f3f86280014b8,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7231228084848701236, guid: 6ea0f5d880d32854392f3f86280014b8,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7231228084848701236, guid: 6ea0f5d880d32854392f3f86280014b8,
         type: 3}
@@ -960,12 +960,12 @@ PrefabInstance:
     - target: {fileID: 8048682309962146738, guid: 6ea0f5d880d32854392f3f86280014b8,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8048682309962146738, guid: 6ea0f5d880d32854392f3f86280014b8,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8560787037663664990, guid: 6ea0f5d880d32854392f3f86280014b8,
         type: 3}

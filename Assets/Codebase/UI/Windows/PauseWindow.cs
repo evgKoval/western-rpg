@@ -1,8 +1,9 @@
-﻿using Codebase.Infrastructure.Factories;
-using Codebase.Infrastructure.States;
+﻿using Codebase.Infrastructure.States;
 using Codebase.Services.Audio;
 using Codebase.Services.Pause;
 using Codebase.Services.Saving;
+using Codebase.Services.Window;
+using Codebase.StaticData;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,21 +23,21 @@ namespace Codebase.UI.Windows
     private ISavingService _savingService;
     private IGameStateMachine _stateMachine;
     private IAudioService _audioService;
-    private IUIFactory _uiFactory;
+    private IWindowService _windowService;
 
     public void Construct(
       IPauseService pauseService,
       ISavingService savingService,
       IGameStateMachine stateMachine,
       IAudioService audioService,
-      IUIFactory uiFactory
+      IWindowService windowService
     )
     {
       _pauseService = pauseService;
       _savingService = savingService;
       _stateMachine = stateMachine;
       _audioService = audioService;
-      _uiFactory = uiFactory;
+      _windowService = windowService;
     }
 
     protected override void Initialize() =>
@@ -64,7 +65,7 @@ namespace Codebase.UI.Windows
     private void ClosePauseWindow()
     {
       _audioService.PlaySound(ButtonClick);
-      Destroy(gameObject);
+      _windowService.Close(this);
       _pauseService.Resume();
     }
 
@@ -84,7 +85,7 @@ namespace Codebase.UI.Windows
     private void OpenSettingsWindow()
     {
       _audioService.PlaySound(ButtonClick);
-      _uiFactory.CreateSettingsWindow();
+      _windowService.Open(WindowId.Settings);
     }
 
     private void Exit()

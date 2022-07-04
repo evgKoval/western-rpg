@@ -10,14 +10,13 @@ namespace Codebase.UI.Windows
 
     private void Awake()
     {
-      ShowDefaultCursor();
       _audioSource = GetComponent<AudioSource>();
-
       OnAwake();
     }
 
-    private void Start()
+    private void OnEnable()
     {
+      ShowDefaultCursor();
       Initialize();
       SubscribeUpdates();
 
@@ -25,7 +24,7 @@ namespace Codebase.UI.Windows
       _audioSource.Play();
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
       HideDefaultCursor();
       Cleanup();

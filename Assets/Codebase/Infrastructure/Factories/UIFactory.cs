@@ -5,6 +5,7 @@ using Codebase.Services.Input;
 using Codebase.Services.Pause;
 using Codebase.Services.Saving;
 using Codebase.Services.StaticData;
+using Codebase.Services.Window;
 using Codebase.StaticData;
 using Codebase.UI;
 using Codebase.UI.Windows;
@@ -21,6 +22,7 @@ namespace Codebase.Infrastructure.Factories
     private readonly ISavingService _savingService;
     private readonly IGameStateMachine _stateMachine;
     private readonly IAudioService _audioService;
+    private readonly IWindowService _windowService;
 
     private Transform _rootCanvas;
 
@@ -31,7 +33,8 @@ namespace Codebase.Infrastructure.Factories
       IPauseService pauseService,
       ISavingService savingService,
       IGameStateMachine stateMachine,
-      IAudioService audioService
+      IAudioService audioService,
+      IWindowService windowService
     )
     {
       _assetProvider = assetProvider;
@@ -41,12 +44,16 @@ namespace Codebase.Infrastructure.Factories
       _savingService = savingService;
       _stateMachine = stateMachine;
       _audioService = audioService;
+      _windowService = windowService;
     }
+
+    public void CleanUp() =>
+      _windowService.Clear();
 
     public void CreateRootCanvas()
     {
       GameObject rootCanvas = _assetProvider.Instantiate(AssetPath.RootCanvas);
-      rootCanvas.GetComponent<InputListener>().Construct(this, _inputService);
+      rootCanvas.GetComponent<InputListener>().Construct(_windowService, _inputService);
       _rootCanvas = rootCanvas.transform;
     }
 
@@ -54,21 +61,30 @@ namespace Codebase.Infrastructure.Factories
     {
       WindowConfig config = _staticData.GetWindow(WindowId.Pause);
       PauseWindow window = Object.Instantiate(config.Template, _rootCanvas) as PauseWindow;
-      window.Construct(_pauseService, _savingService, _stateMachine, _audioService, this);
+
+      window.Construct(_pauseService, _savingService, _stateMachine, _audioService, _windowService);
+      RegisterWindow(WindowId.Pause, window);
     }
 
     public void CreateDeathWindow()
     {
       WindowConfig config = _staticData.GetWindow(WindowId.Death);
       DeathWindow window = Object.Instantiate(config.Template, _rootCanvas) as DeathWindow;
+
       window.Construct(_stateMachine, _pauseService, _audioService);
+      RegisterWindow(WindowId.Death, window);
     }
 
     public void CreateSettingsWindow()
     {
       WindowConfig config = _staticData.GetWindow(WindowId.Settings);
       SettingsWindow window = Object.Instantiate(config.Template, _rootCanvas) as SettingsWindow;
-      window.Construct(_audioService);
+
+      window.Construct(_audioService, _windowService);
+      RegisterWindow(WindowId.Settings, window);
     }
+
+    private void RegisterWindow(WindowId id, WindowTemplate window) =>
+      _windowService.Register(id, window);
   }
 }
