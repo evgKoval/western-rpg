@@ -39,9 +39,6 @@ namespace Codebase.Logic
       TurnOffAbilities();
       MakeBodyDontLookAtCamera();
 
-      _audioSource.clip = _deathSound;
-      _audioSource.Play();
-
       _animator.SetTrigger(DeathState);
       Happened?.Invoke();
     }
@@ -49,7 +46,12 @@ namespace Codebase.Logic
     private void HealthOnChanged()
     {
       if (!_isDead && _health.Current <= 0)
+      {
+        _audioSource.clip = _deathSound;
+        _audioSource.Play();
+
         Die();
+      }
     }
 
     private void TurnOffAbilities()
