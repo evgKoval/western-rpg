@@ -1,23 +1,36 @@
-﻿using Codebase.Infrastructure.Factories;
+﻿using System.Collections.Generic;
 using Codebase.StaticData;
+using Codebase.UI.Windows;
 
 namespace Codebase.Services.Window
 {
   public class WindowService : IWindowService
   {
-    private readonly IUIFactory _uiFactory;
+    private readonly Dictionary<WindowId, WindowTemplate> _windows = new();
+    private WindowTemplate _activeWindow;
 
-    public WindowService(IUIFactory uiFactory) =>
-      _uiFactory = uiFactory;
+    public void Register(WindowId id, WindowTemplate window) =>
+      _windows.Add(id, window);
+
+    public void Clear() =>
+      _windows.Clear();
 
     public void Open(WindowId id)
     {
-      switch (id)
+      if (_activeWindow)
+        Close(_activeWindow);
+
+      if (_windows.TryGetValue(id, out WindowTemplate window))
       {
-        case WindowId.Pause:
-          _uiFactory.CreatePauseWindow();
-          break;
+        window.gameObject.SetActive(true);
+        _activeWindow = window;
       }
+    }
+
+    public void Close(WindowTemplate window)
+    {
+      window.gameObject.SetActive(false);
+      _activeWindow = null;
     }
   }
 }

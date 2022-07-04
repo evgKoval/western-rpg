@@ -1,4 +1,6 @@
 ﻿using Codebase.Services.Audio;
+using Codebase.Services.Window;
+using Codebase.StaticData;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,9 +19,13 @@ namespace Codebase.UI.Windows
     [SerializeField] private Button _returnButton;
 
     private IAudioService _audioService;
+    private IWindowService _windowService;
 
-    public void Construct(IAudioService audioService) =>
+    public void Construct(IAudioService audioService, IWindowService windowService)
+    {
       _audioService = audioService;
+      _windowService = windowService;
+    }
 
     protected override void Initialize()
     {
@@ -56,7 +62,7 @@ namespace Codebase.UI.Windows
     private void CloseWindow()
     {
       _audioService.PlaySound(ButtonClick);
-      Destroy(gameObject);
+      _windowService.Open(WindowId.Pause);
     }
   }
 }

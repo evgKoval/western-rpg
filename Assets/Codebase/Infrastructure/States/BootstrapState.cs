@@ -45,9 +45,9 @@ namespace Codebase.Infrastructure.States
       _services.RegisterSingle<ISavingService, SavingService>();
       _services.RegisterSingle<IPauseService, PauseService>();
       _services.RegisterSingle<IAudioService, AudioService>();
+      _services.RegisterSingle<IWindowService, WindowService>();
       _services.RegisterSingle<IUIFactory, UIFactory>();
       _services.RegisterSingle<IGameFactory, GameFactory>();
-      _services.RegisterSingle<IWindowService, WindowService>();
       _services.RegisterSingle<IMenuFactory, MenuFactory>();
     }
 

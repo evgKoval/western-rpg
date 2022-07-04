@@ -31,7 +31,8 @@ namespace Codebase.Infrastructure.States
           services.Single<IProgressService>(),
           services.Single<ISavingService>(),
           services.Single<IStaticDataService>(),
-          services.Single<IGameFactory>()
+          services.Single<IGameFactory>(),
+          services.Single<IUIFactory>()
         ),
         [typeof(LoadLevelState)] = new LoadLevelState(
           this,

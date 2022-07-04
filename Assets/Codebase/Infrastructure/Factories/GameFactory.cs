@@ -8,6 +8,7 @@ using Codebase.Services.Pause;
 using Codebase.Services.Progress;
 using Codebase.Services.Saving;
 using Codebase.Services.StaticData;
+using Codebase.Services.Window;
 using Codebase.StaticData;
 using Codebase.UI;
 using UnityEngine;
@@ -26,7 +27,7 @@ namespace Codebase.Infrastructure.Factories
     private readonly IAssetProvider _assetProvider;
     private readonly IInputService _inputService;
     private readonly IStaticDataService _staticDataService;
-    private readonly IUIFactory _uiFactory;
+    private readonly IWindowService _windowService;
     private readonly IPauseService _pauseService;
     private readonly ISavingService _savingService;
 
@@ -36,7 +37,7 @@ namespace Codebase.Infrastructure.Factories
       IAssetProvider assetProvider,
       IInputService inputService,
       IStaticDataService staticDataService,
-      IUIFactory uiFactory,
+      IWindowService windowService,
       IPauseService pauseService,
       ISavingService savingService
     )
@@ -44,7 +45,7 @@ namespace Codebase.Infrastructure.Factories
       _assetProvider = assetProvider;
       _inputService = inputService;
       _staticDataService = staticDataService;
-      _uiFactory = uiFactory;
+      _windowService = windowService;
       _pauseService = pauseService;
       _savingService = savingService;
     }
@@ -65,7 +66,7 @@ namespace Codebase.Infrastructure.Factories
       _playerGameObject.GetComponent<Movement>().Construct(_inputService);
       _playerGameObject.GetComponent<Aiming>().Construct(_inputService);
       _playerGameObject.GetComponent<Firing>().Construct(_inputService);
-      _playerGameObject.GetComponent<CheckingDeath>().Construct(_uiFactory);
+      _playerGameObject.GetComponent<CheckingDeath>().Construct(_windowService);
       BuildRig();
 
       return _playerGameObject;
@@ -76,7 +77,7 @@ namespace Codebase.Infrastructure.Factories
       GameObject hud = InstantiateRegistered(AssetPath.HUD);
 
       hud.GetComponent<HUDBinding>().Construct(_playerGameObject.GetComponent<IHealth>());
-      hud.GetComponentInChildren<PauseWindowOpener>().Construct(_uiFactory);
+      hud.GetComponentInChildren<PauseWindowOpener>().Construct(_windowService);
 
       return hud;
     }
