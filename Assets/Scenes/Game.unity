@@ -338,12 +338,11 @@ MonoBehaviour:
   - {fileID: 1602997851}
   - {fileID: 1822741199}
   - {fileID: 2057114254}
-  - {fileID: 258430651}
-  - {fileID: 765923620}
-  - {fileID: 833635284}
-  - {fileID: 1602997851}
   - {fileID: 1822741199}
+  - {fileID: 833635284}
   - {fileID: 2057114254}
+  - {fileID: 1602997851}
+  - {fileID: 765923620}
   prefabStage: {fileID: 0}
   quickEditingComponent: {fileID: 1319095861}
   dataPath: F:/Game Studio/Frontier/WesternRPG/Assets
@@ -3330,11 +3329,12 @@ MonoBehaviour:
   - {fileID: 1602997851}
   - {fileID: 1822741199}
   - {fileID: 2057114254}
-  - {fileID: 765923620}
-  - {fileID: 833635284}
-  - {fileID: 1602997851}
+  - {fileID: 5857572}
   - {fileID: 1822741199}
+  - {fileID: 833635284}
   - {fileID: 2057114254}
+  - {fileID: 1602997851}
+  - {fileID: 765923620}
   prefabStage: {fileID: 0}
   quickEditingComponent: {fileID: 1665636474}
   dataPath: F:/Game Studio/Frontier/WesternRPG/Assets
@@ -7939,10 +7939,6 @@ MonoBehaviour:
   - {fileID: 1602997851}
   - {fileID: 1822741199}
   - {fileID: 2057114254}
-  - {fileID: 833635284}
-  - {fileID: 1602997851}
-  - {fileID: 1822741199}
-  - {fileID: 2057114254}
   prefabStage: {fileID: 0}
   quickEditingComponent: {fileID: 1084582956}
   dataPath: F:/Game Studio/Frontier/WesternRPG/Assets
@@ -8999,9 +8995,9 @@ MonoBehaviour:
   - {fileID: 1602997851}
   - {fileID: 1822741199}
   - {fileID: 2057114254}
-  - {fileID: 1602997851}
-  - {fileID: 1822741199}
   - {fileID: 2057114254}
+  - {fileID: 1602997851}
+  - {fileID: 765923620}
   prefabStage: {fileID: 0}
   quickEditingComponent: {fileID: 2059242830}
   dataPath: F:/Game Studio/Frontier/WesternRPG/Assets
@@ -17110,8 +17106,7 @@ MonoBehaviour:
   - {fileID: 1602997851}
   - {fileID: 1822741199}
   - {fileID: 2057114254}
-  - {fileID: 1822741199}
-  - {fileID: 2057114254}
+  - {fileID: 765923620}
   prefabStage: {fileID: 0}
   quickEditingComponent: {fileID: 1830949110}
   dataPath: F:/Game Studio/Frontier/WesternRPG/Assets
@@ -19710,7 +19705,10 @@ MonoBehaviour:
   - {fileID: 1602997851}
   - {fileID: 1822741199}
   - {fileID: 2057114254}
+  - {fileID: 833635284}
   - {fileID: 2057114254}
+  - {fileID: 1602997851}
+  - {fileID: 765923620}
   prefabStage: {fileID: 0}
   quickEditingComponent: {fileID: 408946066}
   dataPath: F:/Game Studio/Frontier/WesternRPG/Assets
@@ -20689,6 +20687,8 @@ MonoBehaviour:
   - {fileID: 1602997851}
   - {fileID: 1822741199}
   - {fileID: 2057114254}
+  - {fileID: 1602997851}
+  - {fileID: 765923620}
   prefabStage: {fileID: 0}
   quickEditingComponent: {fileID: 1744334473}
   dataPath: F:/Game Studio/Frontier/WesternRPG/Assets

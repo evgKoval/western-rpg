@@ -13,11 +13,8 @@ namespace Codebase.Player
     private const string ReloadingState = "Reload";
     private const string RightHand = "Rig_Layer_Hand_IK/Right_Hand_IK";
 
-    [SerializeField] private float _reloadingSpeed;
-    [SerializeField] private AudioClip _reloadingSound;
-
     private IInputService _inputService;
-    private Weapon _weapon;
+    private Firearm _firearm;
     private Aiming _aiming;
     private Animator _animator;
     private TwoBoneIKConstraint _rightHand;
@@ -46,7 +43,7 @@ namespace Codebase.Player
 
       if (_inputService.IsFiringButtonDown() && _aiming.IsReady)
       {
-        _weapon.Shoot();
+        _firearm.Shoot();
         StartCoroutine(Reload());
       }
     }
@@ -57,8 +54,8 @@ namespace Codebase.Player
       IsReloading = false;
     }
 
-    public void EquipWeapon(Weapon weapon) =>
-      _weapon = weapon;
+    public void EquipWeapon(Firearm firearm) =>
+      _firearm = firearm;
 
     public void Pause() =>
       IsPaused = true;
@@ -76,7 +73,7 @@ namespace Codebase.Player
       yield return LowerHand();
       _animator.SetTrigger(ReloadingState);
 
-      _audioSource.clip = _reloadingSound;
+      _audioSource.clip = _firearm.ReloadingSound;
       _audioSource.Play();
     }
 
@@ -84,7 +81,7 @@ namespace Codebase.Player
     {
       while (!Mathf.Approximately(_rightHand.weight, 0))
       {
-        _rightHand.weight -= Time.deltaTime / _reloadingSpeed;
+        _rightHand.weight -= Time.deltaTime / _firearm.ReloadingSpeed;
         yield return null;
       }
     }
@@ -93,7 +90,7 @@ namespace Codebase.Player
     {
       while (!Mathf.Approximately(_rightHand.weight, 1))
       {
-        _rightHand.weight += Time.deltaTime / _reloadingSpeed;
+        _rightHand.weight += Time.deltaTime / _firearm.ReloadingSpeed;
         yield return null;
       }
     }

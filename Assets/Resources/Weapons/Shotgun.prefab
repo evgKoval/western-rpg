@@ -314,6 +314,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d11132a1c9e7456fa1646f785f830d9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damage: 50
+  _maxDistance: 30
+  _reloadingSpeed: 0.3
+  _reloadingSound: {fileID: 8300000, guid: cace9cbad69a94f46a8ecaf26624bc07, type: 3}
 --- !u!82 &3816592456162165496
 AudioSource:
   m_ObjectHideFlags: 0
