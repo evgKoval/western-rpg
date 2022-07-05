@@ -97,14 +97,21 @@ namespace Codebase.Infrastructure.Factories
     public GameObject CreateWeapon(WeaponId weaponId, Transform whom)
     {
       WeaponStaticData weaponData = _staticDataService.GetWeapon(weaponId);
-      GameObject weapon = Object.Instantiate(weaponData.Prefab, whom.Find(WeaponPivot));
+      Weapon weapon = Object.Instantiate(weaponData.Prefab, whom.Find(WeaponPivot));
 
       if (whom.TryGetComponent(out Firing firing))
-        firing.EquipWeapon(weapon.GetComponent<Weapon>());
+        firing.EquipWeapon((Firearm)weapon);
+      else if (whom.TryGetComponent(out MeleeAttack meleeAttack))
+      {
+        Steelarm steelarm = (Steelarm)weapon;
+
+        steelarm.Construct(whom);
+        meleeAttack.EquipWeapon(steelarm);
+      }
 
       AttachWeapon(weapon.transform, whom);
 
-      return weapon;
+      return weapon.gameObject;
     }
 
     public void CreateSpawner(string id, Vector3 position)

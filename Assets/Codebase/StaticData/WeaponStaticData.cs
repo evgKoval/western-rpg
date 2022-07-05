@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Codebase.Logic;
+using UnityEngine;
 
 namespace Codebase.StaticData
 {
@@ -6,6 +7,6 @@ namespace Codebase.StaticData
   public class WeaponStaticData : ScriptableObject
   {
     public WeaponId WeaponId;
-    public GameObject Prefab;
+    public Weapon Prefab;
   }
 }

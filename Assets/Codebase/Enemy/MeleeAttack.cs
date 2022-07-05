@@ -1,45 +1,27 @@
-﻿using System.Linq;
-using Codebase.Logic;
+﻿using Codebase.Logic;
 using Codebase.Services.Pause;
 using UnityEngine;
 
 namespace Codebase.Enemy
 {
-  [RequireComponent(typeof(Animator), typeof(AudioSource))]
+  [RequireComponent(typeof(Animator))]
   public class MeleeAttack : MonoBehaviour, IDeathable, IPauseable
   {
     private const string Attack = "Attack";
-    private const string Player = "Player";
-
-    [SerializeField] [Range(0, 10)] private float _attackCooldown;
-    [SerializeField] [Range(0, 10)] private float _attackPointOffset;
-    [SerializeField] [Range(0, 10)] private float _attackRadius;
-    [SerializeField] [Range(1, 100)] private int _damage;
-    [SerializeField] private float _positionWeaponByY;
-    [SerializeField] private AudioClip _swingSound;
-
-    private readonly Collider[] _hits = new Collider[1];
 
     private Animator _animator;
     private Transform _player;
-    private int _playerLayerMask;
     private float _cooldownTimeLeft;
     private bool _isAttacking;
-    private AudioSource _audioSource;
+    private Steelarm _steelarm;
 
     public bool IsPaused { get; private set; }
 
     public void Construct(Transform player) =>
       _player = player;
 
-    private void Awake()
-    {
+    private void Awake() =>
       _animator = GetComponent<Animator>();
-      _audioSource = GetComponent<AudioSource>();
-    }
-
-    private void Start() =>
-      _playerLayerMask = 1 << LayerMask.NameToLayer(Player);
 
     private void Update()
     {
@@ -52,23 +34,31 @@ namespace Codebase.Enemy
         StartAttack();
     }
 
-    private void OnAttackStarted()
-    {
-      _audioSource.clip = _swingSound;
-      _audioSource.Play();
-
-      if (Hit(out Collider hit))
-      {
-        Debug.DrawRay(AttackPoint(), _attackRadius * Vector3.forward, Color.red, 1);
-        hit.GetComponent<IHealth>().TakeDamage(_damage, AttackPoint());
-      }
-    }
+    private void OnAttackStarted() =>
+      _steelarm.Strike();
 
     private void OnAttackEnded()
     {
-      _cooldownTimeLeft = _attackCooldown;
+      _cooldownTimeLeft = _steelarm.AttackCooldown;
       _isAttacking = false;
     }
+
+    public void Pause()
+    {
+      IsPaused = true;
+
+      _animator.enabled = false;
+    }
+
+    public void Resume()
+    {
+      IsPaused = false;
+
+      _animator.enabled = true;
+    }
+
+    public void EquipWeapon(Steelarm steelarm) =>
+      _steelarm = steelarm;
 
     private void UpdateCooldown()
     {
@@ -86,34 +76,7 @@ namespace Codebase.Enemy
       _isAttacking = true;
     }
 
-    private bool Hit(out Collider hit)
-    {
-      int hitAmount = Physics.OverlapSphereNonAlloc(AttackPoint(), _attackRadius, _hits, _playerLayerMask);
-
-      hit = _hits.FirstOrDefault();
-
-      return hitAmount > 0;
-    }
-
-    private Vector3 AttackPoint() =>
-      new Vector3(transform.position.x, transform.position.y + _positionWeaponByY, transform.position.z) +
-      transform.forward * _attackPointOffset;
-
     private bool CooldownIsUp() =>
       _cooldownTimeLeft <= 0f;
-
-    public void Pause()
-    {
-      IsPaused = true;
-
-      _animator.enabled = false;
-    }
-
-    public void Resume()
-    {
-      IsPaused = false;
-
-      _animator.enabled = true;
-    }
   }
 }
