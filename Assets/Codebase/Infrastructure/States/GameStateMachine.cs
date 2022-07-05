@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using Codebase.Infrastructure.Factories;
 using Codebase.Logic;
 using Codebase.Services;
+using Codebase.Services.Audio;
+using Codebase.Services.Saving;
+using Codebase.Services.StaticData;
 
 namespace Codebase.Infrastructure.States
 {
@@ -15,8 +19,33 @@ namespace Codebase.Infrastructure.States
       _states = new Dictionary<Type, IExitableState>
       {
         [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader, services),
-        [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, loadingCurtain),
-        [typeof(GameLoopState)] = new GameLoopState(this),
+        [typeof(MainMenuState)] = new MainMenuState(
+          sceneLoader,
+          services.Single<IMenuFactory>(),
+          services.Single<IAudioService>()
+        ),
+        [typeof(LoadProgressState)] = new LoadProgressState(
+          this,
+          sceneLoader,
+          loadingCurtain,
+          services.Single<IProgressService>(),
+          services.Single<ISavingService>(),
+          services.Single<IStaticDataService>(),
+          services.Single<IGameFactory>(),
+          services.Single<IUIFactory>()
+        ),
+        [typeof(LoadLevelState)] = new LoadLevelState(
+          this,
+          sceneLoader,
+          loadingCurtain,
+          services.Single<IGameFactory>(),
+          services.Single<IProgressService>(),
+          services.Single<IStaticDataService>(),
+          services.Single<IUIFactory>(),
+          services.Single<ISavingService>(),
+          services.Single<IAudioService>()
+        ),
+        [typeof(GameLoopState)] = new GameLoopState(services),
       };
     }
 

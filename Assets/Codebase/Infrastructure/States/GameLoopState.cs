@@ -1,17 +1,25 @@
-﻿namespace Codebase.Infrastructure.States
+﻿using Codebase.Services;
+using UnityEngine;
+
+namespace Codebase.Infrastructure.States
 {
   public class GameLoopState : IState
   {
-    public GameLoopState(GameStateMachine stateMachine)
-    {
-    }
+    private readonly ServiceLocator _services;
 
-    public void Exit()
-    {
-    }
+    public GameLoopState(ServiceLocator services) =>
+      _services = services;
 
-    public void Enter()
+    public void Exit() =>
+      _services.DisposeAll();
+
+    public void Enter() =>
+      HideDefaultCursor();
+
+    private static void HideDefaultCursor()
     {
+      Cursor.visible = false;
+      Cursor.lockState = CursorLockMode.Locked;
     }
   }
 }

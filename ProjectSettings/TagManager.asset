@@ -3,18 +3,19 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - InitialPosition
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Environment
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Attack Zone
+  - Aggro Zone
+  - Enemy
   - 
   - 
   - 

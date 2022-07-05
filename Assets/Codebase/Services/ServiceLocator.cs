@@ -8,10 +8,13 @@ namespace Codebase.Services
   public class ServiceLocator
   {
     public static ServiceLocator Container => _instance ??= new ServiceLocator();
-    
+
     private static ServiceLocator _instance;
 
     private readonly Dictionary<Type, IService> _services = new();
+
+    public void RegisterSingle<TService>(TService service) where TService : IService =>
+      _services.Add(typeof(TService), service);
 
     public void RegisterSingle<TService, TImplementation>()
       where TService : IService

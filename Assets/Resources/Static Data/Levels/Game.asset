@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c13bd692b7bd459c98cde6388bd7c4dd, type: 3}
+  m_Name: Game
+  m_EditorClassIdentifier: 
+  LevelName: Game
+  InitialPosition: {x: 1.14, y: 1.797, z: 2.893}
+  EnemySpawners:
+  - Id: Game_0c8176e5-84ac-45d0-9e58-8f576b3232a7
+    Position: {x: 5.2814484, y: 3.1227322, z: 52.17845}
+  - Id: Game_a9e82b4c-d5c2-4416-8b9f-2f9eb66e2dec
+    Position: {x: 4.186207, y: 4.155739, z: 30.178432}
+  - Id: Game_5ffb55b3-c819-48be-b4b6-ec084b35528a
+    Position: {x: -2.75, y: 2.2675705, z: 34.97}
+  - Id: Game_3b39b734-7971-44b6-b09d-354b3ee7a96a
+    Position: {x: -2.2965088, y: 2.0330467, z: 22.045593}
+  - Id: Game_ba8d1827-d167-492f-b577-c6053451cfea
+    Position: {x: 6.2031765, y: 1.8093796, z: 20.68306}
