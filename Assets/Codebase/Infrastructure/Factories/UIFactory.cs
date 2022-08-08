@@ -9,6 +9,7 @@ using Codebase.Services.Window;
 using Codebase.StaticData;
 using Codebase.UI;
 using Codebase.UI.Windows;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Codebase.Infrastructure.Factories
@@ -47,12 +48,15 @@ namespace Codebase.Infrastructure.Factories
       _windowService = windowService;
     }
 
-    public void CleanUp() =>
-      _windowService.Clear();
-
-    public void CreateRootCanvas()
+    public void CleanUp()
     {
-      GameObject rootCanvas = _assetProvider.Instantiate(AssetPath.RootCanvas);
+      _windowService.Clear();
+      _assetProvider.CleanUp();
+    }
+
+    public async Task CreateRootCanvas()
+    {
+      GameObject rootCanvas = await _assetProvider.Instantiate(AssetsAddress.RootCanvas);
       rootCanvas.GetComponent<InputListener>().Construct(_windowService, _inputService);
       _rootCanvas = rootCanvas.transform;
     }

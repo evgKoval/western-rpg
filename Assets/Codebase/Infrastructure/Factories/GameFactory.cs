@@ -11,6 +11,7 @@ using Codebase.Services.StaticData;
 using Codebase.Services.Window;
 using Codebase.StaticData;
 using Codebase.UI;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 
@@ -50,18 +51,22 @@ namespace Codebase.Infrastructure.Factories
       _savingService = savingService;
     }
 
-    public void WarmUp() =>
+    public async Task WarmUp()
+    {
+      await _assetProvider.Load<GameObject>(AssetsAddress.Spawner);
       _staticDataService.Load();
+    }
 
     public void CleanUp()
     {
       _savingService.Clear();
       _pauseService.Clear();
+      _assetProvider.CleanUp();
     }
 
-    public GameObject CreatePlayer(Vector3 at)
+    public async Task<GameObject> CreatePlayer(Vector3 at)
     {
-      _playerGameObject = InstantiateRegistered(AssetPath.Player, at);
+      _playerGameObject = await InstantiateRegisteredAsync(AssetsAddress.Player, at);
 
       _playerGameObject.GetComponent<Movement>().Construct(_inputService);
       _playerGameObject.GetComponent<Aiming>().Construct(_inputService);
@@ -72,9 +77,9 @@ namespace Codebase.Infrastructure.Factories
       return _playerGameObject;
     }
 
-    public GameObject CreateHUD()
+    public async Task<GameObject> CreateHUD()
     {
-      GameObject hud = InstantiateRegistered(AssetPath.HUD);
+      GameObject hud = await InstantiateRegisteredAsync(AssetsAddress.HUD);
 
       hud.GetComponent<HUDBinding>().Construct(_playerGameObject.GetComponent<IHealth>());
       hud.GetComponentInChildren<PauseWindowOpener>().Construct(_windowService);
@@ -82,9 +87,9 @@ namespace Codebase.Infrastructure.Factories
       return hud;
     }
 
-    public GameObject CreatePlayerCamera()
+    public async Task<GameObject> CreatePlayerCamera()
     {
-      GameObject playerCamera = InstantiateRegistered(AssetPath.PlayerCamera);
+      GameObject playerCamera = await InstantiateRegisteredAsync(AssetsAddress.PlayerCamera);
 
       CinemachineFreeLook cinemachineComponent = playerCamera.GetComponent<CinemachineFreeLook>();
       cinemachineComponent.Follow = _playerGameObject.transform;
@@ -94,16 +99,18 @@ namespace Codebase.Infrastructure.Factories
       return playerCamera;
     }
 
-    public GameObject CreateWeapon(WeaponId weaponId, Transform whom)
+    public async Task<GameObject> CreateWeapon(WeaponId weaponId, Transform whom)
     {
       WeaponStaticData weaponData = _staticDataService.GetWeapon(weaponId);
-      Weapon weapon = Object.Instantiate(weaponData.Prefab, whom.Find(WeaponPivot));
+
+      GameObject prefab = await _assetProvider.Load<GameObject>(weaponData.PrefabReference);
+      GameObject weapon = Object.Instantiate(prefab, whom.Find(WeaponPivot));
 
       if (whom.TryGetComponent(out Firing firing))
-        firing.EquipWeapon((Firearm)weapon);
+        firing.EquipWeapon(weapon.GetComponent<Firearm>());
       else if (whom.TryGetComponent(out MeleeAttack meleeAttack))
       {
-        Steelarm steelarm = (Steelarm)weapon;
+        Steelarm steelarm = weapon.GetComponent<Steelarm>();
 
         steelarm.Construct(whom);
         meleeAttack.EquipWeapon(steelarm);
@@ -114,15 +121,16 @@ namespace Codebase.Infrastructure.Factories
       return weapon.gameObject;
     }
 
-    public void CreateSpawner(string id, Vector3 position)
+    public async Task CreateSpawner(string id, Vector3 position)
     {
-      EnemySpawner spawner = InstantiateRegistered(AssetPath.Spawner, position).GetComponent<EnemySpawner>();
+      GameObject prefab = await _assetProvider.Load<GameObject>(AssetsAddress.Spawner);
+      EnemySpawner spawner = InstantiateRegistered(prefab, position).GetComponent<EnemySpawner>();
       spawner.Construct(this, _staticDataService, id);
     }
 
-    public GameObject CreateEnemy(Vector3 position)
+    public async Task<GameObject> CreateEnemy(Vector3 position)
     {
-      GameObject enemy = InstantiateRegistered(AssetPath.Enemy, position);
+      GameObject enemy = await InstantiateRegisteredAsync(AssetsAddress.Enemy, position);
 
       enemy.GetComponent<MoveToPlayer>().Construct(_playerGameObject.transform);
       enemy.GetComponent<MeleeAttack>().Construct(_playerGameObject.transform);
@@ -131,18 +139,27 @@ namespace Codebase.Infrastructure.Factories
       return enemy;
     }
 
-    private GameObject InstantiateRegistered(string prefabPath)
+    private GameObject InstantiateRegistered(GameObject prefab, Vector3 at)
     {
-      GameObject gameObject = _assetProvider.Instantiate(prefabPath);
+      GameObject gameObject = Object.Instantiate(prefab, at, Quaternion.identity);
       RegisterProgressWatchers(gameObject);
       RegisterPauseables(gameObject);
 
       return gameObject;
     }
 
-    private GameObject InstantiateRegistered(string prefabPath, Vector3 at)
+    private async Task<GameObject> InstantiateRegisteredAsync(string prefabPath, Vector3 at)
     {
-      GameObject gameObject = _assetProvider.Instantiate(prefabPath, at);
+      GameObject gameObject = await _assetProvider.Instantiate(prefabPath, at);
+      RegisterProgressWatchers(gameObject);
+      RegisterPauseables(gameObject);
+
+      return gameObject;
+    }
+
+    private async Task<GameObject> InstantiateRegisteredAsync(string prefabPath)
+    {
+      GameObject gameObject = await _assetProvider.Instantiate(prefabPath);
       RegisterProgressWatchers(gameObject);
       RegisterPauseables(gameObject);
 

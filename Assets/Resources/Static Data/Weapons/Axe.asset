@@ -13,4 +13,8 @@ MonoBehaviour:
   m_Name: Axe
   m_EditorClassIdentifier: 
   WeaponId: 1
-  Prefab: {fileID: 8059083923165802001, guid: 53ea163d49c72854197fe7fdca99d7f9, type: 3}
+  PrefabReference:
+    m_AssetGUID: 53ea163d49c72854197fe7fdca99d7f9
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0

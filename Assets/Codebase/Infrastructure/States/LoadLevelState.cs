@@ -6,6 +6,7 @@ using Codebase.Services.Progress;
 using Codebase.Services.Saving;
 using Codebase.Services.StaticData;
 using Codebase.StaticData;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -54,11 +55,11 @@ namespace Codebase.Infrastructure.States
     public void Exit() =>
       _loadingCurtain.Hide();
 
-    private void OnLoaded()
+    private async void OnLoaded()
     {
       PlayGameMusic();
-      InitWindows();
-      InitGameWorld();
+      await InitWindows();
+      await InitGameWorld();
       InformProgressLoadables();
 
       _stateMachine.Enter<GameLoopState>();
@@ -67,43 +68,43 @@ namespace Codebase.Infrastructure.States
     private void PlayGameMusic() =>
       _audioService.PlayMusic(Game);
 
-    private void InitWindows()
+    private async Task InitWindows()
     {
-      _uiFactory.CreateRootCanvas();
+      await _uiFactory.CreateRootCanvas();
       _uiFactory.CreatePauseWindow();
       _uiFactory.CreateSettingsWindow();
       _uiFactory.CreateDeathWindow();
     }
 
-    private void InitGameWorld()
+    private async Task InitGameWorld()
     {
       LevelStaticData levelData = GetLevelData();
 
-      InitPlayer(levelData);
-      InitPlayerCamera();
-      InitHUD();
-      InitSpawners(levelData);
+      await InitPlayer(levelData);
+      await InitPlayerCamera();
+      await InitHUD();
+      await InitSpawners(levelData);
     }
 
     private LevelStaticData GetLevelData() =>
       _staticDataService.GetLevel(SceneManager.GetActiveScene().name);
 
-    private void InitPlayer(LevelStaticData levelData)
+    private async Task InitPlayer(LevelStaticData levelData)
     {
-      GameObject player = _gameFactory.CreatePlayer(at: levelData.InitialPosition);
-      _gameFactory.CreateWeapon(WeaponId.Shotgun, player.transform);
+      GameObject player = await _gameFactory.CreatePlayer(at: levelData.InitialPosition);
+      await _gameFactory.CreateWeapon(WeaponId.Shotgun, player.transform);
     }
 
-    private void InitPlayerCamera() =>
-      _gameFactory.CreatePlayerCamera();
+    private async Task InitPlayerCamera() =>
+      await _gameFactory.CreatePlayerCamera();
 
-    private void InitHUD() =>
-      _gameFactory.CreateHUD();
+    private async Task InitHUD() =>
+      await _gameFactory.CreateHUD();
 
-    private void InitSpawners(LevelStaticData levelData)
+    private async Task InitSpawners(LevelStaticData levelData)
     {
       foreach (EnemySpawnerStaticData spawnerData in levelData.EnemySpawners)
-        _gameFactory.CreateSpawner(spawnerData.Id, spawnerData.Position);
+        await _gameFactory.CreateSpawner(spawnerData.Id, spawnerData.Position);
     }
 
     private void InformProgressLoadables()

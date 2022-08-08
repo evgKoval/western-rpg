@@ -13,4 +13,8 @@ MonoBehaviour:
   m_Name: Shotgun
   m_EditorClassIdentifier: 
   WeaponId: 0
-  Prefab: {fileID: 1095479439743816062, guid: 4bf1ab44f18117842923a01ad69dccd4, type: 3}
+  PrefabReference:
+    m_AssetGUID: 4bf1ab44f18117842923a01ad69dccd4
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0

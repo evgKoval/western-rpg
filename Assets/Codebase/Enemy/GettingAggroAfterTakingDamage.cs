@@ -21,13 +21,13 @@ namespace Codebase.Enemy
 
     private void Start()
     {
-      _health.Changed += StartMoving;
+      _health.TakenDamage += StartMoving;
 
       _movement.enabled = false;
     }
 
     private void OnDisable() =>
-      _health.Changed -= StartMoving;
+      _health.TakenDamage -= StartMoving;
 
     private void StartMoving()
     {

@@ -1,11 +1,13 @@
 ﻿using Codebase.Services;
+using System.Threading.Tasks;
 
 namespace Codebase.Infrastructure.Factories
 {
   public interface IMenuFactory : IService
   {
-    void CreateRootCanvas();
-    void CreateMainMenu();
-    void CreateMainAudioSource();
+    void CleanUp();
+    Task CreateRootCanvas();
+    Task CreateMainMenu();
+    Task CreateMainAudioSource();
   }
 }

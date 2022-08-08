@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using Codebase.Data;
+﻿using Codebase.Data;
 using Codebase.Enemy;
 using Codebase.Infrastructure.Factories;
 using Codebase.Services.Progress;
 using Codebase.Services.StaticData;
 using Codebase.StaticData;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Codebase.Logic
@@ -66,10 +66,10 @@ namespace Codebase.Logic
       Spawn(enemyPosition, currentHealth, maxHealth);
     }
 
-    private void Spawn(Vector3 at, int currentHealth, int maxHealth)
+    private async void Spawn(Vector3 at, int currentHealth, int maxHealth)
     {
-      _enemy = _gameFactory.CreateEnemy(at);
-      _gameFactory.CreateWeapon(WeaponId.Axe, _enemy.transform);
+      _enemy = await _gameFactory.CreateEnemy(at);
+      await _gameFactory.CreateWeapon(WeaponId.Axe, _enemy.transform);
 
       _death = _enemy.GetComponent<Death>();
       _death.Happened += Slay;
