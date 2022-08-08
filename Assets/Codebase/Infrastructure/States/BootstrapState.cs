@@ -38,10 +38,10 @@ namespace Codebase.Infrastructure.States
     private void RegisterServices()
     {
       RegisterInputService();
+      RegisterAssetProvider();
       _services.RegisterSingle<IGameStateMachine>(_stateMachine);
       _services.RegisterSingle<IStaticDataService, StaticDataService>();
       _services.RegisterSingle<IProgressService, ProgressService>();
-      _services.RegisterSingle<IAssetProvider, AssetProvider>();
       _services.RegisterSingle<ISavingService, SavingService>();
       _services.RegisterSingle<IPauseService, PauseService>();
       _services.RegisterSingle<IAudioService, AudioService>();
@@ -58,6 +58,13 @@ namespace Codebase.Infrastructure.States
 #else
       _services.RegisterSingle<IInputService, MobileInputService>();
 #endif
+    }
+
+    private void RegisterAssetProvider()
+    {
+      IAssetProvider assetProvider = new AssetProvider();
+      assetProvider.Initialize();
+      _services.RegisterSingle<IAssetProvider>(assetProvider);
     }
 
     private void EnterLoadLevel() =>

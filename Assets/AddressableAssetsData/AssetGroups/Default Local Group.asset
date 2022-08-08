@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 668d4cc6b922ea54ba57116ba08361b8
+  m_SerializeEntries:
+  - m_GUID: 53ea163d49c72854197fe7fdca99d7f9
+    m_Address: Axe
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4bf1ab44f18117842923a01ad69dccd4
+    m_Address: Shotgun
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 628a85c815e7519459198f25b2b96e92
+    m_Address: Enemy Spawner
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7dfc8c7894bcf1c489b5edc657c385bc
+    m_Address: Player
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6e871b7f723e16042acbad596ff9d74d
+    m_Address: HUD
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c1a14a73e218af648ba7648749b5b0cb
+    m_Address: Root Canvas
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ec4d0234730e2e04dbd9882e912331d5
+    m_Address: Main Menu
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 175e47bc1ffd9e04183c772fcb0296db
+    m_Address: Main Audio Source
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 23c3aad81bb09c443bf432e69ddb62d4
+    m_Address: Player Camera
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 70a2cf9a3e7b36f4fbc39adcc31f9a90
+    m_Address: Enemy
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 664b1fe0a2d0d0748ac3cb8c8eb644cd, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 1d23da4e9f043854aafa5587c7285a91, type: 2}
+    - {fileID: 11400000, guid: 6a751eda61379d243a9ab576656b5ec5, type: 2}
