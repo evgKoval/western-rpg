@@ -1,11 +1,12 @@
 ﻿using Codebase.Services;
+using System.Threading.Tasks;
 
 namespace Codebase.Infrastructure.Factories
 {
   public interface IUIFactory : IService
   {
     void CleanUp();
-    void CreateRootCanvas();
+    Task CreateRootCanvas();
     void CreatePauseWindow();
     void CreateDeathWindow();
     void CreateSettingsWindow();

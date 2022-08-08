@@ -1,7 +1,7 @@
-﻿using System;
-using Codebase.Data;
+﻿using Codebase.Data;
 using Codebase.Logic;
 using Codebase.Services.Progress;
+using System;
 using UnityEngine;
 
 namespace Codebase.Player
@@ -19,6 +19,7 @@ namespace Codebase.Player
     private AudioSource _audioSource;
 
     public event Action Changed;
+    public event Action TakenDamage;
 
     public int Current
     {
@@ -51,6 +52,7 @@ namespace Codebase.Player
 
       Current -= damage;
       Changed?.Invoke();
+      TakenDamage?.Invoke();
     }
 
     public void LoadProgress(PlayerProgress progress)

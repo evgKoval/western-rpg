@@ -4,6 +4,7 @@ using Codebase.Logic;
 using Codebase.Menus;
 using Codebase.Services.Audio;
 using Codebase.UI;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Codebase.Infrastructure.Factories
@@ -23,22 +24,25 @@ namespace Codebase.Infrastructure.Factories
       _audioService = audioService;
     }
 
-    public void CreateRootCanvas()
+    public void CleanUp() =>
+      _assetProvider.CleanUp();
+
+    public async Task CreateRootCanvas()
     {
-      GameObject rootCanvas = _assetProvider.Instantiate(AssetPath.RootCanvas);
+      GameObject rootCanvas = await _assetProvider.Instantiate(AssetsAddress.RootCanvas);
       rootCanvas.GetComponent<InputListener>().enabled = false;
       _rootCanvas = rootCanvas.transform;
     }
 
-    public void CreateMainMenu()
+    public async Task CreateMainMenu()
     {
-      GameObject mainMenu = _assetProvider.Instantiate(AssetPath.MainMenu, _rootCanvas);
+      GameObject mainMenu = await _assetProvider.Instantiate(AssetsAddress.MainMenu, _rootCanvas);
       mainMenu.GetComponent<MainMenu>().Construct(_stateMachine, _audioService);
     }
 
-    public void CreateMainAudioSource()
+    public async Task CreateMainAudioSource()
     {
-      GameObject mainAudioSource = _assetProvider.Instantiate(AssetPath.MainAudioSource);
+      GameObject mainAudioSource = await _assetProvider.Instantiate(AssetsAddress.MainAudioSource);
       _audioService.Register(mainAudioSource.GetComponent<MainAudioSource>());
     }
   }

@@ -1,5 +1,5 @@
-﻿using System;
-using Codebase.Logic;
+﻿using Codebase.Logic;
+using System;
 using UnityEngine;
 
 namespace Codebase.Enemy
@@ -16,6 +16,7 @@ namespace Codebase.Enemy
     private AudioSource _audioSource;
 
     public event Action Changed;
+    public event Action TakenDamage;
 
     public int Current { get; private set; }
     public int Max { get; private set; }
@@ -44,6 +45,7 @@ namespace Codebase.Enemy
 
       Current -= damage;
       Changed?.Invoke();
+      TakenDamage?.Invoke();
     }
 
     private void BleedOut(Vector3 hitPoint)

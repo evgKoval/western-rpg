@@ -43,13 +43,13 @@ namespace Codebase.Infrastructure.States
       _uiFactory = uiFactory;
     }
 
-    public void Enter()
+    public async void Enter()
     {
       _loadingCurtain.Show();
 
       _gameFactory.CleanUp();
       _uiFactory.CleanUp();
-      _gameFactory.WarmUp();
+      await _gameFactory.WarmUp();
 
       _sceneLoader.Load(InitialScene, OnLoaded);
     }

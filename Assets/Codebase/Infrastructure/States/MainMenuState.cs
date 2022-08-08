@@ -1,5 +1,6 @@
 ﻿using Codebase.Infrastructure.Factories;
 using Codebase.Services.Audio;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Codebase.Infrastructure.States
@@ -25,6 +26,8 @@ namespace Codebase.Infrastructure.States
       _audioService.LoadAllSounds();
       _audioService.LoadAllMusic();
 
+      _menuFactory.CleanUp();
+
       _sceneLoader.Load(MainMenuScene, OnLoaded);
     }
 
@@ -32,10 +35,10 @@ namespace Codebase.Infrastructure.States
     {
     }
 
-    private void OnLoaded()
+    private async void OnLoaded()
     {
       ShowDefaultCursor();
-      InitMenu();
+      await InitMenu();
       PlayMenuMusic();
     }
 
@@ -45,11 +48,11 @@ namespace Codebase.Infrastructure.States
       Cursor.lockState = CursorLockMode.None;
     }
 
-    private void InitMenu()
+    private async Task InitMenu()
     {
-      _menuFactory.CreateMainAudioSource();
-      _menuFactory.CreateRootCanvas();
-      _menuFactory.CreateMainMenu();
+      await _menuFactory.CreateMainAudioSource();
+      await _menuFactory.CreateRootCanvas();
+      await _menuFactory.CreateMainMenu();
     }
 
     private void PlayMenuMusic() =>
