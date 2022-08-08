@@ -22,6 +22,7 @@ Third-person shooter with RPG mechanics (in development)
 - Music / sound effects and edit their volume;
 - Editor tools: get scene data, control spawn enemies;
 - Optimization: static and dynamic batching, baking light, occlusion culling, compress textures.
+- Asset bundles & Addressables
 
 ## Used packages (are not included in this repository)
 - [POLYGON Western Frontier - Low Poly 3D Art by Synty](https://assetstore.unity.com/packages/3d/environments/historic/polygon-western-frontier-low-poly-3d-art-by-synty-130564)
